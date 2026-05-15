@@ -1,0 +1,601 @@
+{
+  "name": "red-tide-information",
+  "origin": "voxgig-sdk",
+  "def": "red-tide-information_0.1.0.json",
+  "main": {
+    "kit": {
+      "info": {
+        "contact": {
+          "email": "mailbox@afcd.gov.hk",
+          "name": "Agriculture, Fisheries and Conservation Department",
+          "url": "https://data.gov.hk/en-data/dataset/hk-afcd-afcdlist-red-tide-location"
+        },
+        "description": "This API provides updated information on red tides sighted in Hong Kong waters, including species and location. It facilitates access to datasets for both commercial and non-commercial use, ensuring transparency and availability of essential environmental data.",
+        "license": {
+          "name": "Hong Kong Open Data License",
+          "url": "https://data.gov.hk"
+        },
+        "servers": [
+          {
+            "description": "Hong Kong Government Open Data Portal",
+            "url": "https://data.gov.hk"
+          }
+        ],
+        "title": "Red Tide Information",
+        "version": "1.0.0"
+      },
+      "config": {
+        "auth": {
+          "prefix": "Bearer"
+        },
+        "headers": {
+          "content-type": "application/json"
+        }
+      },
+      "entity": {
+        "english": {
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "name": "date",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "location",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "remark",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "species",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "status",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            }
+          ],
+          "name": "english",
+          "op": {
+            "list": {
+              "name": "list",
+              "points": [
+                {
+                  "args": {
+                    "query": [
+                      {
+                        "example": "json",
+                        "kind": "query",
+                        "name": "format",
+                        "orig": "format",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
+                  "parts": [
+                    "en-data",
+                    "dataset",
+                    "hk-afcd-afcdlist-red-tide-location",
+                    "resource",
+                    "english"
+                  ],
+                  "select": {
+                    "exist": [
+                      "format"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  },
+                  "active": true
+                }
+              ],
+              "input": "data"
+            }
+          },
+          "active": true,
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "simplified_chinese": {
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "name": "date",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "location",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "remark",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "species",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "status",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            }
+          ],
+          "name": "simplified_chinese",
+          "op": {
+            "list": {
+              "name": "list",
+              "points": [
+                {
+                  "args": {
+                    "query": [
+                      {
+                        "example": "json",
+                        "kind": "query",
+                        "name": "format",
+                        "orig": "format",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
+                  "parts": [
+                    "en-data",
+                    "dataset",
+                    "hk-afcd-afcdlist-red-tide-location",
+                    "resource",
+                    "simplified-chinese"
+                  ],
+                  "select": {
+                    "exist": [
+                      "format"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  },
+                  "active": true
+                }
+              ],
+              "input": "data"
+            }
+          },
+          "active": true,
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "traditional_chinese": {
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "name": "date",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "location",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "remark",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "species",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            },
+            {
+              "name": "status",
+              "req": false,
+              "type": "`$STRING`",
+              "active": true
+            }
+          ],
+          "name": "traditional_chinese",
+          "op": {
+            "list": {
+              "name": "list",
+              "points": [
+                {
+                  "args": {
+                    "query": [
+                      {
+                        "example": "json",
+                        "kind": "query",
+                        "name": "format",
+                        "orig": "format",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
+                  "parts": [
+                    "en-data",
+                    "dataset",
+                    "hk-afcd-afcdlist-red-tide-location",
+                    "resource",
+                    "traditional-chinese"
+                  ],
+                  "select": {
+                    "exist": [
+                      "format"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  },
+                  "active": true
+                }
+              ],
+              "input": "data"
+            }
+          },
+          "active": true,
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "test": {
+          "name": "test",
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1",
+          "active": true,
+          "config": {
+            "options": {
+              "active": false
+            }
+          },
+          "hook": {
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            }
+          },
+          "target": {
+            "ts": {
+              "deps": {}
+            },
+            "go": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            }
+          }
+        }
+      },
+      "flow": {
+        "BasicEnglishFlow": {
+          "entity": "english",
+          "kind": "basic",
+          "name": "BasicEnglishFlow",
+          "step": [
+            {
+              "op": "list",
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "english_ref01"
+                  }
+                }
+              ],
+              "active": true,
+              "match": {},
+              "data": {},
+              "input": {},
+              "spec": []
+            }
+          ],
+          "key$": "BasicEnglishFlow",
+          "active": true,
+          "param": {}
+        },
+        "BasicSimplifiedChineseFlow": {
+          "entity": "simplified_chinese",
+          "kind": "basic",
+          "name": "BasicSimplifiedChineseFlow",
+          "step": [
+            {
+              "op": "list",
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "simplified_chinese_ref01"
+                  }
+                }
+              ],
+              "active": true,
+              "match": {},
+              "data": {},
+              "input": {},
+              "spec": []
+            }
+          ],
+          "key$": "BasicSimplifiedChineseFlow",
+          "active": true,
+          "param": {}
+        },
+        "BasicTraditionalChineseFlow": {
+          "entity": "traditional_chinese",
+          "kind": "basic",
+          "name": "BasicTraditionalChineseFlow",
+          "step": [
+            {
+              "op": "list",
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "traditional_chinese_ref01"
+                  }
+                }
+              ],
+              "active": true,
+              "match": {},
+              "data": {},
+              "input": {},
+              "spec": []
+            }
+          ],
+          "key$": "BasicTraditionalChineseFlow",
+          "active": true,
+          "param": {}
+        }
+      },
+      "target": {
+        "ts": {
+          "title": "TypeScript",
+          "ext": "ts",
+          "comment": {
+            "line": "//"
+          },
+          "module": {
+            "name": "red-tide-information"
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "deps": {
+            "dotenv": {
+              "active": true,
+              "version": "^17.4.2",
+              "kind": "dev"
+            },
+            "typescript": {
+              "active": true,
+              "version": "^5.9.3",
+              "kind": "dev"
+            },
+            "@types/node": {
+              "active": true,
+              "version": "^25.6.0",
+              "kind": "dev"
+            }
+          },
+          "name": "ts",
+          "active": true
+        },
+        "go": {
+          "title": "Golang",
+          "ext": "go",
+          "comment": {
+            "line": "//"
+          },
+          "module": {
+            "name": "red-tide-information"
+          },
+          "srcfeature": false,
+          "deps": {
+            "github.com/voxgig/struct": {
+              "active": true,
+              "version": "v0.0.0",
+              "replace": "./utility/struct",
+              "kind": "prod"
+            }
+          },
+          "name": "go",
+          "active": true
+        },
+        "lua": {
+          "title": "Lua",
+          "ext": "lua",
+          "comment": {
+            "line": "--"
+          },
+          "module": {
+            "name": "red-tide-information"
+          },
+          "srcfeature": false,
+          "deps": {
+            "dkjson": {
+              "active": true,
+              "version": "2.5",
+              "kind": "prod"
+            }
+          },
+          "name": "lua",
+          "active": true
+        },
+        "php": {
+          "title": "PHP",
+          "ext": "php",
+          "comment": {
+            "line": "//"
+          },
+          "module": {
+            "name": "red-tide-information"
+          },
+          "srcfeature": false,
+          "deps": {},
+          "name": "php",
+          "active": true
+        },
+        "py": {
+          "title": "Python",
+          "ext": "py",
+          "comment": {
+            "line": "#"
+          },
+          "module": {
+            "name": "red-tide-information"
+          },
+          "srcfeature": false,
+          "deps": {
+            "requests": {
+              "active": true,
+              "version": "2.33",
+              "kind": "prod"
+            }
+          },
+          "name": "py",
+          "active": true
+        },
+        "rb": {
+          "title": "Ruby",
+          "ext": "rb",
+          "comment": {
+            "line": "#"
+          },
+          "module": {
+            "name": "red-tide-information"
+          },
+          "srcfeature": false,
+          "deps": {
+            "voxgig-struct": {
+              "active": true,
+              "version": "0.0.10",
+              "kind": "prod"
+            },
+            "json": {
+              "active": true,
+              "version": "0",
+              "kind": "prod"
+            }
+          },
+          "name": "rb",
+          "active": true
+        }
+      },
+      "option": {}
+    },
+    "def": {
+      "desc": ""
+    },
+    "api": {
+      "guide": {},
+      "entity": {}
+    }
+  },
+  "name__orig": "red-tide-information",
+  "Name": "RedTideInformation",
+  "name_": "red_tide_information",
+  "name-": "red-tide-information",
+  "NAME": "RED-TIDE-INFORMATION"
+}

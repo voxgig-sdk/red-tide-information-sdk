@@ -1,0 +1,319 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Red Tide Information",
+    "description": "This API provides updated information on red tides sighted in Hong Kong waters, including species and location. It facilitates access to datasets for both commercial and non-commercial use, ensuring transparency and availability of essential environmental data.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Agriculture, Fisheries and Conservation Department",
+      "email": "mailbox@afcd.gov.hk",
+      "url": "https://data.gov.hk/en-data/dataset/hk-afcd-afcdlist-red-tide-location"
+    },
+    "license": {
+      "name": "Hong Kong Open Data License",
+      "url": "https://data.gov.hk"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.gov.hk",
+      "description": "Hong Kong Government Open Data Portal"
+    }
+  ],
+  "paths": {
+    "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english": {
+      "get": {
+        "summary": "Get Red Tide Situation (English)",
+        "description": "Retrieves updated information on red tide sightings in Hong Kong waters in English, including species and location details.",
+        "operationId": "getRedTideEnglish",
+        "tags": [
+          "Red Tide Data"
+        ],
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Response format (csv or json)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "csv",
+                "json"
+              ],
+              "default": "json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with red tide information in English",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RedTideResponse"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese": {
+      "get": {
+        "summary": "Get Red Tide Situation (Traditional Chinese)",
+        "description": "Retrieves updated information on red tide sightings in Hong Kong waters in Traditional Chinese, including species and location details.",
+        "operationId": "getRedTideTraditionalChinese",
+        "tags": [
+          "Red Tide Data"
+        ],
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Response format (csv or json)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "csv",
+                "json"
+              ],
+              "default": "json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with red tide information in Traditional Chinese",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RedTideResponse"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese": {
+      "get": {
+        "summary": "Get Red Tide Situation (Simplified Chinese)",
+        "description": "Retrieves updated information on red tide sightings in Hong Kong waters in Simplified Chinese, including species and location details.",
+        "operationId": "getRedTideSimplifiedChinese",
+        "tags": [
+          "Red Tide Data"
+        ],
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Response format (csv or json)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "csv",
+                "json"
+              ],
+              "default": "json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with red tide information in Simplified Chinese",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RedTideResponse"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RedTideResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RedTideRecord"
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          }
+        }
+      },
+      "RedTideRecord": {
+        "type": "object",
+        "description": "Individual red tide sighting record",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the red tide was sighted"
+          },
+          "location": {
+            "type": "string",
+            "description": "Location in Hong Kong waters where the red tide was observed"
+          },
+          "species": {
+            "type": "string",
+            "description": "Species causing the red tide"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the red tide event"
+          },
+          "remarks": {
+            "type": "string",
+            "description": "Additional remarks or observations"
+          }
+        }
+      },
+      "Metadata": {
+        "type": "object",
+        "properties": {
+          "lastUpdated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the last data update"
+          },
+          "updateFrequency": {
+            "type": "string",
+            "description": "Frequency of data updates",
+            "example": "Every Week"
+          },
+          "provider": {
+            "type": "string",
+            "description": "Data provider organization",
+            "example": "Agriculture, Fisheries and Conservation Department"
+          },
+          "category": {
+            "type": "string",
+            "description": "Data category",
+            "example": "Environment"
+          },
+          "recordCount": {
+            "type": "integer",
+            "description": "Total number of records in the response"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          },
+          "details": {
+            "type": "string",
+            "description": "Additional error details"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Red Tide Data",
+      "description": "Operations related to red tide information retrieval in Hong Kong waters"
+    }
+  ],
+  "externalDocs": {
+    "description": "Data Dictionary and Additional Documentation",
+    "url": "https://www.afcd.gov.hk/data/Update_of_Red_Tide_Situation.pdf"
+  }
+}

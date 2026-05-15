@@ -1,0 +1,22 @@
+# BasicSimplifiedChineseFlow
+
+main: kit: flow: BasicSimplifiedChineseFlow:
+{
+  entity: "simplified_chinese",
+  kind: "basic",
+  name: "BasicSimplifiedChineseFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "simplified_chinese_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSimplifiedChineseFlow"
+}

@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "simplified_chinese": {
+      "SIMPLIFIED_CHINESE00": {
+        "date": "s32",
+        "location": "s33",
+        "remark": "s34",
+        "species": "s35",
+        "status": "s36"
+      },
+      "SIMPLIFIED_CHINESE01": {
+        "date": "s64",
+        "location": "s65",
+        "remark": "s66",
+        "species": "s67",
+        "status": "s68"
+      },
+      "SIMPLIFIED_CHINESE02": {
+        "date": "s96",
+        "location": "s97",
+        "remark": "s98",
+        "species": "s99",
+        "status": "s9a"
+      }
+    }
+  },
+  "new": {
+    "simplified_chinese": {
+      "simplified_chinese_ref01": {
+        "date": "sc8",
+        "location": "sc9",
+        "remark": "sca",
+        "species": "scb",
+        "status": "scc"
+      }
+    }
+  }
+}

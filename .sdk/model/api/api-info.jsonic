@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "mailbox@afcd.gov.hk"
+        name: "Agriculture, Fisheries and Conservation Department"
+        url: "https://data.gov.hk/en-data/dataset/hk-afcd-afcdlist-red-tide-location"
+      }
+      description: "This API provides updated information on red tides sighted in Hong Kong waters, including species and location. It facilitates access to datasets for both commercial and non-commercial use, ensuring transparency and availability of essential environmental data."
+      license: {
+        name: "Hong Kong Open Data License"
+        url: "https://data.gov.hk"
+      }
+      servers: [
+        {
+          description: "Hong Kong Government Open Data Portal"
+          url: "https://data.gov.hk"
+        }
+      ]
+      title: "Red Tide Information"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

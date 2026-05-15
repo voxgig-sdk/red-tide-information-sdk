@@ -1,0 +1,26 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: english: {
+    path: "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: simplified_chinese: {
+    path: "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: traditional_chinese: {
+    path: "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese": {
+      op: list: method: *GET
+    }
+  }
+
+}

@@ -1,0 +1,78 @@
+# Entity: english
+
+main: kit: entity: english: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "location"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "remark"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "species"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "english"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "json"
+                kind: "query"
+                name: "format"
+                orig: "format"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english"
+          parts: [
+            "en-data"
+            "dataset"
+            "hk-afcd-afcdlist-red-tide-location"
+            "resource"
+            "english"
+          ]
+          select: {
+            exist: [
+              "format"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
