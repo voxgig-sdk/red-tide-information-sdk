@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/red-tide-information-sdk"
-	"github.com/voxgig-sdk/red-tide-information-sdk/core"
+	sdk "github.com/voxgig-sdk/red-tide-information-sdk/go"
+	"github.com/voxgig-sdk/red-tide-information-sdk/go/core"
 )
 
 func TestEnglishDirect(t *testing.T) {

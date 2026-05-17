@@ -1,10 +1,10 @@
 package voxgigredtideinformationsdk
 
 import (
-	"github.com/voxgig-sdk/red-tide-information-sdk/core"
-	"github.com/voxgig-sdk/red-tide-information-sdk/entity"
-	"github.com/voxgig-sdk/red-tide-information-sdk/feature"
-	_ "github.com/voxgig-sdk/red-tide-information-sdk/utility"
+	"github.com/voxgig-sdk/red-tide-information-sdk/go/core"
+	"github.com/voxgig-sdk/red-tide-information-sdk/go/entity"
+	"github.com/voxgig-sdk/red-tide-information-sdk/go/feature"
+	_ "github.com/voxgig-sdk/red-tide-information-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

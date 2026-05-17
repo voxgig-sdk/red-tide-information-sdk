@@ -1,9 +1,9 @@
 package utility
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/red-tide-information-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/red-tide-information-sdk/core"
+	"github.com/voxgig-sdk/red-tide-information-sdk/go/core"
 )
 
 func featureInitUtil(ctx *core.Context, f core.Feature) {

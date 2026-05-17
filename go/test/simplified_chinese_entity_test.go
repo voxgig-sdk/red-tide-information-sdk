@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/red-tide-information-sdk"
-	"github.com/voxgig-sdk/red-tide-information-sdk/core"
+	sdk "github.com/voxgig-sdk/red-tide-information-sdk/go"
+	"github.com/voxgig-sdk/red-tide-information-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/red-tide-information-sdk/go/utility/struct"
 )
 
 func TestSimplifiedChineseEntity(t *testing.T) {
