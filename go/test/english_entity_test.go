@@ -119,7 +119,6 @@ func englishBasicSetup(extra map[string]any) *entityTestSetup {
 		"REDTIDEINFORMATION_TEST_ENGLISH_ENTID": idmap,
 		"REDTIDEINFORMATION_TEST_LIVE":      "FALSE",
 		"REDTIDEINFORMATION_TEST_EXPLAIN":   "FALSE",
-		"REDTIDEINFORMATION_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["REDTIDEINFORMATION_TEST_ENGLISH_ENTID"])
@@ -130,7 +129,6 @@ func englishBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["REDTIDEINFORMATION_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["REDTIDEINFORMATION_APIKEY"],
 			},
 			extra,
 		})
