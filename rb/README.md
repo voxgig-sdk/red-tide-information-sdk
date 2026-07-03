@@ -10,13 +10,13 @@ The Ruby SDK for the RedTideInformation API — an entity-oriented client using 
 
 ## Install
 ```bash
-gem install red-tide-information-sdk
+gem install voxgig-sdk-red-tide-information
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "red-tide-information-sdk"
+gem "voxgig-sdk-red-tide-information"
 ```
 
 Then run:

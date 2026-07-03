@@ -8,12 +8,14 @@ source = {
   dir = "red-tide-information-sdk/lua"
 }
 description = {
-  summary = "RedTideInformation SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Red Tide Information public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/red-tide-information-sdk",
+  issues_url = "https://github.com/voxgig-sdk/red-tide-information-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "red-tide-information" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

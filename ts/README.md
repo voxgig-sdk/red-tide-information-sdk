@@ -10,7 +10,7 @@ The TypeScript SDK for the RedTideInformation API — a type-safe, entity-orient
 
 ## Install
 ```bash
-npm install red-tide-information
+npm install @voxgig-sdk/red-tide-information
 ```
 ## Tutorial: your first API call
 

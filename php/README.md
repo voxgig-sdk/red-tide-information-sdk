@@ -10,7 +10,7 @@ The PHP SDK for the RedTideInformation API — an entity-oriented client using P
 
 ## Install
 ```bash
-composer require voxgig/red-tide-information-sdk
+composer require voxgig-sdk/red-tide-information
 ```
 
 

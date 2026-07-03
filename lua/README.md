@@ -10,7 +10,7 @@ The Lua SDK for the RedTideInformation API — an entity-oriented client using L
 
 ## Install
 ```bash
-luarocks install red-tide-information-sdk
+luarocks install voxgig-sdk-red-tide-information
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The Python SDK for the RedTideInformation API — an entity-oriented client foll
 
 ## Install
 ```bash
-pip install red-tide-information-sdk
+pip install voxgig-sdk-red-tide-information
 ```
 
 Or install from source:
