@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'RED_TIDE_INFORMATION_TEST_SIMPLIFIED_CHINESE_ENTID': idmap,
     'RED_TIDE_INFORMATION_TEST_LIVE': 'FALSE',
     'RED_TIDE_INFORMATION_TEST_EXPLAIN': 'FALSE',
+    'RED_TIDE_INFORMATION_APIKEY': 'NONE',
   })
 
   idmap = env['RED_TIDE_INFORMATION_TEST_SIMPLIFIED_CHINESE_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new RedTideInformationSDK(merge([
       {
+        apikey: env.RED_TIDE_INFORMATION_APIKEY,
       },
       extra
     ]))

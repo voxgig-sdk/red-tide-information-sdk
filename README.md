@@ -1,20 +1,8 @@
 # RedTideInformation SDK
 
-Current red tide sightings in Hong Kong waters with species and location, in English and Chinese
+Red Tide Information client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Red Tide Information
-
-Red Tide Information publishes current red tide sightings in Hong Kong waters. The dataset is produced by the [Agriculture, Fisheries and Conservation Department (AFCD)](https://redtide.afcd.gov.hk/) and distributed through Hong Kong's [open data portal](https://data.gov.hk).
-
-What you get from the API:
-
-- Reported red tide sightings, including the species observed and the location of the sighting
-- The same payload in three language variants: English, Traditional Chinese, and Simplified Chinese
-- Static JSON files served over HTTPS from `redtide.afcd.gov.hk`
-
-Operational notes: the endpoints are plain GET requests with no authentication. CORS is not enabled on the upstream JSON files, so browser-side use generally requires a proxy. Data is refreshed by AFCD as new sightings are recorded.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install red-tide-information-sdk
 luarocks install red-tide-information-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { RedTideInformationSDK } from 'red-tide-information'
 
-const client = new RedTideInformationSDK({})
+const client = new RedTideInformationSDK({
+  apikey: process.env.RED-TIDE-INFORMATION_APIKEY,
+})
 
 // List all englishs
 const englishs = await client.English().list()
+console.log(englishs.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,9 +90,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **English** | English-language red tide sighting records, served from `/data/RTMS_ob_RTLE.json`. | `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english` |
-| **SimplifiedChinese** | Simplified Chinese red tide sighting records, served from `/data/RTMS_ob_RTLS.json`. | `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese` |
-| **TraditionalChinese** | Traditional Chinese red tide sighting records, served from `/data/RTMS_ob_RTLC.json`. | `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese` |
+| **English** |  | `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english` |
+| **SimplifiedChinese** |  | `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese` |
+| **TraditionalChinese** |  | `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +102,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from redtideinformation_sdk import RedTideInformationSDK
 
-client = RedTideInformationSDK({})
+client = RedTideInformationSDK({
+    "apikey": os.environ.get("RED-TIDE-INFORMATION_APIKEY"),
+})
 
 # List all englishs
-englishs, err = client.English(None).list(None, None)
+englishs, err = client.English().list()
+print(englishs)
 ```
 
 ### PHP
@@ -126,10 +120,13 @@ englishs, err = client.English(None).list(None, None)
 <?php
 require_once 'redtideinformation_sdk.php';
 
-$client = new RedTideInformationSDK([]);
+$client = new RedTideInformationSDK([
+    "apikey" => getenv("RED-TIDE-INFORMATION_APIKEY"),
+]);
 
 // List all englishs
-[$englishs, $err] = $client->English(null)->list(null, null);
+[$englishs, $err] = $client->English()->list();
+print_r($englishs);
 ```
 
 ### Golang
@@ -137,10 +134,13 @@ $client = new RedTideInformationSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/red-tide-information-sdk/go"
 
-client := sdk.NewRedTideInformationSDK(map[string]any{})
+client := sdk.NewRedTideInformationSDK(map[string]any{
+    "apikey": os.Getenv("RED-TIDE-INFORMATION_APIKEY"),
+})
 
 // List all englishs
 englishs, err := client.English(nil).List(nil, nil)
+fmt.Println(englishs)
 ```
 
 ### Ruby
@@ -148,10 +148,13 @@ englishs, err := client.English(nil).List(nil, nil)
 ```ruby
 require_relative "RedTideInformation_sdk"
 
-client = RedTideInformationSDK.new({})
+client = RedTideInformationSDK.new({
+  "apikey" => ENV["RED-TIDE-INFORMATION_APIKEY"],
+})
 
 # List all englishs
-englishs, err = client.English(nil).list(nil, nil)
+englishs, err = client.English().list
+puts englishs
 ```
 
 ### Lua
@@ -159,10 +162,13 @@ englishs, err = client.English(nil).list(nil, nil)
 ```lua
 local sdk = require("red-tide-information_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("RED-TIDE-INFORMATION_APIKEY"),
+})
 
 -- List all englishs
-local englishs, err = client:English(nil):list(nil, nil)
+local englishs, err = client:English():list()
+print(englishs)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +187,21 @@ const result = await client.English().load({ id: 'test01' })
 ### Python
 
 ```python
-client = RedTideInformationSDK.test(None, None)
-result, err = client.English(None).load(
-    {"id": "test01"}, None
-)
+client = RedTideInformationSDK.test()
+result, err = client.English().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = RedTideInformationSDK::test(null, null);
-[$result, $err] = $client->English(null)->load(
-    ["id" => "test01"], null
-);
+$client = RedTideInformationSDK::test();
+[$result, $err] = $client->English()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.English(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +210,15 @@ result, err := client.English(nil).Load(
 ### Ruby
 
 ```ruby
-client = RedTideInformationSDK.test(nil, nil)
-result, err = client.English(nil).load(
-  { "id" => "test01" }, nil
-)
+client = RedTideInformationSDK.test
+result, err = client.English().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:English(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:English():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,16 +322,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Red Tide Information
-
-- Upstream: [https://redtide.afcd.gov.hk/](https://redtide.afcd.gov.hk/)
-- API docs: [https://data.gov.hk/en-data/dataset/hk-afcd-marinfo-red-tide](https://data.gov.hk/en-data/dataset/hk-afcd-marinfo-red-tide)
-
-- Distributed under the Hong Kong Open Data Licence via data.gov.hk
-- Free to use for commercial and non-commercial purposes
-- Attribution to the data provider (Agriculture, Fisheries and Conservation Department) is expected
-- Refer to data.gov.hk terms for the authoritative licence text
 
 ---
 

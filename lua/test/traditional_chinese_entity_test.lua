@@ -92,6 +92,7 @@ function traditional_chinese_basic_setup(extra)
     ["REDTIDEINFORMATION_TEST_TRADITIONAL_CHINESE_ENTID"] = idmap,
     ["REDTIDEINFORMATION_TEST_LIVE"] = "FALSE",
     ["REDTIDEINFORMATION_TEST_EXPLAIN"] = "FALSE",
+    ["REDTIDEINFORMATION_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,6 +104,7 @@ function traditional_chinese_basic_setup(extra)
   if env["REDTIDEINFORMATION_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["REDTIDEINFORMATION_APIKEY"],
       },
       extra or {},
     })

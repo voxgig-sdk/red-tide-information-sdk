@@ -20,6 +20,9 @@ class RedTideInformationConfig
             ],
             "options" => [
                 "base" => "https://data.gov.hk",
+                "auth" => [
+                    "prefix" => "Bearer",
+                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -33,57 +36,59 @@ class RedTideInformationConfig
         'english' => [
           'fields' => [
             [
+              'active' => true,
               'name' => 'date',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 0,
             ],
             [
+              'active' => true,
               'name' => 'location',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 1,
             ],
             [
+              'active' => true,
               'name' => 'remark',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 2,
             ],
             [
+              'active' => true,
               'name' => 'species',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 3,
             ],
             [
+              'active' => true,
               'name' => 'status',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 4,
             ],
           ],
           'name' => 'english',
           'op' => [
             'list' => [
+              'input' => 'data',
               'name' => 'list',
               'points' => [
                 [
+                  'active' => true,
                   'args' => [
                     'query' => [
                       [
+                        'active' => true,
                         'example' => 'json',
                         'kind' => 'query',
                         'name' => 'format',
                         'orig' => 'format',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                     ],
                   ],
@@ -105,11 +110,9 @@ class RedTideInformationConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'list',
             ],
           ],
@@ -120,57 +123,59 @@ class RedTideInformationConfig
         'simplified_chinese' => [
           'fields' => [
             [
+              'active' => true,
               'name' => 'date',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 0,
             ],
             [
+              'active' => true,
               'name' => 'location',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 1,
             ],
             [
+              'active' => true,
               'name' => 'remark',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 2,
             ],
             [
+              'active' => true,
               'name' => 'species',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 3,
             ],
             [
+              'active' => true,
               'name' => 'status',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 4,
             ],
           ],
           'name' => 'simplified_chinese',
           'op' => [
             'list' => [
+              'input' => 'data',
               'name' => 'list',
               'points' => [
                 [
+                  'active' => true,
                   'args' => [
                     'query' => [
                       [
+                        'active' => true,
                         'example' => 'json',
                         'kind' => 'query',
                         'name' => 'format',
                         'orig' => 'format',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                     ],
                   ],
@@ -192,11 +197,9 @@ class RedTideInformationConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'list',
             ],
           ],
@@ -207,57 +210,59 @@ class RedTideInformationConfig
         'traditional_chinese' => [
           'fields' => [
             [
+              'active' => true,
               'name' => 'date',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 0,
             ],
             [
+              'active' => true,
               'name' => 'location',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 1,
             ],
             [
+              'active' => true,
               'name' => 'remark',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 2,
             ],
             [
+              'active' => true,
               'name' => 'species',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 3,
             ],
             [
+              'active' => true,
               'name' => 'status',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 4,
             ],
           ],
           'name' => 'traditional_chinese',
           'op' => [
             'list' => [
+              'input' => 'data',
               'name' => 'list',
               'points' => [
                 [
+                  'active' => true,
                   'args' => [
                     'query' => [
                       [
+                        'active' => true,
                         'example' => 'json',
                         'kind' => 'query',
                         'name' => 'format',
                         'orig' => 'format',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                     ],
                   ],
@@ -279,11 +284,9 @@ class RedTideInformationConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'list',
             ],
           ],

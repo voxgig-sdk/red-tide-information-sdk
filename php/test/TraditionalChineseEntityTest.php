@@ -86,6 +86,7 @@ function traditional_chinese_basic_setup($extra)
         "REDTIDEINFORMATION_TEST_TRADITIONAL_CHINESE_ENTID" => $idmap,
         "REDTIDEINFORMATION_TEST_LIVE" => "FALSE",
         "REDTIDEINFORMATION_TEST_EXPLAIN" => "FALSE",
+        "REDTIDEINFORMATION_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,6 +98,7 @@ function traditional_chinese_basic_setup($extra)
     if ($env["REDTIDEINFORMATION_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["REDTIDEINFORMATION_APIKEY"],
             ],
             $extra ?? [],
         ]);

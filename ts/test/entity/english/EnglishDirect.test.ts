@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'REDTIDEINFORMATION_TEST_ENGLISH_ENTID': {},
     'REDTIDEINFORMATION_TEST_LIVE': 'FALSE',
+    'REDTIDEINFORMATION_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.REDTIDEINFORMATION_TEST_LIVE
 
   if (live) {
     const client = new RedTideInformationSDK({
+      apikey: env.REDTIDEINFORMATION_APIKEY,
     })
 
     let idmap: any = env['REDTIDEINFORMATION_TEST_ENGLISH_ENTID']

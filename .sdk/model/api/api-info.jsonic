@@ -22,29 +22,7 @@ main: {
       ]
       title: "Red Tide Information"
       version: "1.0.0"
-      tagline: "Current red tide sightings in Hong Kong waters with species and location, in English and Chinese"
-      homepage: "https://redtide.afcd.gov.hk/"
-      docs_url: "https://data.gov.hk/en-data/dataset/hk-afcd-marinfo-red-tide"
-      license_short: "Hong Kong Open Data Licence; free for commercial and non-commercial use with attribution."
-      license_md: `- Distributed under the Hong Kong Open Data Licence via data.gov.hk
-- Free to use for commercial and non-commercial purposes
-- Attribution to the data provider (Agriculture, Fisheries and Conservation Department) is expected
-- Refer to data.gov.hk terms for the authoritative licence text`
-      about_md: `Red Tide Information publishes current red tide sightings in Hong Kong waters. The dataset is produced by the [Agriculture, Fisheries and Conservation Department (AFCD)](https://redtide.afcd.gov.hk/) and distributed through Hong Kong's [open data portal](https://data.gov.hk).
-
-What you get from the API:
-
-- Reported red tide sightings, including the species observed and the location of the sighting
-- The same payload in three language variants: English, Traditional Chinese, and Simplified Chinese
-- Static JSON files served over HTTPS from \`redtide.afcd.gov.hk\`
-
-Operational notes: the endpoints are plain GET requests with no authentication. CORS is not enabled on the upstream JSON files, so browser-side use generally requires a proxy. Data is refreshed by AFCD as new sightings are recorded.`
-      entity_desc: {
-        english: "English-language red tide sighting records, served from `/data/RTMS_ob_RTLE.json`."
-        simplified_chinese: "Simplified Chinese red tide sighting records, served from `/data/RTMS_ob_RTLS.json`."
-        traditional_chinese: "Traditional Chinese red tide sighting records, served from `/data/RTMS_ob_RTLC.json`."
-      }
-      auth: false
     }
   }
 }
+

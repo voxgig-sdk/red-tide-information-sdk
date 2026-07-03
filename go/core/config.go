@@ -14,6 +14,9 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://data.gov.hk",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -27,57 +30,59 @@ func MakeConfig() map[string]any {
 			"english": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "date",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "location",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "remark",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "species",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 3,
 					},
 					map[string]any{
+						"active": true,
 						"name": "status",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 4,
 					},
 				},
 				"name": "english",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": "json",
 											"kind": "query",
 											"name": "format",
 											"orig": "format",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -99,11 +104,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},
@@ -114,57 +117,59 @@ func MakeConfig() map[string]any {
 			"simplified_chinese": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "date",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "location",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "remark",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "species",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 3,
 					},
 					map[string]any{
+						"active": true,
 						"name": "status",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 4,
 					},
 				},
 				"name": "simplified_chinese",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": "json",
 											"kind": "query",
 											"name": "format",
 											"orig": "format",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -186,11 +191,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},
@@ -201,57 +204,59 @@ func MakeConfig() map[string]any {
 			"traditional_chinese": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "date",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "location",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "remark",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "species",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 3,
 					},
 					map[string]any{
+						"active": true,
 						"name": "status",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 4,
 					},
 				},
 				"name": "traditional_chinese",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": "json",
 											"kind": "query",
 											"name": "format",
 											"orig": "format",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -273,11 +278,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},

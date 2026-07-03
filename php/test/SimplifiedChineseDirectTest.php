@@ -68,12 +68,14 @@ function simplified_chinese_direct_setup($mockres)
     $env = Runner::env_override([
         "REDTIDEINFORMATION_TEST_SIMPLIFIED_CHINESE_ENTID" => [],
         "REDTIDEINFORMATION_TEST_LIVE" => "FALSE",
+        "REDTIDEINFORMATION_APIKEY" => "NONE",
     ]);
 
     $live = $env["REDTIDEINFORMATION_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["REDTIDEINFORMATION_APIKEY"],
         ];
         $client = new RedTideInformationSDK($merged_opts);
         return [

@@ -83,6 +83,7 @@ def english_basic_setup(extra)
     "REDTIDEINFORMATION_TEST_ENGLISH_ENTID" => idmap,
     "REDTIDEINFORMATION_TEST_LIVE" => "FALSE",
     "REDTIDEINFORMATION_TEST_EXPLAIN" => "FALSE",
+    "REDTIDEINFORMATION_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,6 +95,7 @@ def english_basic_setup(extra)
   if env["REDTIDEINFORMATION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["REDTIDEINFORMATION_APIKEY"],
       },
       extra || {},
     ])

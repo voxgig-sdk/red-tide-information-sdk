@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://data.gov.hk",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -28,57 +31,59 @@ def make_config():
       "english": {
         "fields": [
           {
+            "active": True,
             "name": "date",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "location",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "remark",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "species",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "status",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 4,
           },
         ],
         "name": "english",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "example": "json",
                       "kind": "query",
                       "name": "format",
                       "orig": "format",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -100,11 +105,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },
@@ -115,57 +118,59 @@ def make_config():
       "simplified_chinese": {
         "fields": [
           {
+            "active": True,
             "name": "date",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "location",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "remark",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "species",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "status",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 4,
           },
         ],
         "name": "simplified_chinese",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "example": "json",
                       "kind": "query",
                       "name": "format",
                       "orig": "format",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -187,11 +192,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },
@@ -202,57 +205,59 @@ def make_config():
       "traditional_chinese": {
         "fields": [
           {
+            "active": True,
             "name": "date",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "location",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "remark",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "species",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "status",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 4,
           },
         ],
         "name": "traditional_chinese",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "example": "json",
                       "kind": "query",
                       "name": "format",
                       "orig": "format",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -274,11 +279,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },

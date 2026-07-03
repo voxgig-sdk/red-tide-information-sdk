@@ -62,12 +62,14 @@ def english_direct_setup(mockres)
   env = Runner.env_override({
     "REDTIDEINFORMATION_TEST_ENGLISH_ENTID" => {},
     "REDTIDEINFORMATION_TEST_LIVE" => "FALSE",
+    "REDTIDEINFORMATION_APIKEY" => "NONE",
   })
 
   live = env["REDTIDEINFORMATION_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["REDTIDEINFORMATION_APIKEY"],
     }
     client = RedTideInformationSDK.new(merged_opts)
     return {
