@@ -4,6 +4,8 @@ import { EnglishEntity } from './entity/EnglishEntity'
 import { SimplifiedChineseEntity } from './entity/SimplifiedChineseEntity'
 import { TraditionalChineseEntity } from './entity/TraditionalChineseEntity'
 
+export type * from './RedTideInformationTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -204,18 +206,42 @@ class RedTideInformationSDK {
 
 
 
+  _english?: EnglishEntity
+
+  // Idiomatic facade: `client.english.list()` / `client.english.load({ id })`.
+  get english(): EnglishEntity {
+    return (this._english ??= new EnglishEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.english` instead. */
   English(data?: any) {
     const self = this
     return new EnglishEntity(self,data)
   }
 
 
+  _simplified_chinese?: SimplifiedChineseEntity
+
+  // Idiomatic facade: `client.simplified_chinese.list()` / `client.simplified_chinese.load({ id })`.
+  get simplified_chinese(): SimplifiedChineseEntity {
+    return (this._simplified_chinese ??= new SimplifiedChineseEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.simplified_chinese` instead. */
   SimplifiedChinese(data?: any) {
     const self = this
     return new SimplifiedChineseEntity(self,data)
   }
 
 
+  _traditional_chinese?: TraditionalChineseEntity
+
+  // Idiomatic facade: `client.traditional_chinese.list()` / `client.traditional_chinese.load({ id })`.
+  get traditional_chinese(): TraditionalChineseEntity {
+    return (this._traditional_chinese ??= new TraditionalChineseEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.traditional_chinese` instead. */
   TraditionalChinese(data?: any) {
     const self = this
     return new TraditionalChineseEntity(self,data)

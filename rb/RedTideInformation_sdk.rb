@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'RedTideInformation_types'
+
 
 class RedTideInformationSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class RedTideInformationSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class RedTideInformationSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue RedTideInformationError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = RedTideInformationHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class RedTideInformationSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,28 +198,49 @@ class RedTideInformationSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.english.list / client.english.load({ "id" => ... })
+  def english
+    require_relative 'entity/english_entity'
+    @english ||= EnglishEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.english instead.
   def English(data = nil)
     require_relative 'entity/english_entity'
     EnglishEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.simplified_chinese.list / client.simplified_chinese.load({ "id" => ... })
+  def simplified_chinese
+    require_relative 'entity/simplified_chinese_entity'
+    @simplified_chinese ||= SimplifiedChineseEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.simplified_chinese instead.
   def SimplifiedChinese(data = nil)
     require_relative 'entity/simplified_chinese_entity'
     SimplifiedChineseEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.traditional_chinese.list / client.traditional_chinese.load({ "id" => ... })
+  def traditional_chinese
+    require_relative 'entity/traditional_chinese_entity'
+    @traditional_chinese ||= TraditionalChineseEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.traditional_chinese instead.
   def TraditionalChinese(data = nil)
     require_relative 'entity/traditional_chinese_entity'
     TraditionalChineseEntity.new(self, data)

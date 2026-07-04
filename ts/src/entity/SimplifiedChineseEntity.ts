@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  SimplifiedChinese,
+  SimplifiedChineseListMatch,
+} from '../RedTideInformationTypes'
 
 // TODO: needs Entity superclass
-class SimplifiedChineseEntity extends RedTideInformationEntityBase {
+class SimplifiedChineseEntity extends RedTideInformationEntityBase<SimplifiedChinese> {
 
   constructor(client: RedTideInformationSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class SimplifiedChineseEntity extends RedTideInformationEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: SimplifiedChineseListMatch, ctrl?: Control): Promise<SimplifiedChinese[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class SimplifiedChineseEntity extends RedTideInformationEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<SimplifiedChinese[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

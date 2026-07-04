@@ -50,8 +50,7 @@ class TestTraditionalChineseEntity:
         traditional_chinese_ref01_ent = client.TraditionalChinese(None)
         traditional_chinese_ref01_match = {}
 
-        traditional_chinese_ref01_list_result, err = traditional_chinese_ref01_ent.list(traditional_chinese_ref01_match, None)
-        assert err is None
+        traditional_chinese_ref01_list_result = traditional_chinese_ref01_ent.list(traditional_chinese_ref01_match, None)
         assert isinstance(traditional_chinese_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _traditional_chinese_basic_setup(extra):
         "REDTIDEINFORMATION_TEST_TRADITIONAL_CHINESE_ENTID": idmap,
         "REDTIDEINFORMATION_TEST_LIVE": "FALSE",
         "REDTIDEINFORMATION_TEST_EXPLAIN": "FALSE",
-        "REDTIDEINFORMATION_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _traditional_chinese_basic_setup(extra):
     if env.get("REDTIDEINFORMATION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("REDTIDEINFORMATION_APIKEY"),
             },
             extra or {},
         ])

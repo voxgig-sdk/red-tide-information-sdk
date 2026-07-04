@@ -20,9 +20,6 @@ class RedTideInformationConfig
             ],
             "options" => [
                 "base" => "https://data.gov.hk",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

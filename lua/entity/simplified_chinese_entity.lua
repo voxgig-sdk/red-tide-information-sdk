@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch SimplifiedChineseListMatch
+---@param ctrl? table
+---@return SimplifiedChinese[]
+---@return string? err
 function SimplifiedChineseEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -93,14 +93,12 @@ func englishDirectSetup(mockres any) *englishDirectSetupResult {
 	env := envOverride(map[string]any{
 		"REDTIDEINFORMATION_TEST_ENGLISH_ENTID": map[string]any{},
 		"REDTIDEINFORMATION_TEST_LIVE":    "FALSE",
-		"REDTIDEINFORMATION_APIKEY":       "NONE",
 	})
 
 	live := env["REDTIDEINFORMATION_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["REDTIDEINFORMATION_APIKEY"],
 		}
 		client := sdk.NewRedTideInformationSDK(mergedOpts)
 

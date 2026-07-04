@@ -50,8 +50,7 @@ class TestEnglishEntity:
         english_ref01_ent = client.English(None)
         english_ref01_match = {}
 
-        english_ref01_list_result, err = english_ref01_ent.list(english_ref01_match, None)
-        assert err is None
+        english_ref01_list_result = english_ref01_ent.list(english_ref01_match, None)
         assert isinstance(english_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _english_basic_setup(extra):
         "REDTIDEINFORMATION_TEST_ENGLISH_ENTID": idmap,
         "REDTIDEINFORMATION_TEST_LIVE": "FALSE",
         "REDTIDEINFORMATION_TEST_EXPLAIN": "FALSE",
-        "REDTIDEINFORMATION_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _english_basic_setup(extra):
     if env.get("REDTIDEINFORMATION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("REDTIDEINFORMATION_APIKEY"),
             },
             extra or {},
         ])

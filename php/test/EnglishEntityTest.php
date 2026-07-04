@@ -50,8 +50,7 @@ class EnglishEntityTest extends TestCase
         $english_ref01_ent = $client->English(null);
         $english_ref01_match = [];
 
-        [$english_ref01_list_result, $err] = $english_ref01_ent->list($english_ref01_match, null);
-        $this->assertNull($err);
+        $english_ref01_list_result = $english_ref01_ent->list($english_ref01_match, null);
         $this->assertIsArray($english_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function english_basic_setup($extra)
         "REDTIDEINFORMATION_TEST_ENGLISH_ENTID" => $idmap,
         "REDTIDEINFORMATION_TEST_LIVE" => "FALSE",
         "REDTIDEINFORMATION_TEST_EXPLAIN" => "FALSE",
-        "REDTIDEINFORMATION_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function english_basic_setup($extra)
     if ($env["REDTIDEINFORMATION_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["REDTIDEINFORMATION_APIKEY"],
             ],
             $extra ?? [],
         ]);

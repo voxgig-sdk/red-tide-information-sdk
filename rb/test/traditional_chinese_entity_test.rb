@@ -43,8 +43,7 @@ class TraditionalChineseEntityTest < Minitest::Test
     traditional_chinese_ref01_ent = client.TraditionalChinese(nil)
     traditional_chinese_ref01_match = {}
 
-    traditional_chinese_ref01_list_result, err = traditional_chinese_ref01_ent.list(traditional_chinese_ref01_match, nil)
-    assert_nil err
+    traditional_chinese_ref01_list_result = traditional_chinese_ref01_ent.list(traditional_chinese_ref01_match, nil)
     assert traditional_chinese_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def traditional_chinese_basic_setup(extra)
     "REDTIDEINFORMATION_TEST_TRADITIONAL_CHINESE_ENTID" => idmap,
     "REDTIDEINFORMATION_TEST_LIVE" => "FALSE",
     "REDTIDEINFORMATION_TEST_EXPLAIN" => "FALSE",
-    "REDTIDEINFORMATION_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def traditional_chinese_basic_setup(extra)
   if env["REDTIDEINFORMATION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["REDTIDEINFORMATION_APIKEY"],
       },
       extra || {},
     ])

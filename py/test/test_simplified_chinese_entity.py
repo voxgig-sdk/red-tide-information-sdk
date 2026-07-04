@@ -50,8 +50,7 @@ class TestSimplifiedChineseEntity:
         simplified_chinese_ref01_ent = client.SimplifiedChinese(None)
         simplified_chinese_ref01_match = {}
 
-        simplified_chinese_ref01_list_result, err = simplified_chinese_ref01_ent.list(simplified_chinese_ref01_match, None)
-        assert err is None
+        simplified_chinese_ref01_list_result = simplified_chinese_ref01_ent.list(simplified_chinese_ref01_match, None)
         assert isinstance(simplified_chinese_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _simplified_chinese_basic_setup(extra):
         "REDTIDEINFORMATION_TEST_SIMPLIFIED_CHINESE_ENTID": idmap,
         "REDTIDEINFORMATION_TEST_LIVE": "FALSE",
         "REDTIDEINFORMATION_TEST_EXPLAIN": "FALSE",
-        "REDTIDEINFORMATION_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _simplified_chinese_basic_setup(extra):
     if env.get("REDTIDEINFORMATION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("REDTIDEINFORMATION_APIKEY"),
             },
             extra or {},
         ])

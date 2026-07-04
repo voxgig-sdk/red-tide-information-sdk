@@ -43,8 +43,7 @@ class SimplifiedChineseEntityTest < Minitest::Test
     simplified_chinese_ref01_ent = client.SimplifiedChinese(nil)
     simplified_chinese_ref01_match = {}
 
-    simplified_chinese_ref01_list_result, err = simplified_chinese_ref01_ent.list(simplified_chinese_ref01_match, nil)
-    assert_nil err
+    simplified_chinese_ref01_list_result = simplified_chinese_ref01_ent.list(simplified_chinese_ref01_match, nil)
     assert simplified_chinese_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def simplified_chinese_basic_setup(extra)
     "REDTIDEINFORMATION_TEST_SIMPLIFIED_CHINESE_ENTID" => idmap,
     "REDTIDEINFORMATION_TEST_LIVE" => "FALSE",
     "REDTIDEINFORMATION_TEST_EXPLAIN" => "FALSE",
-    "REDTIDEINFORMATION_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def simplified_chinese_basic_setup(extra)
   if env["REDTIDEINFORMATION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["REDTIDEINFORMATION_APIKEY"],
       },
       extra || {},
     ])

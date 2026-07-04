@@ -45,6 +45,7 @@ class EnglishEntity
     end
   end
 
+  # @return [English, Hash] the current English data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class EnglishEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of English fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class EnglishEntity
   
 
   
+  # List English items matching the given filter.
+  #
+  # @param reqmatch [EnglishListMatch, Hash, nil] match filter (any subset of English fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<English>, Array] the matching English items; raises RedTideInformationError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

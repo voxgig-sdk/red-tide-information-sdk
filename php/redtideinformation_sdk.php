@@ -103,7 +103,7 @@ class RedTideInformationSDK
         return $this->_rootctx;
     }
 
-    public function prepare(array $fetchargs = []): array
+    public function prepare(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
         $fetchargs = $fetchargs ?? [];
@@ -149,19 +149,27 @@ class RedTideInformationSDK
 
         [$_, $err] = ($utility->prepare_auth)($ctx);
         if ($err) {
-            return [null, $err];
+            return ($utility->make_error)($ctx, $err);
         }
 
-        return ($utility->make_fetch_def)($ctx);
+        [$fetchdef, $fd_err] = ($utility->make_fetch_def)($ctx);
+        if ($fd_err) {
+            return ($utility->make_error)($ctx, $fd_err);
+        }
+        return $fetchdef;
     }
 
-    public function direct(array $fetchargs = []): array
+    public function direct(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
 
-        [$fetchdef, $err] = $this->prepare($fetchargs);
-        if ($err) {
-            return [["ok" => false, "err" => $err], null];
+        // direct() is the raw-HTTP escape hatch: it never throws, it returns
+        // an {ok, err, ...} dict. prepare() now raises on error, so catch it
+        // and surface the failure through the dict instead.
+        try {
+            $fetchdef = $this->prepare($fetchargs);
+        } catch (\Throwable $err) {
+            return ["ok" => false, "err" => $err];
         }
 
         $fetchargs = $fetchargs ?? [];
@@ -176,14 +184,14 @@ class RedTideInformationSDK
         [$fetched, $fetch_err] = ($utility->fetcher)($ctx, $url, $fetchdef);
 
         if ($fetch_err) {
-            return [["ok" => false, "err" => $fetch_err], null];
+            return ["ok" => false, "err" => $fetch_err];
         }
 
         if ($fetched === null) {
-            return [[
+            return [
                 "ok" => false,
                 "err" => $ctx->make_error("direct_no_response", "response: undefined"),
-            ], null];
+            ];
         }
 
         if (is_array($fetched)) {
@@ -208,38 +216,71 @@ class RedTideInformationSDK
                 }
             }
 
-            return [[
+            return [
                 "ok" => $status >= 200 && $status < 300,
                 "status" => $status,
                 "headers" => Struct::getprop($fetched, "headers"),
                 "data" => $json_data,
-            ], null];
+            ];
         }
 
-        return [[
+        return [
             "ok" => false,
             "err" => $ctx->make_error("direct_invalid", "invalid response type"),
-        ], null];
+        ];
     }
 
 
-    public function English($data = null)
+    private $_english = null;
+
+    // Idiomatic facade: $client->english()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias English() (PHP method
+    // names are case-insensitive).
+    public function english($data = null)
     {
         require_once __DIR__ . '/entity/english_entity.php';
+        if ($data === null) {
+            if ($this->_english === null) {
+                $this->_english = new EnglishEntity($this, null);
+            }
+            return $this->_english;
+        }
         return new EnglishEntity($this, $data);
     }
 
 
-    public function SimplifiedChinese($data = null)
+    private $_simplified_chinese = null;
+
+    // Idiomatic facade: $client->simplified_chinese()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias SimplifiedChinese() (PHP method
+    // names are case-insensitive).
+    public function simplified_chinese($data = null)
     {
         require_once __DIR__ . '/entity/simplified_chinese_entity.php';
+        if ($data === null) {
+            if ($this->_simplified_chinese === null) {
+                $this->_simplified_chinese = new SimplifiedChineseEntity($this, null);
+            }
+            return $this->_simplified_chinese;
+        }
         return new SimplifiedChineseEntity($this, $data);
     }
 
 
-    public function TraditionalChinese($data = null)
+    private $_traditional_chinese = null;
+
+    // Idiomatic facade: $client->traditional_chinese()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias TraditionalChinese() (PHP method
+    // names are case-insensitive).
+    public function traditional_chinese($data = null)
     {
         require_once __DIR__ . '/entity/traditional_chinese_entity.php';
+        if ($data === null) {
+            if ($this->_traditional_chinese === null) {
+                $this->_traditional_chinese = new TraditionalChineseEntity($this, null);
+            }
+            return $this->_traditional_chinese;
+        }
         return new TraditionalChineseEntity($this, $data);
     }
 

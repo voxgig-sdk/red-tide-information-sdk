@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -134,7 +133,7 @@ Alias for `RedTideInformationSDK.test()`.
 ## EnglishEntity
 
 ```ts
-const english = client.English()
+const english = client.english
 ```
 
 ### Fields
@@ -154,7 +153,7 @@ const english = client.English()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.English().list()
+const results = await client.english.list()
 ```
 
 ### Common Methods
@@ -188,7 +187,7 @@ Return a copy of the entity options.
 ## SimplifiedChineseEntity
 
 ```ts
-const simplified_chinese = client.SimplifiedChinese()
+const simplified_chinese = client.simplified_chinese
 ```
 
 ### Fields
@@ -208,7 +207,7 @@ const simplified_chinese = client.SimplifiedChinese()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.SimplifiedChinese().list()
+const results = await client.simplified_chinese.list()
 ```
 
 ### Common Methods
@@ -242,7 +241,7 @@ Return a copy of the entity options.
 ## TraditionalChineseEntity
 
 ```ts
-const traditional_chinese = client.TraditionalChinese()
+const traditional_chinese = client.traditional_chinese
 ```
 
 ### Fields
@@ -262,7 +261,7 @@ const traditional_chinese = client.TraditionalChinese()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.TraditionalChinese().list()
+const results = await client.traditional_chinese.list()
 ```
 
 ### Common Methods

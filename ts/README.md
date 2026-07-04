@@ -9,9 +9,12 @@ The TypeScript SDK for the RedTideInformation API — a type-safe, entity-orient
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/red-tide-information
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/red-tide-information-sdk/releases](https://github.com/voxgig-sdk/red-tide-information-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { RedTideInformationSDK } from 'red-tide-information'
+import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information'
 
-const client = new RedTideInformationSDK({
-  apikey: process.env.RED-TIDE-INFORMATION_APIKEY,
-})
+const client = new RedTideInformationSDK()
 ```
 
 ### 2. List englishs
 
 ```ts
-const result = await client.English().list()
+const result = await client.english.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = RedTideInformationSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.english.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new RedTideInformationSDK({ apikey: '...' })
+const client = new RedTideInformationSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.english
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new RedTideInformationSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -135,8 +135,7 @@ const client = new RedTideInformationSDK({
 Create a `.env.local` file at the project root:
 
 ```
-RED-TIDE-INFORMATION_TEST_LIVE=TRUE
-RED-TIDE-INFORMATION_APIKEY=<your-key>
+RED_TIDE_INFORMATION_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new RedTideInformationSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new RedTideInformationSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -302,7 +299,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditio
 
 ### English
 
-Create an instance: `const english = client.English()`
+Create an instance: `const english = client.english`
 
 #### Operations
 
@@ -323,13 +320,13 @@ Create an instance: `const english = client.English()`
 #### Example: List
 
 ```ts
-const englishs = await client.English().list()
+const englishs = await client.english.list()
 ```
 
 
 ### SimplifiedChinese
 
-Create an instance: `const simplified_chinese = client.SimplifiedChinese()`
+Create an instance: `const simplified_chinese = client.simplified_chinese`
 
 #### Operations
 
@@ -350,13 +347,13 @@ Create an instance: `const simplified_chinese = client.SimplifiedChinese()`
 #### Example: List
 
 ```ts
-const simplified_chineses = await client.SimplifiedChinese().list()
+const simplified_chineses = await client.simplified_chinese.list()
 ```
 
 
 ### TraditionalChinese
 
-Create an instance: `const traditional_chinese = client.TraditionalChinese()`
+Create an instance: `const traditional_chinese = client.traditional_chinese`
 
 #### Operations
 
@@ -377,7 +374,7 @@ Create an instance: `const traditional_chinese = client.TraditionalChinese()`
 #### Example: List
 
 ```ts
-const traditional_chineses = await client.TraditionalChinese().list()
+const traditional_chineses = await client.traditional_chinese.list()
 ```
 
 
@@ -438,7 +435,7 @@ red-tide-information/
 Import the SDK from the package root:
 
 ```ts
-import { RedTideInformationSDK } from 'red-tide-information'
+import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information'
 ```
 
 ### Entity state
@@ -448,11 +445,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const english = client.english
+await english.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// english.data() now returns the loaded english data
+// english.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

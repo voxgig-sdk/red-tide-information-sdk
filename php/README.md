@@ -9,9 +9,10 @@ The PHP SDK for the RedTideInformation API — an entity-oriented client using P
 
 
 ## Install
-```bash
-composer require voxgig-sdk/red-tide-information
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/red-tide-information-sdk/releases](https://github.com/voxgig-sdk/red-tide-information-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,22 +26,22 @@ loading a specific record.
 <?php
 require_once 'redtideinformation_sdk.php';
 
-$client = new RedTideInformationSDK([
-    "apikey" => getenv("RED-TIDE-INFORMATION_APIKEY"),
-]);
+$client = new RedTideInformationSDK();
 ```
 
 ### 2. List englishs
 
 ```php
-[$result, $err] = $client->English()->list();
-if ($err) { throw new \Exception($err); }
-
-if (is_array($result)) {
-    foreach ($result as $item) {
-        $d = $item->data_get();
-        echo $d["id"] . " " . $d["name"] . "\n";
+try {
+    $result = $client->english()->list();
+    if (is_array($result)) {
+        foreach ($result as $item) {
+            $d = $item->data_get();
+            echo $d["id"] . " " . $d["name"] . "\n";
+        }
     }
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
 }
 ```
 
@@ -52,28 +53,31 @@ if (is_array($result)) {
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -87,7 +91,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = RedTideInformationSDK::test();
 
-[$result, $err] = $client->RedTideInformation()->load(["id" => "test01"]);
+$result = $client->english()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -121,8 +125,7 @@ $client = new RedTideInformationSDK([
 Create a `.env.local` file at the project root:
 
 ```
-RED-TIDE-INFORMATION_TEST_LIVE=TRUE
-RED-TIDE-INFORMATION_APIKEY=<your-key>
+RED_TIDE_INFORMATION_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -145,7 +148,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -193,8 +195,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -256,7 +262,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditio
 
 ### English
 
-Create an instance: `const english = client.English()`
+Create an instance: `const english = client.english`
 
 #### Operations
 
@@ -277,13 +283,13 @@ Create an instance: `const english = client.English()`
 #### Example: List
 
 ```ts
-const englishs = await client.English().list()
+const englishs = await client.english.list()
 ```
 
 
 ### SimplifiedChinese
 
-Create an instance: `const simplified_chinese = client.SimplifiedChinese()`
+Create an instance: `const simplified_chinese = client.simplified_chinese`
 
 #### Operations
 
@@ -304,13 +310,13 @@ Create an instance: `const simplified_chinese = client.SimplifiedChinese()`
 #### Example: List
 
 ```ts
-const simplified_chineses = await client.SimplifiedChinese().list()
+const simplified_chineses = await client.simplified_chinese.list()
 ```
 
 
 ### TraditionalChinese
 
-Create an instance: `const traditional_chinese = client.TraditionalChinese()`
+Create an instance: `const traditional_chinese = client.traditional_chinese`
 
 #### Operations
 
@@ -331,7 +337,7 @@ Create an instance: `const traditional_chinese = client.TraditionalChinese()`
 #### Example: List
 
 ```ts
-const traditional_chineses = await client.TraditionalChinese().list()
+const traditional_chineses = await client.traditional_chinese.list()
 ```
 
 
@@ -406,11 +412,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$english = $client->english();
+$english->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $english->dataGet() now returns the loaded english data
+// $english->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

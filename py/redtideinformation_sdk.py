@@ -144,16 +144,23 @@ class RedTideInformationSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class RedTideInformationSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,25 +212,58 @@ class RedTideInformationSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def english(self):
+        """Idiomatic facade: client.english.list() / client.english.load({"id": ...})."""
+        from entity.english_entity import EnglishEntity
+        cached = getattr(self, "_english", None)
+        if cached is None:
+            cached = EnglishEntity(self, None)
+            self._english = cached
+        return cached
 
     def English(self, data=None):
+        # Deprecated: use client.english instead.
         from entity.english_entity import EnglishEntity
         return EnglishEntity(self, data)
 
 
+    @property
+    def simplified_chinese(self):
+        """Idiomatic facade: client.simplified_chinese.list() / client.simplified_chinese.load({"id": ...})."""
+        from entity.simplified_chinese_entity import SimplifiedChineseEntity
+        cached = getattr(self, "_simplified_chinese", None)
+        if cached is None:
+            cached = SimplifiedChineseEntity(self, None)
+            self._simplified_chinese = cached
+        return cached
+
     def SimplifiedChinese(self, data=None):
+        # Deprecated: use client.simplified_chinese instead.
         from entity.simplified_chinese_entity import SimplifiedChineseEntity
         return SimplifiedChineseEntity(self, data)
 
 
+    @property
+    def traditional_chinese(self):
+        """Idiomatic facade: client.traditional_chinese.list() / client.traditional_chinese.load({"id": ...})."""
+        from entity.traditional_chinese_entity import TraditionalChineseEntity
+        cached = getattr(self, "_traditional_chinese", None)
+        if cached is None:
+            cached = TraditionalChineseEntity(self, None)
+            self._traditional_chinese = cached
+        return cached
+
     def TraditionalChinese(self, data=None):
+        # Deprecated: use client.traditional_chinese instead.
         from entity.traditional_chinese_entity import TraditionalChineseEntity
         return TraditionalChineseEntity(self, data)
 

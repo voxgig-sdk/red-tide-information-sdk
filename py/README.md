@@ -9,11 +9,9 @@ The Python SDK for the RedTideInformation API — an entity-oriented client foll
 
 
 ## Install
-```bash
-pip install voxgig-sdk-red-tide-information
-```
-
-Or install from source:
+This package is not yet published to PyPI. Install it from the GitHub
+release tag (`py/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/red-tide-information-sdk/releases)) or
+from a source checkout:
 
 ```bash
 pip install -e .
@@ -28,25 +26,21 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from redtideinformation_sdk import RedTideInformationSDK
 
-client = RedTideInformationSDK({
-    "apikey": os.environ.get("RED-TIDE-INFORMATION_APIKEY"),
-})
+client = RedTideInformationSDK()
 ```
 
 ### 2. List englishs
 
 ```python
-result, err = client.English().list()
-if err:
-    raise Exception(err)
-
-if isinstance(result, list):
+try:
+    result = client.english.list()
     for item in result:
         d = item.data_get()
         print(d["id"], d["name"])
+except Exception as err:
+    print(f"list failed: {err}")
 ```
 
 
@@ -57,29 +51,28 @@ if isinstance(result, list):
 For endpoints not covered by entity methods:
 
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
 })
-if err:
-    raise Exception(err)
 
 if result["ok"]:
     print(result["status"])  # 200
     print(result["data"])    # response body
+else:
+    print(result["err"])     # error value
 ```
 
 ### Prepare a request without sending it
 
 ```python
-fetchdef, err = client.prepare({
+# prepare() returns the fetch definition and raises on error.
+fetchdef = client.prepare({
     "path": "/api/resource/{id}",
     "method": "DELETE",
     "params": {"id": "example"},
 })
-if err:
-    raise Exception(err)
 
 print(fetchdef["url"])
 print(fetchdef["method"])
@@ -93,7 +86,7 @@ Create a mock client for unit testing — no server required:
 ```python
 client = RedTideInformationSDK.test()
 
-result, err = client.RedTideInformation().load({"id": "test01"})
+result = client.english.load({"id": "test01"})
 # result contains mock response data
 ```
 
@@ -123,8 +116,7 @@ client = RedTideInformationSDK({
 Create a `.env.local` file at the project root:
 
 ```
-RED-TIDE-INFORMATION_TEST_LIVE=TRUE
-RED-TIDE-INFORMATION_APIKEY=<your-key>
+RED_TIDE_INFORMATION_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -148,7 +140,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |
@@ -170,8 +161,8 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | --- | --- | --- |
 | `options_map` | `() -> dict` | Deep copy of current SDK options. |
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
-| `prepare` | `(fetchargs) -> (dict, err)` | Build an HTTP request definition without sending. |
-| `direct` | `(fetchargs) -> (dict, err)` | Build and send an HTTP request. |
+| `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
+| `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
 | `English` | `(data) -> EnglishEntity` | Create a English entity instance. |
 | `SimplifiedChinese` | `(data) -> SimplifiedChineseEntity` | Create a SimplifiedChinese entity instance. |
 | `TraditionalChinese` | `(data) -> TraditionalChineseEntity` | Create a TraditionalChinese entity instance. |
@@ -182,11 +173,11 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `(reqmatch, ctrl) -> (any, err)` | Load a single entity by match criteria. |
-| `list` | `(reqmatch, ctrl) -> (any, err)` | List entities matching the criteria. |
-| `create` | `(reqdata, ctrl) -> (any, err)` | Create a new entity. |
-| `update` | `(reqdata, ctrl) -> (any, err)` | Update an existing entity. |
-| `remove` | `(reqmatch, ctrl) -> (any, err)` | Remove an entity. |
+| `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
+| `list` | `(reqmatch, ctrl) -> list` | List entities matching the criteria. Raises on error. |
+| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
+| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
+| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
 | `data_get` | `() -> dict` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> dict` | Get entity match criteria. |
@@ -196,8 +187,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`dict` with these keys:
+Entity operations return the bare result data (a `dict` for single-entity
+ops, a `list` for `list`) and raise on error. Wrap calls in
+`try`/`except` to handle failures.
+
+The `direct()` escape hatch never raises — it returns a result `dict`
+you branch on via `result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -259,7 +254,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditio
 
 ### English
 
-Create an instance: `const english = client.English()`
+Create an instance: `const english = client.english`
 
 #### Operations
 
@@ -280,13 +275,13 @@ Create an instance: `const english = client.English()`
 #### Example: List
 
 ```ts
-const englishs = await client.English().list()
+const englishs = await client.english.list()
 ```
 
 
 ### SimplifiedChinese
 
-Create an instance: `const simplified_chinese = client.SimplifiedChinese()`
+Create an instance: `const simplified_chinese = client.simplified_chinese`
 
 #### Operations
 
@@ -307,13 +302,13 @@ Create an instance: `const simplified_chinese = client.SimplifiedChinese()`
 #### Example: List
 
 ```ts
-const simplified_chineses = await client.SimplifiedChinese().list()
+const simplified_chineses = await client.simplified_chinese.list()
 ```
 
 
 ### TraditionalChinese
 
-Create an instance: `const traditional_chinese = client.TraditionalChinese()`
+Create an instance: `const traditional_chinese = client.traditional_chinese`
 
 #### Operations
 
@@ -334,7 +329,7 @@ Create an instance: `const traditional_chinese = client.TraditionalChinese()`
 #### Example: List
 
 ```ts
-const traditional_chineses = await client.TraditionalChinese().list()
+const traditional_chineses = await client.traditional_chinese.list()
 ```
 
 
@@ -408,11 +403,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-moon = client.Moon()
-moon.load({"planet_id": "earth", "id": "luna"})
+english = client.english
+english.load({"id": "example_id"})
 
-# moon.data_get() now returns the loaded moon data
-# moon.match_get() returns the last match criteria
+# english.data_get() now returns the loaded english data
+# english.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

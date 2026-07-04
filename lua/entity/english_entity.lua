@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch EnglishListMatch
+---@param ctrl? table
+---@return English[]
+---@return string? err
 function EnglishEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

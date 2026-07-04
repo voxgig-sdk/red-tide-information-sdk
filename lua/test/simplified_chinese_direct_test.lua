@@ -63,14 +63,12 @@ function simplified_chinese_direct_setup(mockres)
   local env = runner.env_override({
     ["REDTIDEINFORMATION_TEST_SIMPLIFIED_CHINESE_ENTID"] = {},
     ["REDTIDEINFORMATION_TEST_LIVE"] = "FALSE",
-    ["REDTIDEINFORMATION_APIKEY"] = "NONE",
   })
 
   local live = env["REDTIDEINFORMATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["REDTIDEINFORMATION_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

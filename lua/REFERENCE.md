@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -92,7 +91,7 @@ same parameters as `direct()`.
 ## EnglishEntity
 
 ```lua
-local english = client:English(nil)
+local english = client:english(nil)
 ```
 
 ### Fields
@@ -112,7 +111,7 @@ local english = client:English(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:English():list()
+local results, err = client:english():list()
 ```
 
 ### Common Methods
@@ -148,7 +147,7 @@ Return the entity name.
 ## SimplifiedChineseEntity
 
 ```lua
-local simplified_chinese = client:SimplifiedChinese(nil)
+local simplified_chinese = client:simplified_chinese(nil)
 ```
 
 ### Fields
@@ -168,7 +167,7 @@ local simplified_chinese = client:SimplifiedChinese(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:SimplifiedChinese():list()
+local results, err = client:simplified_chinese():list()
 ```
 
 ### Common Methods
@@ -204,7 +203,7 @@ Return the entity name.
 ## TraditionalChineseEntity
 
 ```lua
-local traditional_chinese = client:TraditionalChinese(nil)
+local traditional_chinese = client:traditional_chinese(nil)
 ```
 
 ### Fields
@@ -224,7 +223,7 @@ local traditional_chinese = client:TraditionalChinese(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:TraditionalChinese():list()
+local results, err = client:traditional_chinese():list()
 ```
 
 ### Common Methods

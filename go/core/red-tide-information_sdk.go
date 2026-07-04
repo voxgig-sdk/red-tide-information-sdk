@@ -245,16 +245,25 @@ func (sdk *RedTideInformationSDK) Direct(fetchargs map[string]any) (map[string]a
 }
 
 
+// English returns a English entity bound to this client.
+// Idiomatic usage: client.English(nil).List(nil, nil) or
+// client.English(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *RedTideInformationSDK) English(data map[string]any) RedTideInformationEntity {
 	return NewEnglishEntityFunc(sdk, data)
 }
 
 
+// SimplifiedChinese returns a SimplifiedChinese entity bound to this client.
+// Idiomatic usage: client.SimplifiedChinese(nil).List(nil, nil) or
+// client.SimplifiedChinese(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *RedTideInformationSDK) SimplifiedChinese(data map[string]any) RedTideInformationEntity {
 	return NewSimplifiedChineseEntityFunc(sdk, data)
 }
 
 
+// TraditionalChinese returns a TraditionalChinese entity bound to this client.
+// Idiomatic usage: client.TraditionalChinese(nil).List(nil, nil) or
+// client.TraditionalChinese(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *RedTideInformationSDK) TraditionalChinese(data map[string]any) RedTideInformationEntity {
 	return NewTraditionalChineseEntityFunc(sdk, data)
 }

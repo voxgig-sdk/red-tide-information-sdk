@@ -45,6 +45,7 @@ class TraditionalChineseEntity
     end
   end
 
+  # @return [TraditionalChinese, Hash] the current TraditionalChinese data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class TraditionalChineseEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of TraditionalChinese fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class TraditionalChineseEntity
   
 
   
+  # List TraditionalChinese items matching the given filter.
+  #
+  # @param reqmatch [TraditionalChineseListMatch, Hash, nil] match filter (any subset of TraditionalChinese fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<TraditionalChinese>, Array] the matching TraditionalChinese items; raises RedTideInformationError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

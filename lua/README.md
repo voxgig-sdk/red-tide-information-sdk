@@ -9,12 +9,9 @@ The Lua SDK for the RedTideInformation API — an entity-oriented client using L
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-red-tide-information
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/red-tide-information-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("red-tide-information_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("RED-TIDE-INFORMATION_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List englishs
 
 ```lua
-local result, err = client:English():list()
+local result, err = client:english():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:RedTideInformation():load({ id = "test01" })
+local result, err = client:english():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +121,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-RED-TIDE-INFORMATION_TEST_LIVE=TRUE
-RED-TIDE-INFORMATION_APIKEY=<your-key>
+RED_TIDE_INFORMATION_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -261,7 +254,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditio
 
 ### English
 
-Create an instance: `const english = client.English()`
+Create an instance: `const english = client.english`
 
 #### Operations
 
@@ -282,13 +275,13 @@ Create an instance: `const english = client.English()`
 #### Example: List
 
 ```ts
-const englishs = await client.English().list()
+const englishs = await client.english.list()
 ```
 
 
 ### SimplifiedChinese
 
-Create an instance: `const simplified_chinese = client.SimplifiedChinese()`
+Create an instance: `const simplified_chinese = client.simplified_chinese`
 
 #### Operations
 
@@ -309,13 +302,13 @@ Create an instance: `const simplified_chinese = client.SimplifiedChinese()`
 #### Example: List
 
 ```ts
-const simplified_chineses = await client.SimplifiedChinese().list()
+const simplified_chineses = await client.simplified_chinese.list()
 ```
 
 
 ### TraditionalChinese
 
-Create an instance: `const traditional_chinese = client.TraditionalChinese()`
+Create an instance: `const traditional_chinese = client.traditional_chinese`
 
 #### Operations
 
@@ -336,7 +329,7 @@ Create an instance: `const traditional_chinese = client.TraditionalChinese()`
 #### Example: List
 
 ```ts
-const traditional_chineses = await client.TraditionalChinese().list()
+const traditional_chineses = await client.traditional_chinese.list()
 ```
 
 
@@ -411,11 +404,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local english = client:english()
+english:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- english:data_get() now returns the loaded english data
+-- english:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

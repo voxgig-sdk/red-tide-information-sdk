@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch TraditionalChineseListMatch
+---@param ctrl? table
+---@return TraditionalChinese[]
+---@return string? err
 function TraditionalChineseEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
