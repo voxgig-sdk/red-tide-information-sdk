@@ -31,14 +31,16 @@ from redtideinformation_sdk import RedTideInformationSDK
 client = RedTideInformationSDK()
 ```
 
-### 2. List englishs
+### 2. List english records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.english.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    englishs = client.English().list({})
+    for english in englishs:
+        print(english)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = RedTideInformationSDK.test()
 
-result = client.english.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+english = client.English().load({"id": "test01"})
+# english contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -163,7 +166,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `English` | `(data) -> EnglishEntity` | Create a English entity instance. |
+| `English` | `(data) -> EnglishEntity` | Create an English entity instance. |
 | `SimplifiedChinese` | `(data) -> SimplifiedChineseEntity` | Create a SimplifiedChinese entity instance. |
 | `TraditionalChinese` | `(data) -> TraditionalChineseEntity` | Create a TraditionalChinese entity instance. |
 
@@ -254,7 +257,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditio
 
 ### English
 
-Create an instance: `const english = client.english`
+Create an instance: `english = client.English()`
 
 #### Operations
 
@@ -274,14 +277,14 @@ Create an instance: `const english = client.english`
 
 #### Example: List
 
-```ts
-const englishs = await client.english.list()
+```python
+englishs = client.English().list({})
 ```
 
 
 ### SimplifiedChinese
 
-Create an instance: `const simplified_chinese = client.simplified_chinese`
+Create an instance: `simplified_chinese = client.SimplifiedChinese()`
 
 #### Operations
 
@@ -301,14 +304,14 @@ Create an instance: `const simplified_chinese = client.simplified_chinese`
 
 #### Example: List
 
-```ts
-const simplified_chineses = await client.simplified_chinese.list()
+```python
+simplified_chineses = client.SimplifiedChinese().list({})
 ```
 
 
 ### TraditionalChinese
 
-Create an instance: `const traditional_chinese = client.traditional_chinese`
+Create an instance: `traditional_chinese = client.TraditionalChinese()`
 
 #### Operations
 
@@ -328,8 +331,8 @@ Create an instance: `const traditional_chinese = client.traditional_chinese`
 
 #### Example: List
 
-```ts
-const traditional_chineses = await client.traditional_chinese.list()
+```python
+traditional_chineses = client.TraditionalChinese().list({})
 ```
 
 
@@ -403,7 +406,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-english = client.english
+english = client.English()
 english.load({"id": "example_id"})
 
 # english.data_get() now returns the loaded english data

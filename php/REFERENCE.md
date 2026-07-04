@@ -93,7 +93,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## EnglishEntity
 
 ```php
-$english = $client->english();
+$english = $client->English();
 ```
 
 ### Fields
@@ -113,7 +113,7 @@ $english = $client->english();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->english()->list([]);
+$results = $client->English()->list([]);
 ```
 
 ### Common Methods
@@ -149,7 +149,7 @@ Return the entity name.
 ## SimplifiedChineseEntity
 
 ```php
-$simplified_chinese = $client->simplified_chinese();
+$simplified_chinese = $client->SimplifiedChinese();
 ```
 
 ### Fields
@@ -169,7 +169,7 @@ $simplified_chinese = $client->simplified_chinese();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->simplified_chinese()->list([]);
+$results = $client->SimplifiedChinese()->list([]);
 ```
 
 ### Common Methods
@@ -205,7 +205,7 @@ Return the entity name.
 ## TraditionalChineseEntity
 
 ```php
-$traditional_chinese = $client->traditional_chinese();
+$traditional_chinese = $client->TraditionalChinese();
 ```
 
 ### Fields
@@ -225,7 +225,7 @@ $traditional_chinese = $client->traditional_chinese();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->traditional_chinese()->list([]);
+$results = $client->TraditionalChinese()->list([]);
 ```
 
 ### Common Methods

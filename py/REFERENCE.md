@@ -88,7 +88,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## EnglishEntity
 
 ```python
-english = client.english
+english = client.English()
 ```
 
 ### Fields
@@ -108,7 +108,9 @@ english = client.english
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.english.list({})
+results = client.English().list({})
+for english in results:
+    print(english)
 ```
 
 ### Common Methods
@@ -143,7 +145,7 @@ Return the entity name.
 ## SimplifiedChineseEntity
 
 ```python
-simplified_chinese = client.simplified_chinese
+simplified_chinese = client.SimplifiedChinese()
 ```
 
 ### Fields
@@ -163,7 +165,9 @@ simplified_chinese = client.simplified_chinese
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.simplified_chinese.list({})
+results = client.SimplifiedChinese().list({})
+for simplified_chinese in results:
+    print(simplified_chinese)
 ```
 
 ### Common Methods
@@ -198,7 +202,7 @@ Return the entity name.
 ## TraditionalChineseEntity
 
 ```python
-traditional_chinese = client.traditional_chinese
+traditional_chinese = client.TraditionalChinese()
 ```
 
 ### Fields
@@ -218,7 +222,9 @@ traditional_chinese = client.traditional_chinese
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.traditional_chinese.list({})
+results = client.TraditionalChinese().list({})
+for traditional_chinese in results:
+    print(traditional_chinese)
 ```
 
 ### Common Methods

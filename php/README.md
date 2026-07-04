@@ -29,18 +29,16 @@ require_once 'redtideinformation_sdk.php';
 $client = new RedTideInformationSDK();
 ```
 
-### 2. List englishs
+### 2. List english records
 
 ```php
 try {
-    $result = $client->english()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of English records — iterate directly.
+    $englishs = $client->English()->list();
+    foreach ($englishs as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = RedTideInformationSDK::test();
+$client = RedTideInformationSDK::test([
+    "entity" => ["english" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->english()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$english = $client->English()->load(["id" => "test01"]);
+print_r($english);
 ```
 
 ### Use a custom fetch function
@@ -171,7 +173,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `English` | `($data): EnglishEntity` | Create a English entity instance. |
+| `English` | `($data): EnglishEntity` | Create an English entity instance. |
 | `SimplifiedChinese` | `($data): SimplifiedChineseEntity` | Create a SimplifiedChinese entity instance. |
 | `TraditionalChinese` | `($data): TraditionalChineseEntity` | Create a TraditionalChinese entity instance. |
 
@@ -262,7 +264,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditio
 
 ### English
 
-Create an instance: `const english = client.english`
+Create an instance: `$english = $client->English();`
 
 #### Operations
 
@@ -282,14 +284,15 @@ Create an instance: `const english = client.english`
 
 #### Example: List
 
-```ts
-const englishs = await client.english.list()
+```php
+// list() returns an array of English records (throws on error).
+$englishs = $client->English()->list();
 ```
 
 
 ### SimplifiedChinese
 
-Create an instance: `const simplified_chinese = client.simplified_chinese`
+Create an instance: `$simplified_chinese = $client->SimplifiedChinese();`
 
 #### Operations
 
@@ -309,14 +312,15 @@ Create an instance: `const simplified_chinese = client.simplified_chinese`
 
 #### Example: List
 
-```ts
-const simplified_chineses = await client.simplified_chinese.list()
+```php
+// list() returns an array of SimplifiedChinese records (throws on error).
+$simplified_chineses = $client->SimplifiedChinese()->list();
 ```
 
 
 ### TraditionalChinese
 
-Create an instance: `const traditional_chinese = client.traditional_chinese`
+Create an instance: `$traditional_chinese = $client->TraditionalChinese();`
 
 #### Operations
 
@@ -336,8 +340,9 @@ Create an instance: `const traditional_chinese = client.traditional_chinese`
 
 #### Example: List
 
-```ts
-const traditional_chineses = await client.traditional_chinese.list()
+```php
+// list() returns an array of TraditionalChinese records (throws on error).
+$traditional_chineses = $client->TraditionalChinese()->list();
 ```
 
 
@@ -412,7 +417,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$english = $client->english();
+$english = $client->English();
 $english->load(["id" => "example_id"]);
 
 // $english->dataGet() now returns the loaded english data

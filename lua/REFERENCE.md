@@ -91,7 +91,7 @@ same parameters as `direct()`.
 ## EnglishEntity
 
 ```lua
-local english = client:english(nil)
+local english = client:English(nil)
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ local english = client:english(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:english():list()
+local results, err = client:English():list()
 ```
 
 ### Common Methods
@@ -147,7 +147,7 @@ Return the entity name.
 ## SimplifiedChineseEntity
 
 ```lua
-local simplified_chinese = client:simplified_chinese(nil)
+local simplified_chinese = client:SimplifiedChinese(nil)
 ```
 
 ### Fields
@@ -167,7 +167,7 @@ local simplified_chinese = client:simplified_chinese(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:simplified_chinese():list()
+local results, err = client:SimplifiedChinese():list()
 ```
 
 ### Common Methods
@@ -203,7 +203,7 @@ Return the entity name.
 ## TraditionalChineseEntity
 
 ```lua
-local traditional_chinese = client:traditional_chinese(nil)
+local traditional_chinese = client:TraditionalChinese(nil)
 ```
 
 ### Fields
@@ -223,7 +223,7 @@ local traditional_chinese = client:traditional_chinese(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:traditional_chinese():list()
+local results, err = client:TraditionalChinese():list()
 ```
 
 ### Common Methods

@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:english():list() / client:english():load({ id = ... })
-function RedTideInformationSDK:english(data)
+-- Idiomatic facade: client:English():list() / client:English():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function RedTideInformationSDK:English(data)
   local EntityMod = require("entity.english_entity")
   if data == nil then
     if self._english == nil then
@@ -256,15 +257,10 @@ function RedTideInformationSDK:english(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:english() instead.
-function RedTideInformationSDK:English(data)
-  local EntityMod = require("entity.english_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:simplified_chinese():list() / client:simplified_chinese():load({ id = ... })
-function RedTideInformationSDK:simplified_chinese(data)
+-- Idiomatic facade: client:SimplifiedChinese():list() / client:SimplifiedChinese():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function RedTideInformationSDK:SimplifiedChinese(data)
   local EntityMod = require("entity.simplified_chinese_entity")
   if data == nil then
     if self._simplified_chinese == nil then
@@ -275,15 +271,10 @@ function RedTideInformationSDK:simplified_chinese(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:simplified_chinese() instead.
-function RedTideInformationSDK:SimplifiedChinese(data)
-  local EntityMod = require("entity.simplified_chinese_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:traditional_chinese():list() / client:traditional_chinese():load({ id = ... })
-function RedTideInformationSDK:traditional_chinese(data)
+-- Idiomatic facade: client:TraditionalChinese():list() / client:TraditionalChinese():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function RedTideInformationSDK:TraditionalChinese(data)
   local EntityMod = require("entity.traditional_chinese_entity")
   if data == nil then
     if self._traditional_chinese == nil then
@@ -291,12 +282,6 @@ function RedTideInformationSDK:traditional_chinese(data)
     end
     return self._traditional_chinese
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:traditional_chinese() instead.
-function RedTideInformationSDK:TraditionalChinese(data)
-  local EntityMod = require("entity.traditional_chinese_entity")
   return EntityMod.new(self, data)
 end
 

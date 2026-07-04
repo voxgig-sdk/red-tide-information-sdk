@@ -208,39 +208,21 @@ class RedTideInformationSDK
   end
 
 
-  # Idiomatic facade: client.english.list / client.english.load({ "id" => ... })
-  def english
-    require_relative 'entity/english_entity'
-    @english ||= EnglishEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.english instead.
+  # Canonical facade: client.English.list / client.English.load({ "id" => ... })
   def English(data = nil)
     require_relative 'entity/english_entity'
     EnglishEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.simplified_chinese.list / client.simplified_chinese.load({ "id" => ... })
-  def simplified_chinese
-    require_relative 'entity/simplified_chinese_entity'
-    @simplified_chinese ||= SimplifiedChineseEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.simplified_chinese instead.
+  # Canonical facade: client.SimplifiedChinese.list / client.SimplifiedChinese.load({ "id" => ... })
   def SimplifiedChinese(data = nil)
     require_relative 'entity/simplified_chinese_entity'
     SimplifiedChineseEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.traditional_chinese.list / client.traditional_chinese.load({ "id" => ... })
-  def traditional_chinese
-    require_relative 'entity/traditional_chinese_entity'
-    @traditional_chinese ||= TraditionalChineseEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.traditional_chinese instead.
+  # Canonical facade: client.TraditionalChinese.list / client.TraditionalChinese.load({ "id" => ... })
   def TraditionalChinese(data = nil)
     require_relative 'entity/traditional_chinese_entity'
     TraditionalChineseEntity.new(self, data)

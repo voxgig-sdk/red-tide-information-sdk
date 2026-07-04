@@ -28,16 +28,14 @@ require_relative "RedTideInformation_sdk"
 client = RedTideInformationSDK.new
 ```
 
-### 2. List englishs
+### 2. List english records
 
 ```ruby
 begin
-  result = client.english.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of English records — iterate directly.
+  englishs = client.English.list
+  englishs.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = RedTideInformationSDK.test
+client = RedTideInformationSDK.test({
+  "entity" => { "english" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.english.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+english = client.English.load({ "id" => "test01" })
+puts english
 ```
 
 ### Use a custom fetch function
@@ -167,7 +169,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `English` | `(data) -> EnglishEntity` | Create a English entity instance. |
+| `English` | `(data) -> EnglishEntity` | Create an English entity instance. |
 | `SimplifiedChinese` | `(data) -> SimplifiedChineseEntity` | Create a SimplifiedChinese entity instance. |
 | `TraditionalChinese` | `(data) -> TraditionalChineseEntity` | Create a TraditionalChinese entity instance. |
 
@@ -257,7 +259,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditio
 
 ### English
 
-Create an instance: `const english = client.english`
+Create an instance: `english = client.English`
 
 #### Operations
 
@@ -277,14 +279,15 @@ Create an instance: `const english = client.english`
 
 #### Example: List
 
-```ts
-const englishs = await client.english.list()
+```ruby
+# list returns an Array of English records (raises on error).
+englishs = client.English.list
 ```
 
 
 ### SimplifiedChinese
 
-Create an instance: `const simplified_chinese = client.simplified_chinese`
+Create an instance: `simplified_chinese = client.SimplifiedChinese`
 
 #### Operations
 
@@ -304,14 +307,15 @@ Create an instance: `const simplified_chinese = client.simplified_chinese`
 
 #### Example: List
 
-```ts
-const simplified_chineses = await client.simplified_chinese.list()
+```ruby
+# list returns an Array of SimplifiedChinese records (raises on error).
+simplified_chineses = client.SimplifiedChinese.list
 ```
 
 
 ### TraditionalChinese
 
-Create an instance: `const traditional_chinese = client.traditional_chinese`
+Create an instance: `traditional_chinese = client.TraditionalChinese`
 
 #### Operations
 
@@ -331,8 +335,9 @@ Create an instance: `const traditional_chinese = client.traditional_chinese`
 
 #### Example: List
 
-```ts
-const traditional_chineses = await client.traditional_chinese.list()
+```ruby
+# list returns an Array of TraditionalChinese records (raises on error).
+traditional_chineses = client.TraditionalChinese.list
 ```
 
 
@@ -407,7 +412,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-english = client.english
+english = client.English
 english.load({ "id" => "example_id" })
 
 # english.data_get now returns the loaded english data

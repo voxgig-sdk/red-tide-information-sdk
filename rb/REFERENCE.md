@@ -94,7 +94,7 @@ same parameters as `direct()`. Raises on error.
 ## EnglishEntity
 
 ```ruby
-english = client.english
+english = client.English
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ english = client.english
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.english.list(nil)
+results = client.English.list(nil)
 ```
 
 ### Common Methods
@@ -150,7 +150,7 @@ Return the entity name.
 ## SimplifiedChineseEntity
 
 ```ruby
-simplified_chinese = client.simplified_chinese
+simplified_chinese = client.SimplifiedChinese
 ```
 
 ### Fields
@@ -170,7 +170,7 @@ simplified_chinese = client.simplified_chinese
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.simplified_chinese.list(nil)
+results = client.SimplifiedChinese.list(nil)
 ```
 
 ### Common Methods
@@ -206,7 +206,7 @@ Return the entity name.
 ## TraditionalChineseEntity
 
 ```ruby
-traditional_chinese = client.traditional_chinese
+traditional_chinese = client.TraditionalChinese
 ```
 
 ### Fields
@@ -226,7 +226,7 @@ traditional_chinese = client.traditional_chinese
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.traditional_chinese.list(nil)
+results = client.TraditionalChinese.list(nil)
 ```
 
 ### Common Methods

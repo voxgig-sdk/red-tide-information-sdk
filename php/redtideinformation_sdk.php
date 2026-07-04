@@ -233,10 +233,10 @@ class RedTideInformationSDK
 
     private $_english = null;
 
-    // Idiomatic facade: $client->english()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias English() (PHP method
-    // names are case-insensitive).
-    public function english($data = null)
+    // Canonical facade: $client->English()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->english()
+    // resolves here too.
+    public function English($data = null)
     {
         require_once __DIR__ . '/entity/english_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class RedTideInformationSDK
 
     private $_simplified_chinese = null;
 
-    // Idiomatic facade: $client->simplified_chinese()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias SimplifiedChinese() (PHP method
-    // names are case-insensitive).
-    public function simplified_chinese($data = null)
+    // Canonical facade: $client->SimplifiedChinese()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->simplified_chinese()
+    // resolves here too.
+    public function SimplifiedChinese($data = null)
     {
         require_once __DIR__ . '/entity/simplified_chinese_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class RedTideInformationSDK
 
     private $_traditional_chinese = null;
 
-    // Idiomatic facade: $client->traditional_chinese()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias TraditionalChinese() (PHP method
-    // names are case-insensitive).
-    public function traditional_chinese($data = null)
+    // Canonical facade: $client->TraditionalChinese()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->traditional_chinese()
+    // resolves here too.
+    public function TraditionalChinese($data = null)
     {
         require_once __DIR__ . '/entity/traditional_chinese_entity.php';
         if ($data === null) {

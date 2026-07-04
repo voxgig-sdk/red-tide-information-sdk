@@ -26,9 +26,11 @@ import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information'
 
 const client = new RedTideInformationSDK()
 
-// List all englishs
-const englishs = await client.english.list()
-console.log(englishs.data)
+// List all englishs (returns English[])
+const englishs = await client.English().list()
+for (const english of englishs) {
+  console.log(english)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,9 +87,10 @@ from redtideinformation_sdk import RedTideInformationSDK
 
 client = RedTideInformationSDK()
 
-# List all englishs
-englishs = client.english.list()
-print(englishs)
+# List all englishs (returns a list, raises on error)
+englishs = client.English().list({})
+for english in englishs:
+    print(english)
 ```
 
 ### PHP
@@ -98,8 +101,8 @@ require_once 'redtideinformation_sdk.php';
 
 $client = new RedTideInformationSDK();
 
-// List all englishs (throws on error)
-$englishs = $client->english()->list();
+// List all englishs (returns an array; throws on error)
+$englishs = $client->English()->list();
 print_r($englishs);
 ```
 
@@ -122,8 +125,8 @@ require_relative "RedTideInformation_sdk"
 
 client = RedTideInformationSDK.new
 
-# List all englishs
-englishs = client.english.list
+# List all englishs (returns an Array; raises on error)
+englishs = client.English.list
 puts englishs
 ```
 
@@ -135,7 +138,7 @@ local sdk = require("red-tide-information_sdk")
 local client = sdk.new()
 
 -- List all englishs
-local englishs, err = client:english():list()
+local englishs, err = client:English():list()
 print(englishs)
 ```
 
@@ -148,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = RedTideInformationSDK.test()
-const result = await client.english.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const english = await client.English().load({ id: 'test01' })
+// english is a bare English populated with mock data
+console.log(english)
 ```
 
 ### Python
 
 ```python
 client = RedTideInformationSDK.test()
-result = client.english.load({"id": "test01"})
+english = client.English().load({"id": "test01"})
+print(english)
 ```
 
 ### PHP
 
 ```php
-$client = RedTideInformationSDK::test();
-$result = $client->english()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = RedTideInformationSDK::test([
+    "entity" => ["english" => ["test01" => ["id" => "test01"]]],
+]);
+$english = $client->English()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -178,15 +186,18 @@ result, err := client.English(nil).Load(
 ### Ruby
 
 ```ruby
-client = RedTideInformationSDK.test
-result = client.english.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = RedTideInformationSDK.test({
+  "entity" => { "english" => { "test01" => { "id" => "test01" } } },
+})
+english = client.English.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:english():load({ id = "test01" })
+local result, err = client:English():load({ id = "test01" })
 ```
 
 ## How it works
@@ -234,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -133,7 +133,7 @@ Alias for `RedTideInformationSDK.test()`.
 ## EnglishEntity
 
 ```ts
-const english = client.english
+const english = client.English()
 ```
 
 ### Fields
@@ -153,7 +153,7 @@ const english = client.english
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.english.list()
+const results = await client.English().list()
 ```
 
 ### Common Methods
@@ -187,7 +187,7 @@ Return a copy of the entity options.
 ## SimplifiedChineseEntity
 
 ```ts
-const simplified_chinese = client.simplified_chinese
+const simplified_chinese = client.SimplifiedChinese()
 ```
 
 ### Fields
@@ -207,7 +207,7 @@ const simplified_chinese = client.simplified_chinese
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.simplified_chinese.list()
+const results = await client.SimplifiedChinese().list()
 ```
 
 ### Common Methods
@@ -241,7 +241,7 @@ Return a copy of the entity options.
 ## TraditionalChineseEntity
 
 ```ts
-const traditional_chinese = client.traditional_chinese
+const traditional_chinese = client.TraditionalChinese()
 ```
 
 ### Fields
@@ -261,7 +261,7 @@ const traditional_chinese = client.traditional_chinese
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.traditional_chinese.list()
+const results = await client.TraditionalChinese().list()
 ```
 
 ### Common Methods

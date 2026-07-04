@@ -220,57 +220,27 @@ class RedTideInformationSDK:
         }
 
 
-    @property
-    def english(self):
-        """Idiomatic facade: client.english.list() / client.english.load({"id": ...})."""
-        from entity.english_entity import EnglishEntity
-        cached = getattr(self, "_english", None)
-        if cached is None:
-            cached = EnglishEntity(self, None)
-            self._english = cached
-        return cached
-
-    def English(self, data=None):
-        # Deprecated: use client.english instead.
+    def English(self, data=None) -> "EnglishEntity":
+        """Entity factory: client.English().list({}) / client.English().load({"id": ...})."""
         from entity.english_entity import EnglishEntity
         return EnglishEntity(self, data)
 
 
-    @property
-    def simplified_chinese(self):
-        """Idiomatic facade: client.simplified_chinese.list() / client.simplified_chinese.load({"id": ...})."""
-        from entity.simplified_chinese_entity import SimplifiedChineseEntity
-        cached = getattr(self, "_simplified_chinese", None)
-        if cached is None:
-            cached = SimplifiedChineseEntity(self, None)
-            self._simplified_chinese = cached
-        return cached
-
-    def SimplifiedChinese(self, data=None):
-        # Deprecated: use client.simplified_chinese instead.
+    def SimplifiedChinese(self, data=None) -> "SimplifiedChineseEntity":
+        """Entity factory: client.SimplifiedChinese().list({}) / client.SimplifiedChinese().load({"id": ...})."""
         from entity.simplified_chinese_entity import SimplifiedChineseEntity
         return SimplifiedChineseEntity(self, data)
 
 
-    @property
-    def traditional_chinese(self):
-        """Idiomatic facade: client.traditional_chinese.list() / client.traditional_chinese.load({"id": ...})."""
-        from entity.traditional_chinese_entity import TraditionalChineseEntity
-        cached = getattr(self, "_traditional_chinese", None)
-        if cached is None:
-            cached = TraditionalChineseEntity(self, None)
-            self._traditional_chinese = cached
-        return cached
-
-    def TraditionalChinese(self, data=None):
-        # Deprecated: use client.traditional_chinese instead.
+    def TraditionalChinese(self, data=None) -> "TraditionalChineseEntity":
+        """Entity factory: client.TraditionalChinese().list({}) / client.TraditionalChinese().load({"id": ...})."""
         from entity.traditional_chinese_entity import TraditionalChineseEntity
         return TraditionalChineseEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "RedTideInformationSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -290,3 +260,11 @@ class RedTideInformationSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.english_entity import EnglishEntity
+    from entity.simplified_chinese_entity import SimplifiedChineseEntity
+    from entity.traditional_chinese_entity import TraditionalChineseEntity

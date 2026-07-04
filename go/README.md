@@ -30,37 +30,33 @@ go mod edit -replace github.com/voxgig-sdk/red-tide-information-sdk/go=../red-ti
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/red-tide-information-sdk/go"
-    "github.com/voxgig-sdk/red-tide-information-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 2. List englishs
-
-```go
-    result, err := client.English(nil).List(nil, nil)
+    // List english records — the value is the array of records itself.
+    englishs, err := client.English(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-
-    rm := core.ToMapAny(result)
-    if rm["ok"] == true {
-        for _, item := range rm["data"].([]any) {
-            p := core.ToMapAny(item)
-            fmt.Println(p["id"], p["name"])
-        }
+    for _, item := range englishs.([]any) {
+        fmt.Println(item)
     }
+}
 ```
 
 
@@ -110,10 +106,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.English(nil).Load(
+english, err := client.English(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(english) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -190,7 +189,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `GetUtility` | `() *Utility` | Copy of the SDK utility object. |
 | `Prepare` | `(fetchargs map[string]any) (map[string]any, error)` | Build an HTTP request definition without sending. |
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
-| `English` | `(data map[string]any) RedTideInformationEntity` | Create a English entity instance. |
+| `English` | `(data map[string]any) RedTideInformationEntity` | Create an English entity instance. |
 | `SimplifiedChinese` | `(data map[string]any) RedTideInformationEntity` | Create a SimplifiedChinese entity instance. |
 | `TraditionalChinese` | `(data map[string]any) RedTideInformationEntity` | Create a TraditionalChinese entity instance. |
 
@@ -212,17 +211,24 @@ All entities implement the `RedTideInformationEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    english, err := client.English(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // english is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -296,7 +302,11 @@ Create an instance: `english := client.English(nil)`
 #### Example: List
 
 ```go
-results, err := client.English(nil).List(nil, nil)
+englishs, err := client.English(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(englishs) // the array of records
 ```
 
 
@@ -323,7 +333,11 @@ Create an instance: `simplified_chinese := client.SimplifiedChinese(nil)`
 #### Example: List
 
 ```go
-results, err := client.SimplifiedChinese(nil).List(nil, nil)
+simplified_chineses, err := client.SimplifiedChinese(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(simplified_chineses) // the array of records
 ```
 
 
@@ -350,7 +364,11 @@ Create an instance: `traditional_chinese := client.TraditionalChinese(nil)`
 #### Example: List
 
 ```go
-results, err := client.TraditionalChinese(nil).List(nil, nil)
+traditional_chineses, err := client.TraditionalChinese(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(traditional_chineses) // the array of records
 ```
 
 

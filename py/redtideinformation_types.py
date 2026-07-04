@@ -4,63 +4,61 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class English:
-    date: Optional[str] = None
-    location: Optional[str] = None
-    remark: Optional[str] = None
-    species: Optional[str] = None
-    status: Optional[str] = None
+class English(TypedDict, total=False):
+    date: str
+    location: str
+    remark: str
+    species: str
+    status: str
 
 
-@dataclass
-class EnglishListMatch:
-    date: Optional[str] = None
-    location: Optional[str] = None
-    remark: Optional[str] = None
-    species: Optional[str] = None
-    status: Optional[str] = None
+class EnglishListMatch(TypedDict, total=False):
+    date: str
+    location: str
+    remark: str
+    species: str
+    status: str
 
 
-@dataclass
-class SimplifiedChinese:
-    date: Optional[str] = None
-    location: Optional[str] = None
-    remark: Optional[str] = None
-    species: Optional[str] = None
-    status: Optional[str] = None
+class SimplifiedChinese(TypedDict, total=False):
+    date: str
+    location: str
+    remark: str
+    species: str
+    status: str
 
 
-@dataclass
-class SimplifiedChineseListMatch:
-    date: Optional[str] = None
-    location: Optional[str] = None
-    remark: Optional[str] = None
-    species: Optional[str] = None
-    status: Optional[str] = None
+class SimplifiedChineseListMatch(TypedDict, total=False):
+    date: str
+    location: str
+    remark: str
+    species: str
+    status: str
 
 
-@dataclass
-class TraditionalChinese:
-    date: Optional[str] = None
-    location: Optional[str] = None
-    remark: Optional[str] = None
-    species: Optional[str] = None
-    status: Optional[str] = None
+class TraditionalChinese(TypedDict, total=False):
+    date: str
+    location: str
+    remark: str
+    species: str
+    status: str
 
 
-@dataclass
-class TraditionalChineseListMatch:
-    date: Optional[str] = None
-    location: Optional[str] = None
-    remark: Optional[str] = None
-    species: Optional[str] = None
-    status: Optional[str] = None
-
+class TraditionalChineseListMatch(TypedDict, total=False):
+    date: str
+    location: str
+    remark: str
+    species: str
+    status: str

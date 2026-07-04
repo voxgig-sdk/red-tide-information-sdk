@@ -206,42 +206,21 @@ class RedTideInformationSDK {
 
 
 
-  _english?: EnglishEntity
-
-  // Idiomatic facade: `client.english.list()` / `client.english.load({ id })`.
-  get english(): EnglishEntity {
-    return (this._english ??= new EnglishEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.english` instead. */
+  // Entity access: `client.English().list()` / `client.English().load({ id })`.
   English(data?: any) {
     const self = this
     return new EnglishEntity(self,data)
   }
 
 
-  _simplified_chinese?: SimplifiedChineseEntity
-
-  // Idiomatic facade: `client.simplified_chinese.list()` / `client.simplified_chinese.load({ id })`.
-  get simplified_chinese(): SimplifiedChineseEntity {
-    return (this._simplified_chinese ??= new SimplifiedChineseEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.simplified_chinese` instead. */
+  // Entity access: `client.SimplifiedChinese().list()` / `client.SimplifiedChinese().load({ id })`.
   SimplifiedChinese(data?: any) {
     const self = this
     return new SimplifiedChineseEntity(self,data)
   }
 
 
-  _traditional_chinese?: TraditionalChineseEntity
-
-  // Idiomatic facade: `client.traditional_chinese.list()` / `client.traditional_chinese.load({ id })`.
-  get traditional_chinese(): TraditionalChineseEntity {
-    return (this._traditional_chinese ??= new TraditionalChineseEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.traditional_chinese` instead. */
+  // Entity access: `client.TraditionalChinese().list()` / `client.TraditionalChinese().load({ id })`.
   TraditionalChinese(data?: any) {
     const self = this
     return new TraditionalChineseEntity(self,data)

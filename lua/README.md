@@ -31,17 +31,17 @@ local sdk = require("red-tide-information_sdk")
 local client = sdk.new()
 ```
 
-### 2. List englishs
+### 2. List english records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:english():list()
+local englishs, err = client:English():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(englishs) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:english():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:English():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -167,7 +167,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> table, err` | Build an HTTP request definition without sending. |
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
-| `English` | `(data) -> EnglishEntity` | Create a English entity instance. |
+| `English` | `(data) -> EnglishEntity` | Create an English entity instance. |
 | `SimplifiedChinese` | `(data) -> SimplifiedChineseEntity` | Create a SimplifiedChinese entity instance. |
 | `TraditionalChinese` | `(data) -> TraditionalChineseEntity` | Create a TraditionalChinese entity instance. |
 
@@ -191,17 +191,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local english, err = client:English():load({ id = "example_id" })
+    if err then error(err) end
+    -- english is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -254,7 +259,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditio
 
 ### English
 
-Create an instance: `const english = client.english`
+Create an instance: `local english = client:English(nil)`
 
 #### Operations
 
@@ -274,14 +279,14 @@ Create an instance: `const english = client.english`
 
 #### Example: List
 
-```ts
-const englishs = await client.english.list()
+```lua
+local englishs, err = client:English():list()
 ```
 
 
 ### SimplifiedChinese
 
-Create an instance: `const simplified_chinese = client.simplified_chinese`
+Create an instance: `local simplified_chinese = client:SimplifiedChinese(nil)`
 
 #### Operations
 
@@ -301,14 +306,14 @@ Create an instance: `const simplified_chinese = client.simplified_chinese`
 
 #### Example: List
 
-```ts
-const simplified_chineses = await client.simplified_chinese.list()
+```lua
+local simplified_chineses, err = client:SimplifiedChinese():list()
 ```
 
 
 ### TraditionalChinese
 
-Create an instance: `const traditional_chinese = client.traditional_chinese`
+Create an instance: `local traditional_chinese = client:TraditionalChinese(nil)`
 
 #### Operations
 
@@ -328,8 +333,8 @@ Create an instance: `const traditional_chinese = client.traditional_chinese`
 
 #### Example: List
 
-```ts
-const traditional_chineses = await client.traditional_chinese.list()
+```lua
+local traditional_chineses, err = client:TraditionalChinese():list()
 ```
 
 
@@ -404,7 +409,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local english = client:english()
+local english = client:English()
 english:load({ id = "example_id" })
 
 -- english:data_get() now returns the loaded english data
