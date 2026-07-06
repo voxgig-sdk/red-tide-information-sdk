@@ -22,7 +22,7 @@ class English
     public ?string $status = null;
 }
 
-/** Match filter for English#list (any subset of English fields). */
+/** Request payload for English#list. */
 class EnglishListMatch
 {
     public ?string $date = null;
@@ -42,7 +42,7 @@ class SimplifiedChinese
     public ?string $status = null;
 }
 
-/** Match filter for SimplifiedChinese#list (any subset of SimplifiedChinese fields). */
+/** Request payload for SimplifiedChinese#list. */
 class SimplifiedChineseListMatch
 {
     public ?string $date = null;
@@ -62,7 +62,7 @@ class TraditionalChinese
     public ?string $status = null;
 }
 
-/** Match filter for TraditionalChinese#list (any subset of TraditionalChinese fields). */
+/** Request payload for TraditionalChinese#list. */
 class TraditionalChineseListMatch
 {
     public ?string $date = null;

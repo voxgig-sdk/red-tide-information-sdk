@@ -33,7 +33,7 @@ English = Struct.new(
   keyword_init: true
 )
 
-# Match filter for English#list (any subset of English fields).
+# Request payload for English#list.
 #
 # @!attribute [rw] date
 #   @return [String, nil]
@@ -83,7 +83,7 @@ SimplifiedChinese = Struct.new(
   keyword_init: true
 )
 
-# Match filter for SimplifiedChinese#list (any subset of SimplifiedChinese fields).
+# Request payload for SimplifiedChinese#list.
 #
 # @!attribute [rw] date
 #   @return [String, nil]
@@ -133,7 +133,7 @@ TraditionalChinese = Struct.new(
   keyword_init: true
 )
 
-# Match filter for TraditionalChinese#list (any subset of TraditionalChinese fields).
+# Request payload for TraditionalChinese#list.
 #
 # @!attribute [rw] date
 #   @return [String, nil]

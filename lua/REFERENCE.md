@@ -98,11 +98,11 @@ local english = client:English(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `string` | No |  |
+| `location` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `species` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -154,11 +154,11 @@ local simplified_chinese = client:SimplifiedChinese(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `string` | No |  |
+| `location` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `species` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -210,11 +210,11 @@ local traditional_chinese = client:TraditionalChinese(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `string` | No |  |
+| `location` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `species` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 

@@ -66,8 +66,12 @@ class EnglishEntity:
     
 
     
-    def list(self, reqmatch: EnglishListMatch, ctrl=None) -> list[English]:
+    def list(self, reqmatch=None, ctrl=None) -> list[English]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.English().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,

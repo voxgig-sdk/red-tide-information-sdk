@@ -140,11 +140,11 @@ const english = client.English()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `string` | No |  |
+| `location` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `species` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -194,11 +194,11 @@ const simplified_chinese = client.SimplifiedChinese()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `string` | No |  |
+| `location` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `species` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -248,11 +248,11 @@ const traditional_chinese = client.TraditionalChinese()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `string` | No |  |
+| `location` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `species` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 

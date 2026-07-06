@@ -14,6 +14,11 @@
 ---@field status? string
 
 ---@class EnglishListMatch
+---@field date? string
+---@field location? string
+---@field remark? string
+---@field species? string
+---@field status? string
 
 ---@class SimplifiedChinese
 ---@field date? string
@@ -23,6 +28,11 @@
 ---@field status? string
 
 ---@class SimplifiedChineseListMatch
+---@field date? string
+---@field location? string
+---@field remark? string
+---@field species? string
+---@field status? string
 
 ---@class TraditionalChinese
 ---@field date? string
@@ -32,6 +42,11 @@
 ---@field status? string
 
 ---@class TraditionalChineseListMatch
+---@field date? string
+---@field location? string
+---@field remark? string
+---@field species? string
+---@field status? string
 
 local M = {}
 

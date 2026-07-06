@@ -8,7 +8,7 @@ Complete API reference for the RedTideInformation Python SDK.
 ### Constructor
 
 ```python
-from red-tide-information_sdk import RedTideInformationSDK
+from redtideinformation_sdk import RedTideInformationSDK
 
 client = RedTideInformationSDK(options)
 ```
@@ -95,20 +95,20 @@ english = client.English()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `str` | No |  |
+| `location` | `str` | No |  |
+| `remark` | `str` | No |  |
+| `species` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.English().list({})
+results = client.English().list()
 for english in results:
     print(english)
 ```
@@ -152,20 +152,20 @@ simplified_chinese = client.SimplifiedChinese()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `str` | No |  |
+| `location` | `str` | No |  |
+| `remark` | `str` | No |  |
+| `species` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.SimplifiedChinese().list({})
+results = client.SimplifiedChinese().list()
 for simplified_chinese in results:
     print(simplified_chinese)
 ```
@@ -209,20 +209,20 @@ traditional_chinese = client.TraditionalChinese()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `str` | No |  |
+| `location` | `str` | No |  |
+| `remark` | `str` | No |  |
+| `species` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.TraditionalChinese().list({})
+results = client.TraditionalChinese().list()
 for traditional_chinese in results:
     print(traditional_chinese)
 ```

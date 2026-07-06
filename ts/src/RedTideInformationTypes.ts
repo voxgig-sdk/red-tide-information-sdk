@@ -13,7 +13,13 @@ export interface English {
   status?: string
 }
 
-export type EnglishListMatch = Partial<English>
+export interface EnglishListMatch {
+  date?: string
+  location?: string
+  remark?: string
+  species?: string
+  status?: string
+}
 
 export interface SimplifiedChinese {
   date?: string
@@ -23,7 +29,13 @@ export interface SimplifiedChinese {
   status?: string
 }
 
-export type SimplifiedChineseListMatch = Partial<SimplifiedChinese>
+export interface SimplifiedChineseListMatch {
+  date?: string
+  location?: string
+  remark?: string
+  species?: string
+  status?: string
+}
 
 export interface TraditionalChinese {
   date?: string
@@ -33,5 +45,11 @@ export interface TraditionalChinese {
   status?: string
 }
 
-export type TraditionalChineseListMatch = Partial<TraditionalChinese>
+export interface TraditionalChineseListMatch {
+  date?: string
+  location?: string
+  remark?: string
+  species?: string
+  status?: string
+}
 

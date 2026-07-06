@@ -17,8 +17,7 @@ type English struct {
 	Status *string `json:"status,omitempty"`
 }
 
-// EnglishListMatch mirrors the english fields as an all-optional match
-// filter (Go analog of Partial<English>).
+// EnglishListMatch is the typed request payload for English.ListTyped.
 type EnglishListMatch struct {
 	Date *string `json:"date,omitempty"`
 	Location *string `json:"location,omitempty"`
@@ -36,8 +35,7 @@ type SimplifiedChinese struct {
 	Status *string `json:"status,omitempty"`
 }
 
-// SimplifiedChineseListMatch mirrors the simplified_chinese fields as an all-optional match
-// filter (Go analog of Partial<SimplifiedChinese>).
+// SimplifiedChineseListMatch is the typed request payload for SimplifiedChinese.ListTyped.
 type SimplifiedChineseListMatch struct {
 	Date *string `json:"date,omitempty"`
 	Location *string `json:"location,omitempty"`
@@ -55,8 +53,7 @@ type TraditionalChinese struct {
 	Status *string `json:"status,omitempty"`
 }
 
-// TraditionalChineseListMatch mirrors the traditional_chinese fields as an all-optional match
-// filter (Go analog of Partial<TraditionalChinese>).
+// TraditionalChineseListMatch is the typed request payload for TraditionalChinese.ListTyped.
 type TraditionalChineseListMatch struct {
 	Date *string `json:"date,omitempty"`
 	Location *string `json:"location,omitempty"`

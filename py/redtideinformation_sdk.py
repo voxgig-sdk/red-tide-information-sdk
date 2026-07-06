@@ -221,19 +221,19 @@ class RedTideInformationSDK:
 
 
     def English(self, data=None) -> "EnglishEntity":
-        """Entity factory: client.English().list({}) / client.English().load({"id": ...})."""
+        """Entity factory: client.English().list() / client.English().load({"id": ...})."""
         from entity.english_entity import EnglishEntity
         return EnglishEntity(self, data)
 
 
     def SimplifiedChinese(self, data=None) -> "SimplifiedChineseEntity":
-        """Entity factory: client.SimplifiedChinese().list({}) / client.SimplifiedChinese().load({"id": ...})."""
+        """Entity factory: client.SimplifiedChinese().list() / client.SimplifiedChinese().load({"id": ...})."""
         from entity.simplified_chinese_entity import SimplifiedChineseEntity
         return SimplifiedChineseEntity(self, data)
 
 
     def TraditionalChinese(self, data=None) -> "TraditionalChineseEntity":
-        """Entity factory: client.TraditionalChinese().list({}) / client.TraditionalChinese().load({"id": ...})."""
+        """Entity factory: client.TraditionalChinese().list() / client.TraditionalChinese().load({"id": ...})."""
         from entity.traditional_chinese_entity import TraditionalChineseEntity
         return TraditionalChineseEntity(self, data)
 

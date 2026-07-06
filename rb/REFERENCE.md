@@ -8,7 +8,7 @@ Complete API reference for the RedTideInformation Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'red-tide-information_sdk'
+require_relative 'RedTideInformation_sdk'
 
 client = RedTideInformationSDK.new(options)
 ```
@@ -101,20 +101,20 @@ english = client.English
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `String` | No |  |
+| `location` | `String` | No |  |
+| `remark` | `String` | No |  |
+| `species` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.English.list(nil)
+results = client.English.list
 ```
 
 ### Common Methods
@@ -157,20 +157,20 @@ simplified_chinese = client.SimplifiedChinese
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `String` | No |  |
+| `location` | `String` | No |  |
+| `remark` | `String` | No |  |
+| `species` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.SimplifiedChinese.list(nil)
+results = client.SimplifiedChinese.list
 ```
 
 ### Common Methods
@@ -213,20 +213,20 @@ traditional_chinese = client.TraditionalChinese
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `date` | `String` | No |  |
+| `location` | `String` | No |  |
+| `remark` | `String` | No |  |
+| `species` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.TraditionalChinese.list(nil)
+results = client.TraditionalChinese.list
 ```
 
 ### Common Methods
