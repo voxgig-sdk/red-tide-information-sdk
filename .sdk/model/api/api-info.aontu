@@ -21,9 +21,9 @@ main: {
           url: "https://data.gov.hk"
         }
       ]
+      summary: "This API provides updated information on red tides sighted in Hong Kong waters, including species and location."
       title: "Red Tide Information"
       version: "1.0.0"
+      website: "https://www.afcd.gov.hk/data/Update_of_Red_Tide_Situation.pdf"
     }
   }
-}
-

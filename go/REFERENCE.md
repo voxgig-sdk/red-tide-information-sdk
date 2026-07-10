@@ -99,6 +99,7 @@ same parameters as `Direct()`.
 
 ```go
 english := client.English(nil)
+fmt.Println(english.GetName()) // "english"
 ```
 
 ### Fields
@@ -119,6 +120,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.English(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -148,7 +153,8 @@ Return the entity name.
 ## SimplifiedChineseEntity
 
 ```go
-simplified_chinese := client.SimplifiedChinese(nil)
+simplifiedChinese := client.SimplifiedChinese(nil)
+fmt.Println(simplifiedChinese.GetName()) // "simplified_chinese"
 ```
 
 ### Fields
@@ -169,6 +175,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.SimplifiedChinese(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -198,7 +208,8 @@ Return the entity name.
 ## TraditionalChineseEntity
 
 ```go
-traditional_chinese := client.TraditionalChinese(nil)
+traditionalChinese := client.TraditionalChinese(nil)
+fmt.Println(traditionalChinese.GetName()) // "traditional_chinese"
 ```
 
 ### Fields
@@ -219,6 +230,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.TraditionalChinese(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

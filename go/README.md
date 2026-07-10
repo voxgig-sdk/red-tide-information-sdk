@@ -338,7 +338,7 @@ fmt.Println(englishs) // the array of records
 
 ### SimplifiedChinese
 
-Create an instance: `simplified_chinese := client.SimplifiedChinese(nil)`
+Create an instance: `simplifiedChinese := client.SimplifiedChinese(nil)`
 
 #### Operations
 
@@ -359,17 +359,17 @@ Create an instance: `simplified_chinese := client.SimplifiedChinese(nil)`
 #### Example: List
 
 ```go
-simplified_chineses, err := client.SimplifiedChinese(nil).List(nil, nil)
+simplifiedChineses, err := client.SimplifiedChinese(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(simplified_chineses) // the array of records
+fmt.Println(simplifiedChineses) // the array of records
 ```
 
 
 ### TraditionalChinese
 
-Create an instance: `traditional_chinese := client.TraditionalChinese(nil)`
+Create an instance: `traditionalChinese := client.TraditionalChinese(nil)`
 
 #### Operations
 
@@ -390,11 +390,11 @@ Create an instance: `traditional_chinese := client.TraditionalChinese(nil)`
 #### Example: List
 
 ```go
-traditional_chineses, err := client.TraditionalChinese(nil).List(nil, nil)
+traditionalChineses, err := client.TraditionalChinese(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(traditional_chineses) // the array of records
+fmt.Println(traditionalChineses) // the array of records
 ```
 
 

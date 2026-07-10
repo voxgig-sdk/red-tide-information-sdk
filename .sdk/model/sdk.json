@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -460,14 +457,17 @@
           "name": "Hong Kong Open Data License",
           "url": "https://data.gov.hk"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Hong Kong Government Open Data Portal",
             "url": "https://data.gov.hk"
           }
         ],
+        "summary": "This API provides updated information on red tides sighted in Hong Kong waters, including species and location.",
         "title": "Red Tide Information",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://www.afcd.gov.hk/data/Update_of_Red_Tide_Situation.pdf"
       },
       "option": {},
       "target": {
@@ -520,6 +520,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -570,6 +573,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
