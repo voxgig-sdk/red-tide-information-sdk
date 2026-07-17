@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- RedTideInformation SDK exists test
 
 local sdk = require("red-tide-information_sdk")
 
