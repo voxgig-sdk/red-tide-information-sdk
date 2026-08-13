@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import RedTideInformationControl
-from core.error import RedTideInformationError
-from core.result import RedTideInformationResult
-from core.spec import RedTideInformationSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import RedTideInformationControl
+from projectname_sdk.core.error import RedTideInformationError
+from projectname_sdk.core.result import RedTideInformationResult
+from projectname_sdk.core.spec import RedTideInformationSpec
 
 
 # True when this SDK was generated with the named feature.

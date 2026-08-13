@@ -57,8 +57,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    englishs = client.English().list()
-    print(englishs)
+    simplifiedchineses = client.SimplifiedChinese().list()
+    print(simplifiedchineses)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -124,9 +124,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = RedTideInformationSDK.test()
 
-# Entity ops return the bare record and raise on error.
-english = client.English().list()
-# english contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+simplifiedchinese = client.SimplifiedChinese().list()
+# simplifiedchinese contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -246,7 +247,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -260,7 +261,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english`
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -274,7 +275,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplifi
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -303,7 +304,7 @@ Create an instance: `english = client.English()`
 | --- | --- | --- |
 | `date` | `str` |  |
 | `location` | `str` |  |
-| `remark` | `str` |  |
+| `remarks` | `str` |  |
 | `species` | `str` |  |
 | `status` | `str` |  |
 
@@ -330,7 +331,7 @@ Create an instance: `simplified_chinese = client.SimplifiedChinese()`
 | --- | --- | --- |
 | `date` | `str` |  |
 | `location` | `str` |  |
-| `remark` | `str` |  |
+| `remarks` | `str` |  |
 | `species` | `str` |  |
 | `status` | `str` |  |
 
@@ -357,7 +358,7 @@ Create an instance: `traditional_chinese = client.TraditionalChinese()`
 | --- | --- | --- |
 | `date` | `str` |  |
 | `location` | `str` |  |
-| `remark` | `str` |  |
+| `remarks` | `str` |  |
 | `species` | `str` |  |
 | `status` | `str` |  |
 
@@ -443,11 +444,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-english = client.English()
-english.list()
+simplifiedchinese = client.SimplifiedChinese()
+simplifiedchinese.list()
 
-# english.data_get() now returns the english data from the last list
-# english.match_get() returns the last match criteria
+# simplifiedchinese.data_get() now returns the simplifiedchinese data from the last list
+# simplifiedchinese.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

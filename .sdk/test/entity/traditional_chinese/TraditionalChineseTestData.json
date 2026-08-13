@@ -4,21 +4,21 @@
       "TRADITIONAL_CHINESE00": {
         "date": "s32",
         "location": "s33",
-        "remark": "s34",
+        "remarks": "s34",
         "species": "s35",
         "status": "s36"
       },
       "TRADITIONAL_CHINESE01": {
         "date": "s64",
         "location": "s65",
-        "remark": "s66",
+        "remarks": "s66",
         "species": "s67",
         "status": "s68"
       },
       "TRADITIONAL_CHINESE02": {
         "date": "s96",
         "location": "s97",
-        "remark": "s98",
+        "remarks": "s98",
         "species": "s99",
         "status": "s9a"
       }
@@ -29,7 +29,7 @@
       "traditional_chinese_ref01": {
         "date": "sc8",
         "location": "sc9",
-        "remark": "sca",
+        "remarks": "sca",
         "species": "scb",
         "status": "scc"
       }

@@ -23,8 +23,8 @@ module RedTideInformationTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("REDTIDEINFORMATION_TEST_LIVE")
-    override = getenv("REDTIDEINFORMATION_TEST_OVERRIDE")
+    live = getenv("RED_TIDE_INFORMATION_TEST_LIVE")
+    override = getenv("RED_TIDE_INFORMATION_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module RedTideInformationTestRunner
       end
     end
 
-    explain = getenv("REDTIDEINFORMATION_TEST_EXPLAIN")
-    m["REDTIDEINFORMATION_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("RED_TIDE_INFORMATION_TEST_EXPLAIN")
+    m["RED_TIDE_INFORMATION_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -42,7 +42,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "remark",
+						"name": "remarks",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
@@ -83,6 +83,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
 								"parts": []any{
@@ -104,7 +105,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -129,7 +129,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "remark",
+						"name": "remarks",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
@@ -170,6 +170,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
 								"parts": []any{
@@ -191,7 +192,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -216,7 +216,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "remark",
+						"name": "remarks",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
@@ -257,6 +257,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
 								"parts": []any{
@@ -278,7 +279,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

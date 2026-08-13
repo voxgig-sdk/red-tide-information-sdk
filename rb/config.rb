@@ -43,7 +43,7 @@ module RedTideInformationConfig
             },
             {
               "active" => true,
-              "name" => "remark",
+              "name" => "remarks",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 2,
@@ -84,6 +84,7 @@ module RedTideInformationConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
                   "parts" => [
@@ -130,7 +131,7 @@ module RedTideInformationConfig
             },
             {
               "active" => true,
-              "name" => "remark",
+              "name" => "remarks",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 2,
@@ -171,6 +172,7 @@ module RedTideInformationConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
                   "parts" => [
@@ -217,7 +219,7 @@ module RedTideInformationConfig
             },
             {
               "active" => true,
-              "name" => "remark",
+              "name" => "remarks",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 2,
@@ -258,6 +260,7 @@ module RedTideInformationConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
                   "parts" => [

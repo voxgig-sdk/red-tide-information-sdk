@@ -108,7 +108,7 @@ fmt.Println(english.GetName()) // "english"
 | --- | --- | --- | --- |
 | `date` | `string` | No |  |
 | `location` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `species` | `string` | No |  |
 | `status` | `string` | No |  |
 
@@ -163,7 +163,7 @@ fmt.Println(simplifiedChinese.GetName()) // "simplified_chinese"
 | --- | --- | --- | --- |
 | `date` | `string` | No |  |
 | `location` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `species` | `string` | No |  |
 | `status` | `string` | No |  |
 
@@ -218,7 +218,7 @@ fmt.Println(traditionalChinese.GetName()) // "traditional_chinese"
 | --- | --- | --- | --- |
 | `date` | `string` | No |  |
 | `location` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `species` | `string` | No |  |
 | `status` | `string` | No |  |
 

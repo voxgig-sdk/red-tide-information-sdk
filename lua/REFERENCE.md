@@ -100,7 +100,7 @@ local english = client:English(nil)
 | --- | --- | --- | --- |
 | `date` | `string` | No |  |
 | `location` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `species` | `string` | No |  |
 | `status` | `string` | No |  |
 
@@ -156,7 +156,7 @@ local simplified_chinese = client:SimplifiedChinese(nil)
 | --- | --- | --- | --- |
 | `date` | `string` | No |  |
 | `location` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `species` | `string` | No |  |
 | `status` | `string` | No |  |
 
@@ -212,7 +212,7 @@ local traditional_chinese = client:TraditionalChinese(nil)
 | --- | --- | --- | --- |
 | `date` | `string` | No |  |
 | `location` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `species` | `string` | No |  |
 | `status` | `string` | No |  |
 

@@ -16,7 +16,7 @@ main: kit: entity: english: {
       type: "`$STRING`"
     }
     {
-      name: "remark"
+      name: "remarks"
       req: false
       type: "`$STRING`"
     }

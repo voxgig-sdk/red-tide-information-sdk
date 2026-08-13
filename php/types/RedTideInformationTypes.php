@@ -17,7 +17,7 @@ class English
 {
     public ?string $date = null;
     public ?string $location = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
     public ?string $species = null;
     public ?string $status = null;
 }
@@ -27,7 +27,7 @@ class EnglishListMatch
 {
     public ?string $date = null;
     public ?string $location = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
     public ?string $species = null;
     public ?string $status = null;
 }
@@ -37,7 +37,7 @@ class SimplifiedChinese
 {
     public ?string $date = null;
     public ?string $location = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
     public ?string $species = null;
     public ?string $status = null;
 }
@@ -47,7 +47,7 @@ class SimplifiedChineseListMatch
 {
     public ?string $date = null;
     public ?string $location = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
     public ?string $species = null;
     public ?string $status = null;
 }
@@ -57,7 +57,7 @@ class TraditionalChinese
 {
     public ?string $date = null;
     public ?string $location = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
     public ?string $species = null;
     public ?string $status = null;
 }
@@ -67,7 +67,7 @@ class TraditionalChineseListMatch
 {
     public ?string $date = null;
     public ?string $location = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
     public ?string $species = null;
     public ?string $status = null;
 }

@@ -16,7 +16,7 @@
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
 # @!attribute [rw] species
@@ -27,7 +27,7 @@
 English = Struct.new(
   :date,
   :location,
-  :remark,
+  :remarks,
   :species,
   :status,
   keyword_init: true
@@ -41,7 +41,7 @@ English = Struct.new(
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
 # @!attribute [rw] species
@@ -52,7 +52,7 @@ English = Struct.new(
 EnglishListMatch = Struct.new(
   :date,
   :location,
-  :remark,
+  :remarks,
   :species,
   :status,
   keyword_init: true
@@ -66,7 +66,7 @@ EnglishListMatch = Struct.new(
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
 # @!attribute [rw] species
@@ -77,7 +77,7 @@ EnglishListMatch = Struct.new(
 SimplifiedChinese = Struct.new(
   :date,
   :location,
-  :remark,
+  :remarks,
   :species,
   :status,
   keyword_init: true
@@ -91,7 +91,7 @@ SimplifiedChinese = Struct.new(
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
 # @!attribute [rw] species
@@ -102,7 +102,7 @@ SimplifiedChinese = Struct.new(
 SimplifiedChineseListMatch = Struct.new(
   :date,
   :location,
-  :remark,
+  :remarks,
   :species,
   :status,
   keyword_init: true
@@ -116,7 +116,7 @@ SimplifiedChineseListMatch = Struct.new(
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
 # @!attribute [rw] species
@@ -127,7 +127,7 @@ SimplifiedChineseListMatch = Struct.new(
 TraditionalChinese = Struct.new(
   :date,
   :location,
-  :remark,
+  :remarks,
   :species,
   :status,
   keyword_init: true
@@ -141,7 +141,7 @@ TraditionalChinese = Struct.new(
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
 # @!attribute [rw] species
@@ -152,7 +152,7 @@ TraditionalChinese = Struct.new(
 TraditionalChineseListMatch = Struct.new(
   :date,
   :location,
-  :remark,
+  :remarks,
   :species,
   :status,
   keyword_init: true

@@ -68,12 +68,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-englishs, err := client.English(nil).List(nil, nil)
+simplifiedchineses, err := client.SimplifiedChinese(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = englishs
+_ = simplifiedchineses
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-english, err := client.English(nil).List(
+simplifiedChinese, err := client.SimplifiedChinese(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(english) // the returned mock data
+fmt.Println(simplifiedChinese) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -264,7 +264,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"date"` |  |
 | `"location"` |  |
-| `"remark"` |  |
+| `"remarks"` |  |
 | `"species"` |  |
 | `"status"` |  |
 
@@ -278,7 +278,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english`
 | --- | --- |
 | `"date"` |  |
 | `"location"` |  |
-| `"remark"` |  |
+| `"remarks"` |  |
 | `"species"` |  |
 | `"status"` |  |
 
@@ -292,7 +292,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplifi
 | --- | --- |
 | `"date"` |  |
 | `"location"` |  |
-| `"remark"` |  |
+| `"remarks"` |  |
 | `"species"` |  |
 | `"status"` |  |
 
@@ -321,7 +321,7 @@ Create an instance: `english := client.English(nil)`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -352,7 +352,7 @@ Create an instance: `simplifiedChinese := client.SimplifiedChinese(nil)`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -383,7 +383,7 @@ Create an instance: `traditionalChinese := client.TraditionalChinese(nil)`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -471,11 +471,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-english := client.English(nil)
-english.List(nil, nil)
+simplifiedchinese := client.SimplifiedChinese(nil)
+simplifiedchinese.List(nil, nil)
 
-// english.Data() now returns the english data from the last list
-// english.Match() returns the last match criteria
+// simplifiedchinese.Data() now returns the simplifiedchinese data from the last list
+// simplifiedchinese.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

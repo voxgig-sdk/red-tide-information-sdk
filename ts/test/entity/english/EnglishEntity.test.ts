@@ -26,8 +26,8 @@ import {
 describe('EnglishEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when REDTIDEINFORMATION_TEST_LIVE=TRUE.
-  afterEach(liveDelay('REDTIDEINFORMATION_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when RED_TIDE_INFORMATION_TEST_LIVE=TRUE.
+  afterEach(liveDelay('RED_TIDE_INFORMATION_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = RedTideInformationSDK.test()
@@ -63,7 +63,7 @@ describe('EnglishEntity', async () => {
     const english_ref01_ent = client.English()
     const english_ref01_match: any = {}
 
-    const english_ref01_list = await english_ref01_ent.list(english_ref01_match)
+    const english_ref01_list = (await english_ref01_ent.list(english_ref01_match)).map((e: any) => e.data())
 
 
   })

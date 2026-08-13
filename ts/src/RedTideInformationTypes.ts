@@ -8,7 +8,7 @@
 export interface English {
   date?: string
   location?: string
-  remark?: string
+  remarks?: string
   species?: string
   status?: string
 }
@@ -16,7 +16,7 @@ export interface English {
 export interface EnglishListMatch {
   date?: string
   location?: string
-  remark?: string
+  remarks?: string
   species?: string
   status?: string
 }
@@ -24,7 +24,7 @@ export interface EnglishListMatch {
 export interface SimplifiedChinese {
   date?: string
   location?: string
-  remark?: string
+  remarks?: string
   species?: string
   status?: string
 }
@@ -32,7 +32,7 @@ export interface SimplifiedChinese {
 export interface SimplifiedChineseListMatch {
   date?: string
   location?: string
-  remark?: string
+  remarks?: string
   species?: string
   status?: string
 }
@@ -40,7 +40,7 @@ export interface SimplifiedChineseListMatch {
 export interface TraditionalChinese {
   date?: string
   location?: string
-  remark?: string
+  remarks?: string
   species?: string
   status?: string
 }
@@ -48,7 +48,7 @@ export interface TraditionalChinese {
 export interface TraditionalChineseListMatch {
   date?: string
   location?: string
-  remark?: string
+  remarks?: string
   species?: string
   status?: string
 }

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'RedTideInformation',
   }
 
 
@@ -76,7 +76,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "remark",
+          "name": "remarks",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -117,6 +117,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
               "parts": [
@@ -163,7 +164,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "remark",
+          "name": "remarks",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -204,6 +205,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
               "parts": [
@@ -250,7 +252,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "remark",
+          "name": "remarks",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -291,6 +293,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
               "parts": [

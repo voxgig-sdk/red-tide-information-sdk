@@ -37,7 +37,7 @@ class EnglishEntity extends RedTideInformationEntityBase<English> {
 
 
 
-  async list(this: any, reqmatch?: EnglishListMatch, ctrl?: Control): Promise<English[]> {
+  async list(this: any, reqmatch?: EnglishListMatch, ctrl?: Control): Promise<EnglishEntity[]> {
 
     const utility = this._utility
 

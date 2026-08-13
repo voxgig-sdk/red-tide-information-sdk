@@ -51,7 +51,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  englishs = client.English.list()
+  simplifiedchineses = client.SimplifiedChinese.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -119,9 +119,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = RedTideInformationSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-english = client.English.list()
-puts english
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+simplifiedchinese = client.SimplifiedChinese.list()
+puts simplifiedchinese
 ```
 
 ### Use a custom fetch function
@@ -240,7 +241,7 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -254,7 +255,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english`
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -268,7 +269,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplifi
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -297,7 +298,7 @@ Create an instance: `english = client.English`
 | --- | --- | --- |
 | `date` | `String` |  |
 | `location` | `String` |  |
-| `remark` | `String` |  |
+| `remarks` | `String` |  |
 | `species` | `String` |  |
 | `status` | `String` |  |
 
@@ -325,7 +326,7 @@ Create an instance: `simplified_chinese = client.SimplifiedChinese`
 | --- | --- | --- |
 | `date` | `String` |  |
 | `location` | `String` |  |
-| `remark` | `String` |  |
+| `remarks` | `String` |  |
 | `species` | `String` |  |
 | `status` | `String` |  |
 
@@ -353,7 +354,7 @@ Create an instance: `traditional_chinese = client.TraditionalChinese`
 | --- | --- | --- |
 | `date` | `String` |  |
 | `location` | `String` |  |
-| `remark` | `String` |  |
+| `remarks` | `String` |  |
 | `species` | `String` |  |
 | `status` | `String` |  |
 
@@ -441,11 +442,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-english = client.English
-english.list()
+simplifiedchinese = client.SimplifiedChinese
+simplifiedchinese.list()
 
-# english.data_get now returns the english data from the last list
-# english.match_get returns the last match criteria
+# simplifiedchinese.data_get now returns the simplifiedchinese data from the last list
+# simplifiedchinese.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

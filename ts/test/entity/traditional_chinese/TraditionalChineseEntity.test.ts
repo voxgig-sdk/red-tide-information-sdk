@@ -26,8 +26,8 @@ import {
 describe('TraditionalChineseEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when REDTIDEINFORMATION_TEST_LIVE=TRUE.
-  afterEach(liveDelay('REDTIDEINFORMATION_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when RED_TIDE_INFORMATION_TEST_LIVE=TRUE.
+  afterEach(liveDelay('RED_TIDE_INFORMATION_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = RedTideInformationSDK.test()
@@ -63,7 +63,7 @@ describe('TraditionalChineseEntity', async () => {
     const traditional_chinese_ref01_ent = client.TraditionalChinese()
     const traditional_chinese_ref01_match: any = {}
 
-    const traditional_chinese_ref01_list = await traditional_chinese_ref01_ent.list(traditional_chinese_ref01_match)
+    const traditional_chinese_ref01_list = (await traditional_chinese_ref01_ent.list(traditional_chinese_ref01_match)).map((e: any) => e.data())
 
 
   })

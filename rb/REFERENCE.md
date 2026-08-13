@@ -103,7 +103,7 @@ english = client.English
 | --- | --- | --- | --- |
 | `date` | `String` | No |  |
 | `location` | `String` | No |  |
-| `remark` | `String` | No |  |
+| `remarks` | `String` | No |  |
 | `species` | `String` | No |  |
 | `status` | `String` | No |  |
 
@@ -159,7 +159,7 @@ simplified_chinese = client.SimplifiedChinese
 | --- | --- | --- | --- |
 | `date` | `String` | No |  |
 | `location` | `String` | No |  |
-| `remark` | `String` | No |  |
+| `remarks` | `String` | No |  |
 | `species` | `String` | No |  |
 | `status` | `String` | No |  |
 
@@ -215,7 +215,7 @@ traditional_chinese = client.TraditionalChinese
 | --- | --- | --- | --- |
 | `date` | `String` | No |  |
 | `location` | `String` | No |  |
-| `remark` | `String` | No |  |
+| `remarks` | `String` | No |  |
 | `species` | `String` | No |  |
 | `status` | `String` | No |  |
 

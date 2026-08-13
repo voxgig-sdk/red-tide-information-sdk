@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# RedTideInformation SDK exists test
 
 import pytest
 from redtideinformation_sdk import RedTideInformationSDK

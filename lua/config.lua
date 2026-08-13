@@ -42,7 +42,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "remark",
+            ["name"] = "remarks",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 2,
@@ -83,6 +83,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
                 ["parts"] = {
@@ -129,7 +130,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "remark",
+            ["name"] = "remarks",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 2,
@@ -170,6 +171,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
                 ["parts"] = {
@@ -216,7 +218,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "remark",
+            ["name"] = "remarks",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 2,
@@ -257,6 +259,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
                 ["parts"] = {

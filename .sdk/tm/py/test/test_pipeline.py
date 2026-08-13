@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import RedTideInformationSDK
-from core.error import RedTideInformationError
-from core.result import RedTideInformationResult
-from core.response import RedTideInformationResponse
-from core.spec import RedTideInformationSpec
-from feature.base_feature import RedTideInformationBaseFeature
+from projectname_sdk.core.error import RedTideInformationError
+from projectname_sdk.core.result import RedTideInformationResult
+from projectname_sdk.core.response import RedTideInformationResponse
+from projectname_sdk.core.spec import RedTideInformationSpec
+from projectname_sdk.feature.base_feature import RedTideInformationBaseFeature
 
 
 def _client():

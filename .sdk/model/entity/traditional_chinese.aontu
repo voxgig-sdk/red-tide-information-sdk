@@ -16,7 +16,7 @@ main: kit: entity: traditional_chinese: {
       type: "`$STRING`"
     }
     {
-      name: "remark"
+      name: "remarks"
       req: false
       type: "`$STRING`"
     }

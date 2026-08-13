@@ -43,8 +43,8 @@ class RedTideInformationTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('REDTIDEINFORMATION_TEST_LIVE');
-        $override = self::getenv('REDTIDEINFORMATION_TEST_OVERRIDE');
+        $live = self::getenv('RED_TIDE_INFORMATION_TEST_LIVE');
+        $override = self::getenv('RED_TIDE_INFORMATION_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class RedTideInformationTestRunner
             }
         }
 
-        $explain = self::getenv('REDTIDEINFORMATION_TEST_EXPLAIN');
+        $explain = self::getenv('RED_TIDE_INFORMATION_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['REDTIDEINFORMATION_TEST_EXPLAIN'] = $explain;
+            $m['RED_TIDE_INFORMATION_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

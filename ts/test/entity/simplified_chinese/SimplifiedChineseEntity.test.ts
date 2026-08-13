@@ -26,8 +26,8 @@ import {
 describe('SimplifiedChineseEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when REDTIDEINFORMATION_TEST_LIVE=TRUE.
-  afterEach(liveDelay('REDTIDEINFORMATION_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when RED_TIDE_INFORMATION_TEST_LIVE=TRUE.
+  afterEach(liveDelay('RED_TIDE_INFORMATION_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = RedTideInformationSDK.test()
@@ -63,7 +63,7 @@ describe('SimplifiedChineseEntity', async () => {
     const simplified_chinese_ref01_ent = client.SimplifiedChinese()
     const simplified_chinese_ref01_match: any = {}
 
-    const simplified_chinese_ref01_list = await simplified_chinese_ref01_ent.list(simplified_chinese_ref01_match)
+    const simplified_chinese_ref01_list = (await simplified_chinese_ref01_ent.list(simplified_chinese_ref01_match)).map((e: any) => e.data())
 
 
   })

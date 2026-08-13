@@ -102,7 +102,7 @@ $english = $client->English();
 | --- | --- | --- | --- |
 | `date` | `string` | No |  |
 | `location` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `species` | `string` | No |  |
 | `status` | `string` | No |  |
 
@@ -158,7 +158,7 @@ $simplified_chinese = $client->SimplifiedChinese();
 | --- | --- | --- | --- |
 | `date` | `string` | No |  |
 | `location` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `species` | `string` | No |  |
 | `status` | `string` | No |  |
 
@@ -214,7 +214,7 @@ $traditional_chinese = $client->TraditionalChinese();
 | --- | --- | --- | --- |
 | `date` | `string` | No |  |
 | `location` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `species` | `string` | No |  |
 | `status` | `string` | No |  |
 

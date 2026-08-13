@@ -66,11 +66,11 @@ function english_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "REDTIDEINFORMATION_TEST_ENGLISH_ENTID" => [],
-        "REDTIDEINFORMATION_TEST_LIVE" => "FALSE",
+        "RED_TIDE_INFORMATION_TEST_ENGLISH_ENTID" => [],
+        "RED_TIDE_INFORMATION_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["REDTIDEINFORMATION_TEST_LIVE"] === "TRUE";
+    $live = $env["RED_TIDE_INFORMATION_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

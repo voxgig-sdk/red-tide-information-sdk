@@ -54,7 +54,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local englishs, err = client:English():list()
+local simplifiedchineses, err = client:SimplifiedChinese():list()
 if err then error(err) end
 ```
 
@@ -112,7 +112,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:English():list()
+local result, err = client:SimplifiedChinese():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -220,9 +220,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local english, err = client:English():load()
+    local english, err = client:English():list()
     if err then error(err) end
-    -- english is the loaded record
+    -- english is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -235,7 +235,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -249,7 +249,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english`
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -263,7 +263,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplifi
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -292,7 +292,7 @@ Create an instance: `local english = client:English(nil)`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -319,7 +319,7 @@ Create an instance: `local simplified_chinese = client:SimplifiedChinese(nil)`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -346,7 +346,7 @@ Create an instance: `local traditional_chinese = client:TraditionalChinese(nil)`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -433,11 +433,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local english = client:English()
-english:list()
+local simplifiedchinese = client:SimplifiedChinese()
+simplifiedchinese:list()
 
--- english:data_get() now returns the english data from the last list
--- english:match_get() returns the last match criteria
+-- simplifiedchinese:data_get() now returns the simplifiedchinese data from the last list
+-- simplifiedchinese:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

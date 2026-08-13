@@ -37,7 +37,7 @@ class TraditionalChineseEntity extends RedTideInformationEntityBase<TraditionalC
 
 
 
-  async list(this: any, reqmatch?: TraditionalChineseListMatch, ctrl?: Control): Promise<TraditionalChinese[]> {
+  async list(this: any, reqmatch?: TraditionalChineseListMatch, ctrl?: Control): Promise<TraditionalChineseEntity[]> {
 
     const utility = this._utility
 

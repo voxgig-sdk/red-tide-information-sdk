@@ -37,7 +37,7 @@ class SimplifiedChineseEntity extends RedTideInformationEntityBase<SimplifiedChi
 
 
 
-  async list(this: any, reqmatch?: SimplifiedChineseListMatch, ctrl?: Control): Promise<SimplifiedChinese[]> {
+  async list(this: any, reqmatch?: SimplifiedChineseListMatch, ctrl?: Control): Promise<SimplifiedChineseEntity[]> {
 
     const utility = this._utility
 

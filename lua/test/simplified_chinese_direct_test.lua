@@ -61,11 +61,11 @@ function simplified_chinese_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["REDTIDEINFORMATION_TEST_SIMPLIFIED_CHINESE_ENTID"] = {},
-    ["REDTIDEINFORMATION_TEST_LIVE"] = "FALSE",
+    ["RED_TIDE_INFORMATION_TEST_SIMPLIFIED_CHINESE_ENTID"] = {},
+    ["RED_TIDE_INFORMATION_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["REDTIDEINFORMATION_TEST_LIVE"] == "TRUE"
+  local live = env["RED_TIDE_INFORMATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

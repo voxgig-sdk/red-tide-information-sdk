@@ -35,7 +35,9 @@ const client = new RedTideInformationSDK()
 
 ### 2. List english records
 
-`list()` resolves to an array of English objects — iterate it directly:
+`list()` resolves to an array of English ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const englishs = await client.English().list()
@@ -52,8 +54,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const englishs = await client.English().list()
-  console.log(englishs)
+  const simplifiedchineses = await client.SimplifiedChinese().list()
+  console.log(simplifiedchineses)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -119,9 +121,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = RedTideInformationSDK.test()
 
-const english = await client.English().list()
-// english is a bare entity populated with mock response data
-console.log(english)
+const simplifiedchinese = await client.SimplifiedChinese().list()
+// simplifiedchinese is the entity, populated with mock response data
+// — call simplifiedchinese.data() for the record itself
+console.log(simplifiedchinese)
 ```
 
 You can also use the instance method:
@@ -136,7 +139,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.English()
+const entity = client.SimplifiedChinese()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -288,7 +291,7 @@ The `prepare()` method returns:
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -302,7 +305,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english`
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -316,7 +319,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplifi
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -345,7 +348,7 @@ Create an instance: `const english = client.English()`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -372,7 +375,7 @@ Create an instance: `const simplified_chinese = client.SimplifiedChinese()`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -399,7 +402,7 @@ Create an instance: `const traditional_chinese = client.TraditionalChinese()`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -479,11 +482,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const english = client.English()
-await english.list()
+const simplifiedchinese = client.SimplifiedChinese()
+await simplifiedchinese.list()
 
-// english.data() now returns the english data from the last `list`
-// english.match() returns the last match criteria
+// simplifiedchinese.data() now returns the simplifiedchinese data from the last `list`
+// simplifiedchinese.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

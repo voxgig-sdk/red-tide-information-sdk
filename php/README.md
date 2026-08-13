@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $englishs = $client->English()->list();
+    $simplifiedchineses = $client->SimplifiedChinese()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,9 +125,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = RedTideInformationSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$english = $client->English()->list();
-print_r($english);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$simplifiedchinese = $client->SimplifiedChinese()->list();
+print_r($simplifiedchinese);
 ```
 
 ### Use a custom fetch function
@@ -226,7 +227,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -250,7 +251,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -264,7 +265,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english`
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -278,7 +279,7 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplifi
 | --- | --- |
 | `date` |  |
 | `location` |  |
-| `remark` |  |
+| `remarks` |  |
 | `species` |  |
 | `status` |  |
 
@@ -307,7 +308,7 @@ Create an instance: `$english = $client->English();`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -335,7 +336,7 @@ Create an instance: `$simplified_chinese = $client->SimplifiedChinese();`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -363,7 +364,7 @@ Create an instance: `$traditional_chinese = $client->TraditionalChinese();`
 | --- | --- | --- |
 | `date` | `string` |  |
 | `location` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `species` | `string` |  |
 | `status` | `string` |  |
 
@@ -451,11 +452,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$english = $client->English();
-$english->list();
+$simplifiedchinese = $client->SimplifiedChinese();
+$simplifiedchinese->list();
 
-// $english->data_get() now returns the english data from the last list
-// $english->match_get() returns the last match criteria
+// $simplifiedchinese->data_get() now returns the simplifiedchinese data from the last list
+// $simplifiedchinese->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

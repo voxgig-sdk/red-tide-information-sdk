@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = RedTideInformationSDK.test()
-const englishs = await client.English().list()
-// englishs is an array of bare English records populated with mock data
-console.log(englishs)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = RedTideInformationSDK.test({
+  entity: {
+    simplified_chinese: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const simplifiedchineses = await client.SimplifiedChinese().list()
+// simplifiedchineses is an array of SimplifiedChinese entities, populated with mock data
+// — call simplifiedchineses[0].data() for the record itself
+console.log(simplifiedchineses)
 ```
 
 ### Python
 
 ```python
 client = RedTideInformationSDK.test()
-englishs = client.English().list()
-print(englishs)
+simplifiedchineses = client.SimplifiedChinese().list()
+print(simplifiedchineses)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(englishs)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = RedTideInformationSDK::test([
-    "entity" => ["english" => ["test01" => []]],
+    "entity" => ["simplifiedchinese" => ["test01" => []]],
 ]);
-$englishs = $client->English()->list();
+$simplifiedchineses = $client->SimplifiedChinese()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.English(nil).List(
+result, err := client.SimplifiedChinese(nil).List(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.English(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = RedTideInformationSDK.test({
-  "entity" => { "english" => { "test01" => {} } },
+  "entity" => { "simplifiedchinese" => { "test01" => {} } },
 })
-englishs = client.English.list()
+simplifiedchineses = client.SimplifiedChinese.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:English():list()
+local results, err = client:SimplifiedChinese():list()
 ```
 
 ## Packages
@@ -110,7 +119,7 @@ import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information'
 
 const client = new RedTideInformationSDK()
 
-// List all englishs (returns English[])
+// List all englishs (returns EnglishEntity[] — .data() for the record)
 const englishs = await client.English().list()
 for (const english of englishs) {
   console.log(english)
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://data.gov.hk/en-data/dataset/hk-afcd-afcdlist-red-tide-location](https://data.gov.hk/en-data/dataset/hk-afcd-afcdlist-red-tide-location)
 

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from redtideinformation_sdk.utility.voxgig_struct import voxgig_struct as vs
 from redtideinformation_sdk import RedTideInformationSDK
-from core import helpers
+from redtideinformation_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _traditional_chinese_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "REDTIDEINFORMATION_TEST_TRADITIONAL_CHINESE_ENTID": {},
-        "REDTIDEINFORMATION_TEST_LIVE": "FALSE",
+        "RED_TIDE_INFORMATION_TEST_TRADITIONAL_CHINESE_ENTID": {},
+        "RED_TIDE_INFORMATION_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("REDTIDEINFORMATION_TEST_LIVE") == "TRUE"
+    live = env.get("RED_TIDE_INFORMATION_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
