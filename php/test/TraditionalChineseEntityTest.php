@@ -40,7 +40,7 @@ class TraditionalChineseEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = RedTideInformationConfig::make_config();
+        $cfg = RedTideInformationConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = RedTideInformationSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

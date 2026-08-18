@@ -23,8 +23,8 @@ class RedTideInformationSDK:
         utility = RedTideInformationUtility()
         self._utility = utility
 
-        from redtideinformation_sdk.config import make_config
-        config = make_config()
+        from redtideinformation_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

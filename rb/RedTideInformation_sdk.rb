@@ -28,7 +28,7 @@ class RedTideInformationSDK
     utility = RedTideInformationUtility.new
     @_utility = utility
 
-    config = RedTideInformationConfig.make_config
+    config = RedTideInformationConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

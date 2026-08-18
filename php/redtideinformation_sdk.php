@@ -40,7 +40,7 @@ class RedTideInformationSDK
         $utility = new RedTideInformationUtility();
         $this->_utility = $utility;
 
-        $config = RedTideInformationConfig::make_config();
+        $config = RedTideInformationConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
