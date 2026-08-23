@@ -106,11 +106,11 @@ fmt.Println(english.GetName()) // "english"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `string` | No |  |
-| `location` | `string` | No |  |
-| `remarks` | `string` | No |  |
-| `species` | `string` | No |  |
-| `status` | `string` | No |  |
+| `date` | `string` | No | Date when the red tide was sighted |
+| `location` | `string` | No | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | No | Additional remarks or observations |
+| `species` | `string` | No | Species causing the red tide |
+| `status` | `string` | No | Current status of the red tide event |
 
 ### Operations
 
@@ -161,11 +161,11 @@ fmt.Println(simplifiedChinese.GetName()) // "simplified_chinese"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `string` | No |  |
-| `location` | `string` | No |  |
-| `remarks` | `string` | No |  |
-| `species` | `string` | No |  |
-| `status` | `string` | No |  |
+| `date` | `string` | No | Date when the red tide was sighted |
+| `location` | `string` | No | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | No | Additional remarks or observations |
+| `species` | `string` | No | Species causing the red tide |
+| `status` | `string` | No | Current status of the red tide event |
 
 ### Operations
 
@@ -216,11 +216,11 @@ fmt.Println(traditionalChinese.GetName()) // "traditional_chinese"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `string` | No |  |
-| `location` | `string` | No |  |
-| `remarks` | `string` | No |  |
-| `species` | `string` | No |  |
-| `status` | `string` | No |  |
+| `date` | `string` | No | Date when the red tide was sighted |
+| `location` | `string` | No | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | No | Additional remarks or observations |
+| `species` | `string` | No | Species causing the red tide |
+| `status` | `string` | No | Current status of the red tide event |
 
 ### Operations
 

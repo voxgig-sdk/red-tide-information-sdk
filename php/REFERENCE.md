@@ -100,11 +100,11 @@ $english = $client->English();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `string` | No |  |
-| `location` | `string` | No |  |
-| `remarks` | `string` | No |  |
-| `species` | `string` | No |  |
-| `status` | `string` | No |  |
+| `date` | `string` | No | Date when the red tide was sighted |
+| `location` | `string` | No | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | No | Additional remarks or observations |
+| `species` | `string` | No | Species causing the red tide |
+| `status` | `string` | No | Current status of the red tide event |
 
 ### Operations
 
@@ -156,11 +156,11 @@ $simplified_chinese = $client->SimplifiedChinese();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `string` | No |  |
-| `location` | `string` | No |  |
-| `remarks` | `string` | No |  |
-| `species` | `string` | No |  |
-| `status` | `string` | No |  |
+| `date` | `string` | No | Date when the red tide was sighted |
+| `location` | `string` | No | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | No | Additional remarks or observations |
+| `species` | `string` | No | Species causing the red tide |
+| `status` | `string` | No | Current status of the red tide event |
 
 ### Operations
 
@@ -212,11 +212,11 @@ $traditional_chinese = $client->TraditionalChinese();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `string` | No |  |
-| `location` | `string` | No |  |
-| `remarks` | `string` | No |  |
-| `species` | `string` | No |  |
-| `status` | `string` | No |  |
+| `date` | `string` | No | Date when the red tide was sighted |
+| `location` | `string` | No | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | No | Additional remarks or observations |
+| `species` | `string` | No | Species causing the red tide |
+| `status` | `string` | No | Current status of the red tide event |
 
 ### Operations
 

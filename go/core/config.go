@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "RedTideInformation",
+			"slug": "red-tide-information",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -35,22 +38,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "date",
+						"short": "Date when the red tide was sighted",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "location",
+						"short": "Location in Hong Kong waters where the red tide was observed",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "remarks",
+						"short": "Additional remarks or observations",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "species",
+						"short": "Species causing the red tide",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Current status of the red tide event",
 						"type": "`$STRING`",
 					},
 				},
@@ -103,22 +111,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "date",
+						"short": "Date when the red tide was sighted",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "location",
+						"short": "Location in Hong Kong waters where the red tide was observed",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "remarks",
+						"short": "Additional remarks or observations",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "species",
+						"short": "Species causing the red tide",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Current status of the red tide event",
 						"type": "`$STRING`",
 					},
 				},
@@ -171,22 +184,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "date",
+						"short": "Date when the red tide was sighted",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "location",
+						"short": "Location in Hong Kong waters where the red tide was observed",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "remarks",
+						"short": "Additional remarks or observations",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "species",
+						"short": "Species causing the red tide",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Current status of the red tide event",
 						"type": "`$STRING`",
 					},
 				},

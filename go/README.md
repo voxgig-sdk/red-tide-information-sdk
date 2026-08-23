@@ -6,7 +6,7 @@ The Golang SDK for the RedTideInformation API — an entity-oriented client usin
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.English(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -262,11 +262,11 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"date"` |  |
-| `"location"` |  |
-| `"remarks"` |  |
-| `"species"` |  |
-| `"status"` |  |
+| `"date"` | Date when the red tide was sighted |
+| `"location"` | Location in Hong Kong waters where the red tide was observed |
+| `"remarks"` | Additional remarks or observations |
+| `"species"` | Species causing the red tide |
+| `"status"` | Current status of the red tide event |
 
 Operations: List.
 
@@ -276,11 +276,11 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english`
 
 | Field | Description |
 | --- | --- |
-| `"date"` |  |
-| `"location"` |  |
-| `"remarks"` |  |
-| `"species"` |  |
-| `"status"` |  |
+| `"date"` | Date when the red tide was sighted |
+| `"location"` | Location in Hong Kong waters where the red tide was observed |
+| `"remarks"` | Additional remarks or observations |
+| `"species"` | Species causing the red tide |
+| `"status"` | Current status of the red tide event |
 
 Operations: List.
 
@@ -290,11 +290,11 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplifi
 
 | Field | Description |
 | --- | --- |
-| `"date"` |  |
-| `"location"` |  |
-| `"remarks"` |  |
-| `"species"` |  |
-| `"status"` |  |
+| `"date"` | Date when the red tide was sighted |
+| `"location"` | Location in Hong Kong waters where the red tide was observed |
+| `"remarks"` | Additional remarks or observations |
+| `"species"` | Species causing the red tide |
+| `"status"` | Current status of the red tide event |
 
 Operations: List.
 
@@ -319,11 +319,11 @@ Create an instance: `english := client.English(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `string` |  |
-| `location` | `string` |  |
-| `remarks` | `string` |  |
-| `species` | `string` |  |
-| `status` | `string` |  |
+| `date` | `string` | Date when the red tide was sighted |
+| `location` | `string` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | Additional remarks or observations |
+| `species` | `string` | Species causing the red tide |
+| `status` | `string` | Current status of the red tide event |
 
 #### Example: List
 
@@ -350,11 +350,11 @@ Create an instance: `simplifiedChinese := client.SimplifiedChinese(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `string` |  |
-| `location` | `string` |  |
-| `remarks` | `string` |  |
-| `species` | `string` |  |
-| `status` | `string` |  |
+| `date` | `string` | Date when the red tide was sighted |
+| `location` | `string` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | Additional remarks or observations |
+| `species` | `string` | Species causing the red tide |
+| `status` | `string` | Current status of the red tide event |
 
 #### Example: List
 
@@ -381,11 +381,11 @@ Create an instance: `traditionalChinese := client.TraditionalChinese(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `string` |  |
-| `location` | `string` |  |
-| `remarks` | `string` |  |
-| `species` | `string` |  |
-| `status` | `string` |  |
+| `date` | `string` | Date when the red tide was sighted |
+| `location` | `string` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | Additional remarks or observations |
+| `species` | `string` | Species causing the red tide |
+| `status` | `string` | Current status of the red tide event |
 
 #### Example: List
 

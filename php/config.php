@@ -33,6 +33,9 @@ class RedTideInformationConfig
         return [
             "main" => [
                 "name" => "RedTideInformation",
+                "slug" => "red-tide-information",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -57,22 +60,27 @@ class RedTideInformationConfig
           'fields' => [
             [
               'name' => 'date',
+              'short' => 'Date when the red tide was sighted',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'location',
+              'short' => 'Location in Hong Kong waters where the red tide was observed',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'remarks',
+              'short' => 'Additional remarks or observations',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'species',
+              'short' => 'Species causing the red tide',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'status',
+              'short' => 'Current status of the red tide event',
               'type' => '`$STRING`',
             ],
           ],
@@ -125,22 +133,27 @@ class RedTideInformationConfig
           'fields' => [
             [
               'name' => 'date',
+              'short' => 'Date when the red tide was sighted',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'location',
+              'short' => 'Location in Hong Kong waters where the red tide was observed',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'remarks',
+              'short' => 'Additional remarks or observations',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'species',
+              'short' => 'Species causing the red tide',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'status',
+              'short' => 'Current status of the red tide event',
               'type' => '`$STRING`',
             ],
           ],
@@ -193,22 +206,27 @@ class RedTideInformationConfig
           'fields' => [
             [
               'name' => 'date',
+              'short' => 'Date when the red tide was sighted',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'location',
+              'short' => 'Location in Hong Kong waters where the red tide was observed',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'remarks',
+              'short' => 'Additional remarks or observations',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'species',
+              'short' => 'Species causing the red tide',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'status',
+              'short' => 'Current status of the red tide event',
               'type' => '`$STRING`',
             ],
           ],

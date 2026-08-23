@@ -8,26 +8,31 @@ main: kit: entity: simplified_chinese: {
     {
       name: "date"
       req: false
+      short: "Date when the red tide was sighted"
       type: "`$STRING`"
     }
     {
       name: "location"
       req: false
+      short: "Location in Hong Kong waters where the red tide was observed"
       type: "`$STRING`"
     }
     {
       name: "remarks"
       req: false
+      short: "Additional remarks or observations"
       type: "`$STRING`"
     }
     {
       name: "species"
       req: false
+      short: "Species causing the red tide"
       type: "`$STRING`"
     }
     {
       name: "status"
       req: false
+      short: "Current status of the red tide event"
       type: "`$STRING`"
     }
   ]

@@ -101,11 +101,11 @@ english = client.English
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `String` | No |  |
-| `location` | `String` | No |  |
-| `remarks` | `String` | No |  |
-| `species` | `String` | No |  |
-| `status` | `String` | No |  |
+| `date` | `String` | No | Date when the red tide was sighted |
+| `location` | `String` | No | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `String` | No | Additional remarks or observations |
+| `species` | `String` | No | Species causing the red tide |
+| `status` | `String` | No | Current status of the red tide event |
 
 ### Operations
 
@@ -157,11 +157,11 @@ simplified_chinese = client.SimplifiedChinese
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `String` | No |  |
-| `location` | `String` | No |  |
-| `remarks` | `String` | No |  |
-| `species` | `String` | No |  |
-| `status` | `String` | No |  |
+| `date` | `String` | No | Date when the red tide was sighted |
+| `location` | `String` | No | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `String` | No | Additional remarks or observations |
+| `species` | `String` | No | Species causing the red tide |
+| `status` | `String` | No | Current status of the red tide event |
 
 ### Operations
 
@@ -213,11 +213,11 @@ traditional_chinese = client.TraditionalChinese
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `String` | No |  |
-| `location` | `String` | No |  |
-| `remarks` | `String` | No |  |
-| `species` | `String` | No |  |
-| `status` | `String` | No |  |
+| `date` | `String` | No | Date when the red tide was sighted |
+| `location` | `String` | No | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `String` | No | Additional remarks or observations |
+| `species` | `String` | No | Species causing the red tide |
+| `status` | `String` | No | Current status of the red tide event |
 
 ### Operations
 

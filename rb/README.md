@@ -239,11 +239,11 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `date` |  |
-| `location` |  |
-| `remarks` |  |
-| `species` |  |
-| `status` |  |
+| `date` | Date when the red tide was sighted |
+| `location` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | Additional remarks or observations |
+| `species` | Species causing the red tide |
+| `status` | Current status of the red tide event |
 
 Operations: List.
 
@@ -253,11 +253,11 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english`
 
 | Field | Description |
 | --- | --- |
-| `date` |  |
-| `location` |  |
-| `remarks` |  |
-| `species` |  |
-| `status` |  |
+| `date` | Date when the red tide was sighted |
+| `location` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | Additional remarks or observations |
+| `species` | Species causing the red tide |
+| `status` | Current status of the red tide event |
 
 Operations: List.
 
@@ -267,11 +267,11 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplifi
 
 | Field | Description |
 | --- | --- |
-| `date` |  |
-| `location` |  |
-| `remarks` |  |
-| `species` |  |
-| `status` |  |
+| `date` | Date when the red tide was sighted |
+| `location` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | Additional remarks or observations |
+| `species` | Species causing the red tide |
+| `status` | Current status of the red tide event |
 
 Operations: List.
 
@@ -296,11 +296,11 @@ Create an instance: `english = client.English`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `String` |  |
-| `location` | `String` |  |
-| `remarks` | `String` |  |
-| `species` | `String` |  |
-| `status` | `String` |  |
+| `date` | `String` | Date when the red tide was sighted |
+| `location` | `String` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `String` | Additional remarks or observations |
+| `species` | `String` | Species causing the red tide |
+| `status` | `String` | Current status of the red tide event |
 
 #### Example: List
 
@@ -324,11 +324,11 @@ Create an instance: `simplified_chinese = client.SimplifiedChinese`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `String` |  |
-| `location` | `String` |  |
-| `remarks` | `String` |  |
-| `species` | `String` |  |
-| `status` | `String` |  |
+| `date` | `String` | Date when the red tide was sighted |
+| `location` | `String` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `String` | Additional remarks or observations |
+| `species` | `String` | Species causing the red tide |
+| `status` | `String` | Current status of the red tide event |
 
 #### Example: List
 
@@ -352,11 +352,11 @@ Create an instance: `traditional_chinese = client.TraditionalChinese`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `String` |  |
-| `location` | `String` |  |
-| `remarks` | `String` |  |
-| `species` | `String` |  |
-| `status` | `String` |  |
+| `date` | `String` | Date when the red tide was sighted |
+| `location` | `String` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `String` | Additional remarks or observations |
+| `species` | `String` | Species causing the red tide |
+| `status` | `String` | Current status of the red tide event |
 
 #### Example: List
 

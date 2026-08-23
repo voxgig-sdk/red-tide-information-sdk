@@ -36,30 +36,35 @@
               "active": true,
               "name": "date",
               "req": false,
+              "short": "Date when the red tide was sighted",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "location",
               "req": false,
+              "short": "Location in Hong Kong waters where the red tide was observed",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "remarks",
               "req": false,
+              "short": "Additional remarks or observations",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "species",
               "req": false,
+              "short": "Species causing the red tide",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "Current status of the red tide event",
               "type": "`$STRING`"
             }
           ],
@@ -121,30 +126,35 @@
               "active": true,
               "name": "date",
               "req": false,
+              "short": "Date when the red tide was sighted",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "location",
               "req": false,
+              "short": "Location in Hong Kong waters where the red tide was observed",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "remarks",
               "req": false,
+              "short": "Additional remarks or observations",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "species",
               "req": false,
+              "short": "Species causing the red tide",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "Current status of the red tide event",
               "type": "`$STRING`"
             }
           ],
@@ -206,30 +216,35 @@
               "active": true,
               "name": "date",
               "req": false,
+              "short": "Date when the red tide was sighted",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "location",
               "req": false,
+              "short": "Location in Hong Kong waters where the red tide was observed",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "remarks",
               "req": false,
+              "short": "Additional remarks or observations",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "species",
               "req": false,
+              "short": "Species causing the red tide",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "Current status of the red tide event",
               "type": "`$STRING`"
             }
           ],

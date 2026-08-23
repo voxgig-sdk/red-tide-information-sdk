@@ -233,11 +233,11 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `date` |  |
-| `location` |  |
-| `remarks` |  |
-| `species` |  |
-| `status` |  |
+| `date` | Date when the red tide was sighted |
+| `location` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | Additional remarks or observations |
+| `species` | Species causing the red tide |
+| `status` | Current status of the red tide event |
 
 Operations: List.
 
@@ -247,11 +247,11 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english`
 
 | Field | Description |
 | --- | --- |
-| `date` |  |
-| `location` |  |
-| `remarks` |  |
-| `species` |  |
-| `status` |  |
+| `date` | Date when the red tide was sighted |
+| `location` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | Additional remarks or observations |
+| `species` | Species causing the red tide |
+| `status` | Current status of the red tide event |
 
 Operations: List.
 
@@ -261,11 +261,11 @@ API path: `/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplifi
 
 | Field | Description |
 | --- | --- |
-| `date` |  |
-| `location` |  |
-| `remarks` |  |
-| `species` |  |
-| `status` |  |
+| `date` | Date when the red tide was sighted |
+| `location` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | Additional remarks or observations |
+| `species` | Species causing the red tide |
+| `status` | Current status of the red tide event |
 
 Operations: List.
 
@@ -290,11 +290,11 @@ Create an instance: `local english = client:English(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `string` |  |
-| `location` | `string` |  |
-| `remarks` | `string` |  |
-| `species` | `string` |  |
-| `status` | `string` |  |
+| `date` | `string` | Date when the red tide was sighted |
+| `location` | `string` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | Additional remarks or observations |
+| `species` | `string` | Species causing the red tide |
+| `status` | `string` | Current status of the red tide event |
 
 #### Example: List
 
@@ -317,11 +317,11 @@ Create an instance: `local simplified_chinese = client:SimplifiedChinese(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `string` |  |
-| `location` | `string` |  |
-| `remarks` | `string` |  |
-| `species` | `string` |  |
-| `status` | `string` |  |
+| `date` | `string` | Date when the red tide was sighted |
+| `location` | `string` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | Additional remarks or observations |
+| `species` | `string` | Species causing the red tide |
+| `status` | `string` | Current status of the red tide event |
 
 #### Example: List
 
@@ -344,11 +344,11 @@ Create an instance: `local traditional_chinese = client:TraditionalChinese(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `string` |  |
-| `location` | `string` |  |
-| `remarks` | `string` |  |
-| `species` | `string` |  |
-| `status` | `string` |  |
+| `date` | `string` | Date when the red tide was sighted |
+| `location` | `string` | Location in Hong Kong waters where the red tide was observed |
+| `remarks` | `string` | Additional remarks or observations |
+| `species` | `string` | Species causing the red tide |
+| `status` | `string` | Current status of the red tide event |
 
 #### Example: List
 
