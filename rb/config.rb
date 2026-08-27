@@ -28,6 +28,7 @@ module RedTideInformationConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
