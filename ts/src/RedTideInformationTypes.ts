@@ -14,11 +14,7 @@ export interface English {
 }
 
 export interface EnglishListMatch {
-  date?: string
-  location?: string
-  remarks?: string
-  species?: string
-  status?: string
+  format?: string
 }
 
 export interface SimplifiedChinese {
@@ -30,11 +26,7 @@ export interface SimplifiedChinese {
 }
 
 export interface SimplifiedChineseListMatch {
-  date?: string
-  location?: string
-  remarks?: string
-  species?: string
-  status?: string
+  format?: string
 }
 
 export interface TraditionalChinese {
@@ -46,10 +38,6 @@ export interface TraditionalChinese {
 }
 
 export interface TraditionalChineseListMatch {
-  date?: string
-  location?: string
-  remarks?: string
-  species?: string
-  status?: string
+  format?: string
 }
 

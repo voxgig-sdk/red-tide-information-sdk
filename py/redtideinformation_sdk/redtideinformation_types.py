@@ -25,11 +25,7 @@ class English(TypedDict, total=False):
 
 
 class EnglishListMatch(TypedDict, total=False):
-    date: str
-    location: str
-    remarks: str
-    species: str
-    status: str
+    format: str
 
 
 class SimplifiedChinese(TypedDict, total=False):
@@ -41,11 +37,7 @@ class SimplifiedChinese(TypedDict, total=False):
 
 
 class SimplifiedChineseListMatch(TypedDict, total=False):
-    date: str
-    location: str
-    remarks: str
-    species: str
-    status: str
+    format: str
 
 
 class TraditionalChinese(TypedDict, total=False):
@@ -57,8 +49,4 @@ class TraditionalChinese(TypedDict, total=False):
 
 
 class TraditionalChineseListMatch(TypedDict, total=False):
-    date: str
-    location: str
-    remarks: str
-    species: str
-    status: str
+    format: str

@@ -35,26 +35,10 @@ English = Struct.new(
 
 # Request payload for English#list.
 #
-# @!attribute [rw] date
-#   @return [String, nil]
-#
-# @!attribute [rw] location
-#   @return [String, nil]
-#
-# @!attribute [rw] remarks
-#   @return [String, nil]
-#
-# @!attribute [rw] species
-#   @return [String, nil]
-#
-# @!attribute [rw] status
+# @!attribute [rw] format
 #   @return [String, nil]
 EnglishListMatch = Struct.new(
-  :date,
-  :location,
-  :remarks,
-  :species,
-  :status,
+  :format,
   keyword_init: true
 )
 
@@ -85,26 +69,10 @@ SimplifiedChinese = Struct.new(
 
 # Request payload for SimplifiedChinese#list.
 #
-# @!attribute [rw] date
-#   @return [String, nil]
-#
-# @!attribute [rw] location
-#   @return [String, nil]
-#
-# @!attribute [rw] remarks
-#   @return [String, nil]
-#
-# @!attribute [rw] species
-#   @return [String, nil]
-#
-# @!attribute [rw] status
+# @!attribute [rw] format
 #   @return [String, nil]
 SimplifiedChineseListMatch = Struct.new(
-  :date,
-  :location,
-  :remarks,
-  :species,
-  :status,
+  :format,
   keyword_init: true
 )
 
@@ -135,26 +103,10 @@ TraditionalChinese = Struct.new(
 
 # Request payload for TraditionalChinese#list.
 #
-# @!attribute [rw] date
-#   @return [String, nil]
-#
-# @!attribute [rw] location
-#   @return [String, nil]
-#
-# @!attribute [rw] remarks
-#   @return [String, nil]
-#
-# @!attribute [rw] species
-#   @return [String, nil]
-#
-# @!attribute [rw] status
+# @!attribute [rw] format
 #   @return [String, nil]
 TraditionalChineseListMatch = Struct.new(
-  :date,
-  :location,
-  :remarks,
-  :species,
-  :status,
+  :format,
   keyword_init: true
 )
 

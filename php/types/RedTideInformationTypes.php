@@ -25,11 +25,7 @@ class English
 /** Request payload for English#list. */
 class EnglishListMatch
 {
-    public ?string $date = null;
-    public ?string $location = null;
-    public ?string $remarks = null;
-    public ?string $species = null;
-    public ?string $status = null;
+    public ?string $format = null;
 }
 
 /** SimplifiedChinese entity data model. */
@@ -45,11 +41,7 @@ class SimplifiedChinese
 /** Request payload for SimplifiedChinese#list. */
 class SimplifiedChineseListMatch
 {
-    public ?string $date = null;
-    public ?string $location = null;
-    public ?string $remarks = null;
-    public ?string $species = null;
-    public ?string $status = null;
+    public ?string $format = null;
 }
 
 /** TraditionalChinese entity data model. */
@@ -65,10 +57,6 @@ class TraditionalChinese
 /** Request payload for TraditionalChinese#list. */
 class TraditionalChineseListMatch
 {
-    public ?string $date = null;
-    public ?string $location = null;
-    public ?string $remarks = null;
-    public ?string $species = null;
-    public ?string $status = null;
+    public ?string $format = null;
 }
 

@@ -23,11 +23,7 @@ type English struct {
 
 // EnglishListMatch is the typed request payload for English.ListTyped.
 type EnglishListMatch struct {
-	Date *string `json:"date,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Remarks *string `json:"remarks,omitempty"`
-	Species *string `json:"species,omitempty"`
-	Status *string `json:"status,omitempty"`
+	Format *string `json:"format,omitempty"`
 }
 
 // SimplifiedChinese is the typed data model for the simplified_chinese entity.
@@ -41,11 +37,7 @@ type SimplifiedChinese struct {
 
 // SimplifiedChineseListMatch is the typed request payload for SimplifiedChinese.ListTyped.
 type SimplifiedChineseListMatch struct {
-	Date *string `json:"date,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Remarks *string `json:"remarks,omitempty"`
-	Species *string `json:"species,omitempty"`
-	Status *string `json:"status,omitempty"`
+	Format *string `json:"format,omitempty"`
 }
 
 // TraditionalChinese is the typed data model for the traditional_chinese entity.
@@ -59,11 +51,7 @@ type TraditionalChinese struct {
 
 // TraditionalChineseListMatch is the typed request payload for TraditionalChinese.ListTyped.
 type TraditionalChineseListMatch struct {
-	Date *string `json:"date,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Remarks *string `json:"remarks,omitempty"`
-	Species *string `json:"species,omitempty"`
-	Status *string `json:"status,omitempty"`
+	Format *string `json:"format,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the
