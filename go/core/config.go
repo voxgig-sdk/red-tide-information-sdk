@@ -38,6 +38,7 @@ func MakeConfig() map[string]any {
 			"english": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date",
 						"name": "date",
 						"short": "Date when the red tide was sighted",
 						"type": "`$STRING`",
@@ -84,12 +85,22 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
-								"parts": []any{
-									"en-data",
-									"dataset",
-									"hk-afcd-afcdlist-red-tide-location",
-									"resource",
-									"english",
+								"segments": []any{
+									map[string]any{
+										"lit": "en-data",
+									},
+									map[string]any{
+										"lit": "dataset",
+									},
+									map[string]any{
+										"lit": "hk-afcd-afcdlist-red-tide-location",
+									},
+									map[string]any{
+										"lit": "resource",
+									},
+									map[string]any{
+										"lit": "english",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -99,6 +110,13 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"en-data",
+									"dataset",
+									"hk-afcd-afcdlist-red-tide-location",
+									"resource",
+									"english",
 								},
 							},
 						},
@@ -111,6 +129,7 @@ func MakeConfig() map[string]any {
 			"simplified_chinese": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date",
 						"name": "date",
 						"short": "Date when the red tide was sighted",
 						"type": "`$STRING`",
@@ -157,12 +176,22 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
-								"parts": []any{
-									"en-data",
-									"dataset",
-									"hk-afcd-afcdlist-red-tide-location",
-									"resource",
-									"simplified-chinese",
+								"segments": []any{
+									map[string]any{
+										"lit": "en-data",
+									},
+									map[string]any{
+										"lit": "dataset",
+									},
+									map[string]any{
+										"lit": "hk-afcd-afcdlist-red-tide-location",
+									},
+									map[string]any{
+										"lit": "resource",
+									},
+									map[string]any{
+										"lit": "simplified-chinese",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -172,6 +201,13 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"en-data",
+									"dataset",
+									"hk-afcd-afcdlist-red-tide-location",
+									"resource",
+									"simplified-chinese",
 								},
 							},
 						},
@@ -184,6 +220,7 @@ func MakeConfig() map[string]any {
 			"traditional_chinese": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date",
 						"name": "date",
 						"short": "Date when the red tide was sighted",
 						"type": "`$STRING`",
@@ -230,12 +267,22 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
-								"parts": []any{
-									"en-data",
-									"dataset",
-									"hk-afcd-afcdlist-red-tide-location",
-									"resource",
-									"traditional-chinese",
+								"segments": []any{
+									map[string]any{
+										"lit": "en-data",
+									},
+									map[string]any{
+										"lit": "dataset",
+									},
+									map[string]any{
+										"lit": "hk-afcd-afcdlist-red-tide-location",
+									},
+									map[string]any{
+										"lit": "resource",
+									},
+									map[string]any{
+										"lit": "traditional-chinese",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -245,6 +292,13 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"en-data",
+									"dataset",
+									"hk-afcd-afcdlist-red-tide-location",
+									"resource",
+									"traditional-chinese",
 								},
 							},
 						},
@@ -256,6 +310,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

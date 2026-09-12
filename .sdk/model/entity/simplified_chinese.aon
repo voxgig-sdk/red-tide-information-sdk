@@ -6,6 +6,7 @@ main: kit: entity: simplified_chinese: {
 
   fields: [
     {
+      format: "date"
       name: "date"
       req: false
       short: "Date when the red tide was sighted"
@@ -57,12 +58,22 @@ main: kit: entity: simplified_chinese: {
           }
           method: "GET"
           orig: "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese"
-          parts: [
-            "en-data"
-            "dataset"
-            "hk-afcd-afcdlist-red-tide-location"
-            "resource"
-            "simplified-chinese"
+          segments: [
+            {
+              lit: "en-data"
+            }
+            {
+              lit: "dataset"
+            }
+            {
+              lit: "hk-afcd-afcdlist-red-tide-location"
+            }
+            {
+              lit: "resource"
+            }
+            {
+              lit: "simplified-chinese"
+            }
           ]
           select: {
             exist: [

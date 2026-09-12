@@ -46,6 +46,7 @@ module RedTideInformationConfig
         "english" => {
           "fields" => [
             {
+              "format" => "date",
               "name" => "date",
               "short" => "Date when the red tide was sighted",
               "type" => "`$STRING`",
@@ -92,12 +93,22 @@ module RedTideInformationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
-                  "parts" => [
-                    "en-data",
-                    "dataset",
-                    "hk-afcd-afcdlist-red-tide-location",
-                    "resource",
-                    "english",
+                  "segments" => [
+                    {
+                      "lit" => "en-data",
+                    },
+                    {
+                      "lit" => "dataset",
+                    },
+                    {
+                      "lit" => "hk-afcd-afcdlist-red-tide-location",
+                    },
+                    {
+                      "lit" => "resource",
+                    },
+                    {
+                      "lit" => "english",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -108,6 +119,13 @@ module RedTideInformationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "en-data",
+                    "dataset",
+                    "hk-afcd-afcdlist-red-tide-location",
+                    "resource",
+                    "english",
+                  ],
                 },
               ],
             },
@@ -119,6 +137,7 @@ module RedTideInformationConfig
         "simplified_chinese" => {
           "fields" => [
             {
+              "format" => "date",
               "name" => "date",
               "short" => "Date when the red tide was sighted",
               "type" => "`$STRING`",
@@ -165,12 +184,22 @@ module RedTideInformationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
-                  "parts" => [
-                    "en-data",
-                    "dataset",
-                    "hk-afcd-afcdlist-red-tide-location",
-                    "resource",
-                    "simplified-chinese",
+                  "segments" => [
+                    {
+                      "lit" => "en-data",
+                    },
+                    {
+                      "lit" => "dataset",
+                    },
+                    {
+                      "lit" => "hk-afcd-afcdlist-red-tide-location",
+                    },
+                    {
+                      "lit" => "resource",
+                    },
+                    {
+                      "lit" => "simplified-chinese",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -181,6 +210,13 @@ module RedTideInformationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "en-data",
+                    "dataset",
+                    "hk-afcd-afcdlist-red-tide-location",
+                    "resource",
+                    "simplified-chinese",
+                  ],
                 },
               ],
             },
@@ -192,6 +228,7 @@ module RedTideInformationConfig
         "traditional_chinese" => {
           "fields" => [
             {
+              "format" => "date",
               "name" => "date",
               "short" => "Date when the red tide was sighted",
               "type" => "`$STRING`",
@@ -238,12 +275,22 @@ module RedTideInformationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
-                  "parts" => [
-                    "en-data",
-                    "dataset",
-                    "hk-afcd-afcdlist-red-tide-location",
-                    "resource",
-                    "traditional-chinese",
+                  "segments" => [
+                    {
+                      "lit" => "en-data",
+                    },
+                    {
+                      "lit" => "dataset",
+                    },
+                    {
+                      "lit" => "hk-afcd-afcdlist-red-tide-location",
+                    },
+                    {
+                      "lit" => "resource",
+                    },
+                    {
+                      "lit" => "traditional-chinese",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -254,6 +301,13 @@ module RedTideInformationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "en-data",
+                    "dataset",
+                    "hk-afcd-afcdlist-red-tide-location",
+                    "resource",
+                    "traditional-chinese",
+                  ],
                 },
               ],
             },
