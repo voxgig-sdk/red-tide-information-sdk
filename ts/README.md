@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information'
+import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information-sdk'
 
 const client = new RedTideInformationSDK()
 ```
@@ -495,7 +495,7 @@ red-tide-information/
 Import the SDK from the package root:
 
 ```ts
-import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information'
+import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information-sdk'
 ```
 
 ### Entity state

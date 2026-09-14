@@ -105,7 +105,7 @@ local results, err = client:SimplifiedChinese():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/releases) |
+| TypeScript | `@voxgig-sdk/red-tide-information-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/releases) |
 | Python | `voxgig-sdk-red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/releases) |
 | PHP | `voxgig-sdk/red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/red-tide-information-sdk/go` | `go get github.com/voxgig-sdk/red-tide-information-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:SimplifiedChinese():list()
 ### TypeScript
 
 ```ts
-import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information'
+import { RedTideInformationSDK } from '@voxgig-sdk/red-tide-information-sdk'
 
 const client = new RedTideInformationSDK()
 
