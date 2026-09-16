@@ -4,7 +4,10 @@ declare(strict_types=1);
 // RedTideInformation SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class RedTideInformationFeatures
@@ -14,8 +17,14 @@ class RedTideInformationFeatures
         switch ($name) {
             case "base":
                 return new RedTideInformationBaseFeature();
+            case "ratelimit":
+                return new RedTideInformationRatelimitFeature();
+            case "retry":
+                return new RedTideInformationRetryFeature();
             case "test":
                 return new RedTideInformationTestFeature();
+            case "timeout":
+                return new RedTideInformationTimeoutFeature();
             default:
                 return new RedTideInformationBaseFeature();
         }
@@ -31,7 +40,10 @@ class RedTideInformationFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

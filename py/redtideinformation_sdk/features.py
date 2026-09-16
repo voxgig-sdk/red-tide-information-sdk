@@ -1,12 +1,18 @@
 # RedTideInformation SDK feature factory
 
 from redtideinformation_sdk.feature.base_feature import RedTideInformationBaseFeature
+from redtideinformation_sdk.feature.ratelimit_feature import RedTideInformationRatelimitFeature
+from redtideinformation_sdk.feature.retry_feature import RedTideInformationRetryFeature
 from redtideinformation_sdk.feature.test_feature import RedTideInformationTestFeature
+from redtideinformation_sdk.feature.timeout_feature import RedTideInformationTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: RedTideInformationBaseFeature(),
+    "ratelimit": lambda: RedTideInformationRatelimitFeature(),
+    "retry": lambda: RedTideInformationRetryFeature(),
     "test": lambda: RedTideInformationTestFeature(),
+    "timeout": lambda: RedTideInformationTimeoutFeature(),
 }
 
 
