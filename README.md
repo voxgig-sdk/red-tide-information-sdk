@@ -105,12 +105,12 @@ local results, err = client:SimplifiedChinese():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/red-tide-information-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/releases) |
-| Python | `voxgig-sdk-red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/releases) |
-| PHP | `voxgig-sdk/red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/releases) |
+| TypeScript | `@voxgig-sdk/red-tide-information-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/tags) |
+| Python | `voxgig-sdk-red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/tags) |
+| PHP | `voxgig-sdk/red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/red-tide-information-sdk/go` | `go get github.com/voxgig-sdk/red-tide-information-sdk/go@latest` |
-| Ruby | `voxgig-sdk-red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/releases) |
-| Lua | `voxgig-sdk-red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/releases) |
+| Ruby | `voxgig-sdk-red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/tags) |
+| Lua | `voxgig-sdk-red-tide-information` | publish pending — [install from git tag](https://github.com/voxgig-sdk/red-tide-information-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/red-tide-information-sdk/go-cli` | `go install github.com/voxgig-sdk/red-tide-information-sdk/go-cli/cmd/red-tide-information@latest` |
 | Go MCP server | `github.com/voxgig-sdk/red-tide-information-sdk/go-mcp` | `go get github.com/voxgig-sdk/red-tide-information-sdk/go-mcp@latest` |
 

@@ -127,15 +127,15 @@ class Config {
 
     entity: {
       
-      english: {
-      },
-
-      simplified_chinese: {
-      },
-
-      traditional_chinese: {
-      },
-
+        english: {
+        },
+  
+        simplified_chinese: {
+        },
+  
+        traditional_chinese: {
+        },
+  
     }
   }
 
