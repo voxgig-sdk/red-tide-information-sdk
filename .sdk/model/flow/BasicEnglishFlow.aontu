@@ -1,0 +1,22 @@
+# BasicEnglishFlow
+
+main: kit: flow: BasicEnglishFlow:
+{
+  entity: "english",
+  kind: "basic",
+  name: "BasicEnglishFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "english_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEnglishFlow"
+}

@@ -24,50 +24,121 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "english": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date",
-              "name": "date",
-              "req": false,
-              "short": "Date when the red tide was sighted",
-              "type": "`$STRING`"
+          "fields": {
+            "date": {
+              "a": true,
+              "fo": "date",
+              "h": "Date",
+              "n": "date",
+              "r": false,
+              "sh": "Date when the red tide was sighted",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "location",
-              "req": false,
-              "short": "Location in Hong Kong waters where the red tide was observed",
-              "type": "`$STRING`"
+            "location": {
+              "a": true,
+              "h": "Location",
+              "n": "location",
+              "r": false,
+              "sh": "Location in Hong Kong waters where the red tide was observed",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "remarks",
-              "req": false,
-              "short": "Additional remarks or observations",
-              "type": "`$STRING`"
+            "remarks": {
+              "a": true,
+              "h": "Remarks",
+              "n": "remarks",
+              "r": false,
+              "sh": "Additional remarks or observations",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "species",
-              "req": false,
-              "short": "Species causing the red tide",
-              "type": "`$STRING`"
+            "species": {
+              "a": true,
+              "h": "Species",
+              "n": "species",
+              "r": false,
+              "sh": "Species causing the red tide",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": false,
-              "short": "Current status of the red tide event",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "Current status of the red tide event",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "english",
           "op": {
             "list": {
@@ -75,30 +146,35 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "json",
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "json",
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
-                    "json": "{\"operationId\":\"getRedTideEnglish\",\"parameters\":[{\"description\":\"Response format (csv or json)\",\"in\":\"query\",\"name\":\"format\",\"required\":false,\"schema\":{\"default\":\"json\",\"enum\":[\"csv\",\"json\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"description\":\"Individual red tide sighting record\",\"properties\":{\"date\":{\"description\":\"Date when the red tide was sighted\",\"format\":\"date\",\"type\":\"string\"},\"location\":{\"description\":\"Location in Hong Kong waters where the red tide was observed\",\"type\":\"string\"},\"remarks\":{\"description\":\"Additional remarks or observations\",\"type\":\"string\"},\"species\":{\"description\":\"Species causing the red tide\",\"type\":\"string\"},\"status\":{\"description\":\"Current status of the red tide event\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"metadata\":{\"properties\":{\"category\":{\"description\":\"Data category\",\"example\":\"Environment\",\"type\":\"string\"},\"lastUpdated\":{\"description\":\"Timestamp of the last data update\",\"format\":\"date-time\",\"type\":\"string\"},\"provider\":{\"description\":\"Data provider organization\",\"example\":\"Agriculture, Fisheries and Conservation Department\",\"type\":\"string\"},\"recordCount\":{\"description\":\"Total number of records in the response\",\"type\":\"integer\"},\"updateFrequency\":{\"description\":\"Frequency of data updates\",\"example\":\"Every Week\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}},\"text/csv\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response with red tide information in English\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
+                  "q": {
+                    "exist": [
+                      "format"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "en-data"
                     },
@@ -115,12 +191,7 @@
                       "lit": "english"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "format"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -137,44 +208,49 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date",
-              "name": "date",
-              "req": false,
-              "short": "Date when the red tide was sighted",
-              "type": "`$STRING`"
+          "fields": {
+            "date": {
+              "a": true,
+              "fo": "date",
+              "h": "Date",
+              "n": "date",
+              "r": false,
+              "sh": "Date when the red tide was sighted",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "location",
-              "req": false,
-              "short": "Location in Hong Kong waters where the red tide was observed",
-              "type": "`$STRING`"
+            "location": {
+              "a": true,
+              "h": "Location",
+              "n": "location",
+              "r": false,
+              "sh": "Location in Hong Kong waters where the red tide was observed",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "remarks",
-              "req": false,
-              "short": "Additional remarks or observations",
-              "type": "`$STRING`"
+            "remarks": {
+              "a": true,
+              "h": "Remarks",
+              "n": "remarks",
+              "r": false,
+              "sh": "Additional remarks or observations",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "species",
-              "req": false,
-              "short": "Species causing the red tide",
-              "type": "`$STRING`"
+            "species": {
+              "a": true,
+              "h": "Species",
+              "n": "species",
+              "r": false,
+              "sh": "Species causing the red tide",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": false,
-              "short": "Current status of the red tide event",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "Current status of the red tide event",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "simplified_chinese",
           "op": {
             "list": {
@@ -182,30 +258,35 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "json",
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "json",
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
-                    "json": "{\"operationId\":\"getRedTideSimplifiedChinese\",\"parameters\":[{\"description\":\"Response format (csv or json)\",\"in\":\"query\",\"name\":\"format\",\"required\":false,\"schema\":{\"default\":\"json\",\"enum\":[\"csv\",\"json\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"description\":\"Individual red tide sighting record\",\"properties\":{\"date\":{\"description\":\"Date when the red tide was sighted\",\"format\":\"date\",\"type\":\"string\"},\"location\":{\"description\":\"Location in Hong Kong waters where the red tide was observed\",\"type\":\"string\"},\"remarks\":{\"description\":\"Additional remarks or observations\",\"type\":\"string\"},\"species\":{\"description\":\"Species causing the red tide\",\"type\":\"string\"},\"status\":{\"description\":\"Current status of the red tide event\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"metadata\":{\"properties\":{\"category\":{\"description\":\"Data category\",\"example\":\"Environment\",\"type\":\"string\"},\"lastUpdated\":{\"description\":\"Timestamp of the last data update\",\"format\":\"date-time\",\"type\":\"string\"},\"provider\":{\"description\":\"Data provider organization\",\"example\":\"Agriculture, Fisheries and Conservation Department\",\"type\":\"string\"},\"recordCount\":{\"description\":\"Total number of records in the response\",\"type\":\"integer\"},\"updateFrequency\":{\"description\":\"Frequency of data updates\",\"example\":\"Every Week\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}},\"text/csv\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response with red tide information in Simplified Chinese\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
+                  "q": {
+                    "exist": [
+                      "format"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "en-data"
                     },
@@ -222,12 +303,7 @@
                       "lit": "simplified-chinese"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "format"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -244,44 +320,49 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date",
-              "name": "date",
-              "req": false,
-              "short": "Date when the red tide was sighted",
-              "type": "`$STRING`"
+          "fields": {
+            "date": {
+              "a": true,
+              "fo": "date",
+              "h": "Date",
+              "n": "date",
+              "r": false,
+              "sh": "Date when the red tide was sighted",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "location",
-              "req": false,
-              "short": "Location in Hong Kong waters where the red tide was observed",
-              "type": "`$STRING`"
+            "location": {
+              "a": true,
+              "h": "Location",
+              "n": "location",
+              "r": false,
+              "sh": "Location in Hong Kong waters where the red tide was observed",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "remarks",
-              "req": false,
-              "short": "Additional remarks or observations",
-              "type": "`$STRING`"
+            "remarks": {
+              "a": true,
+              "h": "Remarks",
+              "n": "remarks",
+              "r": false,
+              "sh": "Additional remarks or observations",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "species",
-              "req": false,
-              "short": "Species causing the red tide",
-              "type": "`$STRING`"
+            "species": {
+              "a": true,
+              "h": "Species",
+              "n": "species",
+              "r": false,
+              "sh": "Species causing the red tide",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": false,
-              "short": "Current status of the red tide event",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "Current status of the red tide event",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "traditional_chinese",
           "op": {
             "list": {
@@ -289,30 +370,35 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "json",
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "json",
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
-                    "json": "{\"operationId\":\"getRedTideTraditionalChinese\",\"parameters\":[{\"description\":\"Response format (csv or json)\",\"in\":\"query\",\"name\":\"format\",\"required\":false,\"schema\":{\"default\":\"json\",\"enum\":[\"csv\",\"json\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"description\":\"Individual red tide sighting record\",\"properties\":{\"date\":{\"description\":\"Date when the red tide was sighted\",\"format\":\"date\",\"type\":\"string\"},\"location\":{\"description\":\"Location in Hong Kong waters where the red tide was observed\",\"type\":\"string\"},\"remarks\":{\"description\":\"Additional remarks or observations\",\"type\":\"string\"},\"species\":{\"description\":\"Species causing the red tide\",\"type\":\"string\"},\"status\":{\"description\":\"Current status of the red tide event\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"metadata\":{\"properties\":{\"category\":{\"description\":\"Data category\",\"example\":\"Environment\",\"type\":\"string\"},\"lastUpdated\":{\"description\":\"Timestamp of the last data update\",\"format\":\"date-time\",\"type\":\"string\"},\"provider\":{\"description\":\"Data provider organization\",\"example\":\"Agriculture, Fisheries and Conservation Department\",\"type\":\"string\"},\"recordCount\":{\"description\":\"Total number of records in the response\",\"type\":\"integer\"},\"updateFrequency\":{\"description\":\"Frequency of data updates\",\"example\":\"Every Week\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}},\"text/csv\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response with red tide information in Traditional Chinese\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
+                  "q": {
+                    "exist": [
+                      "format"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "en-data"
                     },
@@ -329,12 +415,7 @@
                       "lit": "traditional-chinese"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "format"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -763,13 +844,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -789,13 +870,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -815,13 +896,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

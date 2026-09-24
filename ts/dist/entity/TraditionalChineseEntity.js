@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TraditionalChineseEntity = void 0;
 const RedTideInformationEntityBase_1 = require("../RedTideInformationEntityBase");
-// TODO: needs Entity superclass
 class TraditionalChineseEntity extends RedTideInformationEntityBase_1.RedTideInformationEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

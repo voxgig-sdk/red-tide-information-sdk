@@ -117,30 +117,35 @@ def make_config():
       "english": {
         "fields": [
           {
-            "format": "date",
             "name": "date",
-            "short": "Date when the red tide was sighted",
+            "title": "Date",
             "type": "`$STRING`",
+            "short": "Date when the red tide was sighted",
+            "format": "date",
           },
           {
             "name": "location",
-            "short": "Location in Hong Kong waters where the red tide was observed",
+            "title": "Location",
             "type": "`$STRING`",
+            "short": "Location in Hong Kong waters where the red tide was observed",
           },
           {
             "name": "remarks",
-            "short": "Additional remarks or observations",
+            "title": "Remarks",
             "type": "`$STRING`",
+            "short": "Additional remarks or observations",
           },
           {
             "name": "species",
-            "short": "Species causing the red tide",
+            "title": "Species",
             "type": "`$STRING`",
+            "short": "Species causing the red tide",
           },
           {
             "name": "status",
-            "short": "Current status of the red tide event",
+            "title": "Status",
             "type": "`$STRING`",
+            "short": "Current status of the red tide event",
           },
         ],
         "name": "english",
@@ -150,17 +155,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "json",
-                      "kind": "query",
-                      "name": "format",
-                      "orig": "format",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
@@ -181,15 +175,6 @@ def make_config():
                     "lit": "english",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "format",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "en-data",
                   "dataset",
@@ -197,6 +182,27 @@ def make_config():
                   "resource",
                   "english",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "format",
+                      "orig": "format",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "json",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "format",
+                  ],
+                },
               },
             ],
           },
@@ -208,30 +214,35 @@ def make_config():
       "simplified_chinese": {
         "fields": [
           {
-            "format": "date",
             "name": "date",
-            "short": "Date when the red tide was sighted",
+            "title": "Date",
             "type": "`$STRING`",
+            "short": "Date when the red tide was sighted",
+            "format": "date",
           },
           {
             "name": "location",
-            "short": "Location in Hong Kong waters where the red tide was observed",
+            "title": "Location",
             "type": "`$STRING`",
+            "short": "Location in Hong Kong waters where the red tide was observed",
           },
           {
             "name": "remarks",
-            "short": "Additional remarks or observations",
+            "title": "Remarks",
             "type": "`$STRING`",
+            "short": "Additional remarks or observations",
           },
           {
             "name": "species",
-            "short": "Species causing the red tide",
+            "title": "Species",
             "type": "`$STRING`",
+            "short": "Species causing the red tide",
           },
           {
             "name": "status",
-            "short": "Current status of the red tide event",
+            "title": "Status",
             "type": "`$STRING`",
+            "short": "Current status of the red tide event",
           },
         ],
         "name": "simplified_chinese",
@@ -241,17 +252,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "json",
-                      "kind": "query",
-                      "name": "format",
-                      "orig": "format",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
@@ -272,15 +272,6 @@ def make_config():
                     "lit": "simplified-chinese",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "format",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "en-data",
                   "dataset",
@@ -288,6 +279,27 @@ def make_config():
                   "resource",
                   "simplified-chinese",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "format",
+                      "orig": "format",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "json",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "format",
+                  ],
+                },
               },
             ],
           },
@@ -299,30 +311,35 @@ def make_config():
       "traditional_chinese": {
         "fields": [
           {
-            "format": "date",
             "name": "date",
-            "short": "Date when the red tide was sighted",
+            "title": "Date",
             "type": "`$STRING`",
+            "short": "Date when the red tide was sighted",
+            "format": "date",
           },
           {
             "name": "location",
-            "short": "Location in Hong Kong waters where the red tide was observed",
+            "title": "Location",
             "type": "`$STRING`",
+            "short": "Location in Hong Kong waters where the red tide was observed",
           },
           {
             "name": "remarks",
-            "short": "Additional remarks or observations",
+            "title": "Remarks",
             "type": "`$STRING`",
+            "short": "Additional remarks or observations",
           },
           {
             "name": "species",
-            "short": "Species causing the red tide",
+            "title": "Species",
             "type": "`$STRING`",
+            "short": "Species causing the red tide",
           },
           {
             "name": "status",
-            "short": "Current status of the red tide event",
+            "title": "Status",
             "type": "`$STRING`",
+            "short": "Current status of the red tide event",
           },
         ],
         "name": "traditional_chinese",
@@ -332,17 +349,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "json",
-                      "kind": "query",
-                      "name": "format",
-                      "orig": "format",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
@@ -363,15 +369,6 @@ def make_config():
                     "lit": "traditional-chinese",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "format",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "en-data",
                   "dataset",
@@ -379,6 +376,27 @@ def make_config():
                   "resource",
                   "traditional-chinese",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "format",
+                      "orig": "format",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "json",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "format",
+                  ],
+                },
               },
             ],
           },

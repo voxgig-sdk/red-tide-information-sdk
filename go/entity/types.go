@@ -1,7 +1,7 @@
 // Typed models for the RedTideInformation SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,11 +14,6 @@ import (
 
 // English is the typed data model for the english entity.
 type English struct {
-	Date *string `json:"date,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Remarks *string `json:"remarks,omitempty"`
-	Species *string `json:"species,omitempty"`
-	Status *string `json:"status,omitempty"`
 }
 
 // EnglishListMatch is the typed request payload for English.ListTyped.
@@ -28,11 +23,6 @@ type EnglishListMatch struct {
 
 // SimplifiedChinese is the typed data model for the simplified_chinese entity.
 type SimplifiedChinese struct {
-	Date *string `json:"date,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Remarks *string `json:"remarks,omitempty"`
-	Species *string `json:"species,omitempty"`
-	Status *string `json:"status,omitempty"`
 }
 
 // SimplifiedChineseListMatch is the typed request payload for SimplifiedChinese.ListTyped.
@@ -42,11 +32,6 @@ type SimplifiedChineseListMatch struct {
 
 // TraditionalChinese is the typed data model for the traditional_chinese entity.
 type TraditionalChinese struct {
-	Date *string `json:"date,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Remarks *string `json:"remarks,omitempty"`
-	Species *string `json:"species,omitempty"`
-	Status *string `json:"status,omitempty"`
 }
 
 // TraditionalChineseListMatch is the typed request payload for TraditionalChinese.ListTyped.

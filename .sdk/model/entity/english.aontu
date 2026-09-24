@@ -1,0 +1,104 @@
+# Entity: english
+
+main: kit: entity: english: {
+
+  alias: field: {}
+
+  fields: {
+    date: {
+      fo: "date"
+      h: "Date"
+      n: "date"
+      r: false
+      sh: "Date when the red tide was sighted"
+      t: "`$STRING`"
+    }
+    location: {
+      h: "Location"
+      n: "location"
+      r: false
+      sh: "Location in Hong Kong waters where the red tide was observed"
+      t: "`$STRING`"
+    }
+    remarks: {
+      h: "Remarks"
+      n: "remarks"
+      r: false
+      sh: "Additional remarks or observations"
+      t: "`$STRING`"
+    }
+    species: {
+      h: "Species"
+      n: "species"
+      r: false
+      sh: "Species causing the red tide"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "Current status of the red tide event"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "english"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "json"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english"
+          q: {
+            exist: [
+              "format"
+            ]
+          }
+          s: [
+            {
+              lit: "en-data"
+            }
+            {
+              lit: "dataset"
+            }
+            {
+              lit: "hk-afcd-afcdlist-red-tide-location"
+            }
+            {
+              lit: "resource"
+            }
+            {
+              lit: "english"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -100,30 +100,35 @@ module RedTideInformationConfig
         "english" => {
           "fields" => [
             {
-              "format" => "date",
               "name" => "date",
-              "short" => "Date when the red tide was sighted",
+              "title" => "Date",
               "type" => "`$STRING`",
+              "short" => "Date when the red tide was sighted",
+              "format" => "date",
             },
             {
               "name" => "location",
-              "short" => "Location in Hong Kong waters where the red tide was observed",
+              "title" => "Location",
               "type" => "`$STRING`",
+              "short" => "Location in Hong Kong waters where the red tide was observed",
             },
             {
               "name" => "remarks",
-              "short" => "Additional remarks or observations",
+              "title" => "Remarks",
               "type" => "`$STRING`",
+              "short" => "Additional remarks or observations",
             },
             {
               "name" => "species",
-              "short" => "Species causing the red tide",
+              "title" => "Species",
               "type" => "`$STRING`",
+              "short" => "Species causing the red tide",
             },
             {
               "name" => "status",
-              "short" => "Current status of the red tide event",
+              "title" => "Status",
               "type" => "`$STRING`",
+              "short" => "Current status of the red tide event",
             },
           ],
           "name" => "english",
@@ -133,17 +138,6 @@ module RedTideInformationConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "example" => "json",
-                        "kind" => "query",
-                        "name" => "format",
-                        "orig" => "format",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
@@ -164,15 +158,6 @@ module RedTideInformationConfig
                       "lit" => "english",
                     },
                   ],
-                  "select" => {
-                    "exist" => [
-                      "format",
-                    ],
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
                   "parts" => [
                     "en-data",
                     "dataset",
@@ -180,6 +165,27 @@ module RedTideInformationConfig
                     "resource",
                     "english",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "format",
+                        "orig" => "format",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "json",
+                      },
+                    ],
+                  },
+                  "select" => {
+                    "exist" => [
+                      "format",
+                    ],
+                  },
                 },
               ],
             },
@@ -191,30 +197,35 @@ module RedTideInformationConfig
         "simplified_chinese" => {
           "fields" => [
             {
-              "format" => "date",
               "name" => "date",
-              "short" => "Date when the red tide was sighted",
+              "title" => "Date",
               "type" => "`$STRING`",
+              "short" => "Date when the red tide was sighted",
+              "format" => "date",
             },
             {
               "name" => "location",
-              "short" => "Location in Hong Kong waters where the red tide was observed",
+              "title" => "Location",
               "type" => "`$STRING`",
+              "short" => "Location in Hong Kong waters where the red tide was observed",
             },
             {
               "name" => "remarks",
-              "short" => "Additional remarks or observations",
+              "title" => "Remarks",
               "type" => "`$STRING`",
+              "short" => "Additional remarks or observations",
             },
             {
               "name" => "species",
-              "short" => "Species causing the red tide",
+              "title" => "Species",
               "type" => "`$STRING`",
+              "short" => "Species causing the red tide",
             },
             {
               "name" => "status",
-              "short" => "Current status of the red tide event",
+              "title" => "Status",
               "type" => "`$STRING`",
+              "short" => "Current status of the red tide event",
             },
           ],
           "name" => "simplified_chinese",
@@ -224,17 +235,6 @@ module RedTideInformationConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "example" => "json",
-                        "kind" => "query",
-                        "name" => "format",
-                        "orig" => "format",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
@@ -255,15 +255,6 @@ module RedTideInformationConfig
                       "lit" => "simplified-chinese",
                     },
                   ],
-                  "select" => {
-                    "exist" => [
-                      "format",
-                    ],
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
                   "parts" => [
                     "en-data",
                     "dataset",
@@ -271,6 +262,27 @@ module RedTideInformationConfig
                     "resource",
                     "simplified-chinese",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "format",
+                        "orig" => "format",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "json",
+                      },
+                    ],
+                  },
+                  "select" => {
+                    "exist" => [
+                      "format",
+                    ],
+                  },
                 },
               ],
             },
@@ -282,30 +294,35 @@ module RedTideInformationConfig
         "traditional_chinese" => {
           "fields" => [
             {
-              "format" => "date",
               "name" => "date",
-              "short" => "Date when the red tide was sighted",
+              "title" => "Date",
               "type" => "`$STRING`",
+              "short" => "Date when the red tide was sighted",
+              "format" => "date",
             },
             {
               "name" => "location",
-              "short" => "Location in Hong Kong waters where the red tide was observed",
+              "title" => "Location",
               "type" => "`$STRING`",
+              "short" => "Location in Hong Kong waters where the red tide was observed",
             },
             {
               "name" => "remarks",
-              "short" => "Additional remarks or observations",
+              "title" => "Remarks",
               "type" => "`$STRING`",
+              "short" => "Additional remarks or observations",
             },
             {
               "name" => "species",
-              "short" => "Species causing the red tide",
+              "title" => "Species",
               "type" => "`$STRING`",
+              "short" => "Species causing the red tide",
             },
             {
               "name" => "status",
-              "short" => "Current status of the red tide event",
+              "title" => "Status",
               "type" => "`$STRING`",
+              "short" => "Current status of the red tide event",
             },
           ],
           "name" => "traditional_chinese",
@@ -315,17 +332,6 @@ module RedTideInformationConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "example" => "json",
-                        "kind" => "query",
-                        "name" => "format",
-                        "orig" => "format",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
@@ -346,15 +352,6 @@ module RedTideInformationConfig
                       "lit" => "traditional-chinese",
                     },
                   ],
-                  "select" => {
-                    "exist" => [
-                      "format",
-                    ],
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
                   "parts" => [
                     "en-data",
                     "dataset",
@@ -362,6 +359,27 @@ module RedTideInformationConfig
                     "resource",
                     "traditional-chinese",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "format",
+                        "orig" => "format",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "json",
+                      },
+                    ],
+                  },
+                  "select" => {
+                    "exist" => [
+                      "format",
+                    ],
+                  },
                 },
               ],
             },

@@ -92,30 +92,35 @@ func MakeConfig() map[string]any {
 			"english": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date",
 						"name": "date",
-						"short": "Date when the red tide was sighted",
+						"title": "Date",
 						"type": "`$STRING`",
+						"short": "Date when the red tide was sighted",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "location",
-						"short": "Location in Hong Kong waters where the red tide was observed",
+						"title": "Location",
 						"type": "`$STRING`",
+						"short": "Location in Hong Kong waters where the red tide was observed",
 					},
 					map[string]any{
 						"name": "remarks",
-						"short": "Additional remarks or observations",
+						"title": "Remarks",
 						"type": "`$STRING`",
+						"short": "Additional remarks or observations",
 					},
 					map[string]any{
 						"name": "species",
-						"short": "Species causing the red tide",
+						"title": "Species",
 						"type": "`$STRING`",
+						"short": "Species causing the red tide",
 					},
 					map[string]any{
 						"name": "status",
-						"short": "Current status of the red tide event",
+						"title": "Status",
 						"type": "`$STRING`",
+						"short": "Current status of the red tide event",
 					},
 				},
 				"name": "english",
@@ -125,17 +130,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "json",
-											"kind": "query",
-											"name": "format",
-											"orig": "format",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
@@ -156,21 +150,33 @@ func MakeConfig() map[string]any {
 										"lit": "english",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"format",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"en-data",
 									"dataset",
 									"hk-afcd-afcdlist-red-tide-location",
 									"resource",
 									"english",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "format",
+											"orig": "format",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "json",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"format",
+									},
 								},
 							},
 						},
@@ -183,30 +189,35 @@ func MakeConfig() map[string]any {
 			"simplified_chinese": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date",
 						"name": "date",
-						"short": "Date when the red tide was sighted",
+						"title": "Date",
 						"type": "`$STRING`",
+						"short": "Date when the red tide was sighted",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "location",
-						"short": "Location in Hong Kong waters where the red tide was observed",
+						"title": "Location",
 						"type": "`$STRING`",
+						"short": "Location in Hong Kong waters where the red tide was observed",
 					},
 					map[string]any{
 						"name": "remarks",
-						"short": "Additional remarks or observations",
+						"title": "Remarks",
 						"type": "`$STRING`",
+						"short": "Additional remarks or observations",
 					},
 					map[string]any{
 						"name": "species",
-						"short": "Species causing the red tide",
+						"title": "Species",
 						"type": "`$STRING`",
+						"short": "Species causing the red tide",
 					},
 					map[string]any{
 						"name": "status",
-						"short": "Current status of the red tide event",
+						"title": "Status",
 						"type": "`$STRING`",
+						"short": "Current status of the red tide event",
 					},
 				},
 				"name": "simplified_chinese",
@@ -216,17 +227,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "json",
-											"kind": "query",
-											"name": "format",
-											"orig": "format",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
@@ -247,21 +247,33 @@ func MakeConfig() map[string]any {
 										"lit": "simplified-chinese",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"format",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"en-data",
 									"dataset",
 									"hk-afcd-afcdlist-red-tide-location",
 									"resource",
 									"simplified-chinese",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "format",
+											"orig": "format",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "json",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"format",
+									},
 								},
 							},
 						},
@@ -274,30 +286,35 @@ func MakeConfig() map[string]any {
 			"traditional_chinese": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date",
 						"name": "date",
-						"short": "Date when the red tide was sighted",
+						"title": "Date",
 						"type": "`$STRING`",
+						"short": "Date when the red tide was sighted",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "location",
-						"short": "Location in Hong Kong waters where the red tide was observed",
+						"title": "Location",
 						"type": "`$STRING`",
+						"short": "Location in Hong Kong waters where the red tide was observed",
 					},
 					map[string]any{
 						"name": "remarks",
-						"short": "Additional remarks or observations",
+						"title": "Remarks",
 						"type": "`$STRING`",
+						"short": "Additional remarks or observations",
 					},
 					map[string]any{
 						"name": "species",
-						"short": "Species causing the red tide",
+						"title": "Species",
 						"type": "`$STRING`",
+						"short": "Species causing the red tide",
 					},
 					map[string]any{
 						"name": "status",
-						"short": "Current status of the red tide event",
+						"title": "Status",
 						"type": "`$STRING`",
+						"short": "Current status of the red tide event",
 					},
 				},
 				"name": "traditional_chinese",
@@ -307,17 +324,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "json",
-											"kind": "query",
-											"name": "format",
-											"orig": "format",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
@@ -338,21 +344,33 @@ func MakeConfig() map[string]any {
 										"lit": "traditional-chinese",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"format",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"en-data",
 									"dataset",
 									"hk-afcd-afcdlist-red-tide-location",
 									"resource",
 									"traditional-chinese",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "format",
+											"orig": "format",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "json",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"format",
+									},
 								},
 							},
 						},

@@ -43,7 +43,7 @@ local englishs, err = client:English():list()
 if err then error(err) end
 
 for _, item in ipairs(englishs) do
-  print(item["date"])
+  print(item)
 end
 ```
 

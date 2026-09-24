@@ -19,7 +19,6 @@ import type {
   EnglishListMatch,
 } from '../RedTideInformationTypes'
 
-// TODO: needs Entity superclass
 class EnglishEntity extends RedTideInformationEntityBase<English> {
 
   constructor(client: RedTideInformationSDK, entopts: any) {

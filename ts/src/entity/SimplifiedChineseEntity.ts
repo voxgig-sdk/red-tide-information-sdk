@@ -19,7 +19,6 @@ import type {
   SimplifiedChineseListMatch,
 } from '../RedTideInformationTypes'
 
-// TODO: needs Entity superclass
 class SimplifiedChineseEntity extends RedTideInformationEntityBase<SimplifiedChinese> {
 
   constructor(client: RedTideInformationSDK, entopts: any) {

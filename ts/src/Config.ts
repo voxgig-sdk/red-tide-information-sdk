@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -144,30 +137,35 @@ class Config {
     "english": {
       "fields": [
         {
-          "format": "date",
           "name": "date",
+          "title": "Date",
+          "type": "`$STRING`",
           "short": "Date when the red tide was sighted",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "location",
-          "short": "Location in Hong Kong waters where the red tide was observed",
-          "type": "`$STRING`"
+          "title": "Location",
+          "type": "`$STRING`",
+          "short": "Location in Hong Kong waters where the red tide was observed"
         },
         {
           "name": "remarks",
-          "short": "Additional remarks or observations",
-          "type": "`$STRING`"
+          "title": "Remarks",
+          "type": "`$STRING`",
+          "short": "Additional remarks or observations"
         },
         {
           "name": "species",
-          "short": "Species causing the red tide",
-          "type": "`$STRING`"
+          "title": "Species",
+          "type": "`$STRING`",
+          "short": "Species causing the red tide"
         },
         {
           "name": "status",
-          "short": "Current status of the red tide event",
-          "type": "`$STRING`"
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "Current status of the red tide event"
         }
       ],
       "name": "english",
@@ -177,17 +175,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "json",
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/english",
@@ -208,22 +195,34 @@ class Config {
                   "lit": "english"
                 }
               ],
-              "select": {
-                "exist": [
-                  "format"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "en-data",
                 "dataset",
                 "hk-afcd-afcdlist-red-tide-location",
                 "resource",
                 "english"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "json"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "format"
+                ]
+              }
             }
           ]
         }
@@ -235,30 +234,35 @@ class Config {
     "simplified_chinese": {
       "fields": [
         {
-          "format": "date",
           "name": "date",
+          "title": "Date",
+          "type": "`$STRING`",
           "short": "Date when the red tide was sighted",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "location",
-          "short": "Location in Hong Kong waters where the red tide was observed",
-          "type": "`$STRING`"
+          "title": "Location",
+          "type": "`$STRING`",
+          "short": "Location in Hong Kong waters where the red tide was observed"
         },
         {
           "name": "remarks",
-          "short": "Additional remarks or observations",
-          "type": "`$STRING`"
+          "title": "Remarks",
+          "type": "`$STRING`",
+          "short": "Additional remarks or observations"
         },
         {
           "name": "species",
-          "short": "Species causing the red tide",
-          "type": "`$STRING`"
+          "title": "Species",
+          "type": "`$STRING`",
+          "short": "Species causing the red tide"
         },
         {
           "name": "status",
-          "short": "Current status of the red tide event",
-          "type": "`$STRING`"
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "Current status of the red tide event"
         }
       ],
       "name": "simplified_chinese",
@@ -268,17 +272,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "json",
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/simplified-chinese",
@@ -299,22 +292,34 @@ class Config {
                   "lit": "simplified-chinese"
                 }
               ],
-              "select": {
-                "exist": [
-                  "format"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "en-data",
                 "dataset",
                 "hk-afcd-afcdlist-red-tide-location",
                 "resource",
                 "simplified-chinese"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "json"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "format"
+                ]
+              }
             }
           ]
         }
@@ -326,30 +331,35 @@ class Config {
     "traditional_chinese": {
       "fields": [
         {
-          "format": "date",
           "name": "date",
+          "title": "Date",
+          "type": "`$STRING`",
           "short": "Date when the red tide was sighted",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "location",
-          "short": "Location in Hong Kong waters where the red tide was observed",
-          "type": "`$STRING`"
+          "title": "Location",
+          "type": "`$STRING`",
+          "short": "Location in Hong Kong waters where the red tide was observed"
         },
         {
           "name": "remarks",
-          "short": "Additional remarks or observations",
-          "type": "`$STRING`"
+          "title": "Remarks",
+          "type": "`$STRING`",
+          "short": "Additional remarks or observations"
         },
         {
           "name": "species",
-          "short": "Species causing the red tide",
-          "type": "`$STRING`"
+          "title": "Species",
+          "type": "`$STRING`",
+          "short": "Species causing the red tide"
         },
         {
           "name": "status",
-          "short": "Current status of the red tide event",
-          "type": "`$STRING`"
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "Current status of the red tide event"
         }
       ],
       "name": "traditional_chinese",
@@ -359,17 +369,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "json",
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/en-data/dataset/hk-afcd-afcdlist-red-tide-location/resource/traditional-chinese",
@@ -390,22 +389,34 @@ class Config {
                   "lit": "traditional-chinese"
                 }
               ],
-              "select": {
-                "exist": [
-                  "format"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "en-data",
                 "dataset",
                 "hk-afcd-afcdlist-red-tide-location",
                 "resource",
                 "traditional-chinese"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "json"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "format"
+                ]
+              }
             }
           ]
         }
