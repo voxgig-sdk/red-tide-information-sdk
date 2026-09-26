@@ -1,5 +1,5 @@
 {
-  "name": "voxgig-sdk/red-tide-information",
+  "name": "voxgig-sdk/red-tide-information-sdk",
   "description": "Unofficial generated PHP SDK for the Red Tide Information public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
   "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "red-tide-information"],
